@@ -1,0 +1,117 @@
+@page "/orders"
+@inject CascadeWebApp.Services.OrderService OrderService
+
+<MudPaper Class="pa-4 mud-theme-dark">
+    <MudText Typo="Typo.h5">Order List</MudText>
+    <MudTextField @bind-Value="_search" Placeholder="Search…" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-2" />
+    <MudTable Items="_filteredOrders" Hover="true" Dense="true" OnRowClick="OpenOrderModal">
+        <HeaderContent>
+            <MudTh>Order #</MudTh>
+            <MudTh>Order Date</MudTh>
+            <MudTh>Studio</MudTh>
+            <MudTh>Est Ship Date</MudTh>
+            <MudTh>Shipping Deadline</MudTh>
+            <MudTh>Shipping Method</MudTh>
+            <MudTh>Partial</MudTh>
+            <MudTh>Order Status</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.OrderNumber</MudTd>
+            <MudTd>@context.OrderDate.ToShortDateString()</MudTd>
+            <MudTd>@context.Studio</MudTd>
+            <MudTd>@context.EstShipDate.ToShortDateString()</MudTd>
+            <MudTd>@context.ShippingDeadline.ToShortDateString()</MudTd>
+            <MudTd>@context.ShippingMethod</MudTd>
+            <MudTd>@(context.Partial ? "Yes" : "No")</MudTd>
+            <MudTd>@context.OrderStatus</MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudPaper>
+
+<MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
+    @if (_selectedOrder != null)
+    {
+        <MudDialogTitle>Order Details - @_selectedOrder.OrderNumber</MudDialogTitle>
+        <MudDialogContent>
+            <MudText Typo="Typo.subtitle2">Order #: @_selectedOrder.OrderNumber</MudText>
+            <MudText Typo="Typo.subtitle2">Order Date: @_selectedOrder.OrderDate.ToShortDateString()</MudText>
+            <MudText Typo="Typo.subtitle2">Studio: @_selectedOrder.Studio</MudText>
+            <MudText Typo="Typo.subtitle2">Est Ship Date: @_selectedOrder.EstShipDate.ToShortDateString()</MudText>
+            <MudText Typo="Typo.subtitle2">Shipping Deadline: @_selectedOrder.ShippingDeadline.ToShortDateString()</MudText>
+            <MudText Typo="Typo.subtitle2">Shipping Method: @_selectedOrder.ShippingMethod</MudText>
+            <MudText Typo="Typo.subtitle2">Partial: @(_selectedOrder.Partial ? "Yes" : "No")</MudText>
+            <MudText Typo="Typo.subtitle2">Order Status: @_selectedOrder.OrderStatus</MudText>
+            <!-- Order Lines Table Placeholder -->
+            <MudTable Dense="true">
+                <HeaderContent>
+                    <MudTh>Item #</MudTh>
+                    <MudTh>Thread</MudTh>
+                    <MudTh>Gauge</MudTh>
+                    <MudTh>End Type</MudTh>
+                    <MudTh>End MM</MudTh>
+                    <MudTh>End Inch</MudTh>
+                    <MudTh>Length</MudTh>
+                    <MudTh>Qty Ordered</MudTh>
+                    <MudTh>Qty Remaining</MudTh>
+                    <MudTh>Qty Pulled</MudTh>
+                    <MudTh>Qty Shipped</MudTh>
+                    <MudTh>Qty Assigned</MudTh>
+                    <MudTh>Assignment Location</MudTh>
+                    <MudTh>Print Labels</MudTh>
+                    <MudTh>Split</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd>SampleItem</MudTd>
+                    <MudTd>M8</MudTd>
+                    <MudTd>10</MudTd>
+                    <MudTd>Flat</MudTd>
+                    <MudTd>12</MudTd>
+                    <MudTd>0.47</MudTd>
+                    <MudTd>100</MudTd>
+                    <MudTd>20</MudTd>
+                    <MudTd>10</MudTd>
+                    <MudTd>10</MudTd>
+                    <MudTd>5</MudTd>
+                    <MudTd>5</MudTd>
+                    <MudTd>Shop</MudTd>
+                    <MudTd>
+                        <MudCheckBox Disabled="true"/>
+                    </MudTd>
+                    <MudTd>
+                        <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled="true">Split</MudButton>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudDialogContent>
+        <MudDialogActions>
+            <MudButton OnClick="CloseModal" Color="Color.Primary">Close</MudButton>
+        </MudDialogActions>
+    }
+</MudDialog>
+
+@code {
+    private string _search = "";
+    private List<CascadeWebApp.Models.Order> _orders = new();
+    private IEnumerable<CascadeWebApp.Models.Order> _filteredOrders => string.IsNullOrWhiteSpace(_search)
+        ? _orders
+        : _orders.Where(o => o.OrderNumber.Contains(_search, StringComparison.OrdinalIgnoreCase));
+    private CascadeWebApp.Models.Order? _selectedOrder;
+    private bool _showModal = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _orders = await OrderService.GetOrdersAsync();
+    }
+
+    private void OpenOrderModal(TableRowClickEventArgs<CascadeWebApp.Models.Order> e)
+    {
+        _selectedOrder = e.Item;
+        _showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        _showModal = false;
+        _selectedOrder = null;
+    }
+}
