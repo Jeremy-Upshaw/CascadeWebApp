@@ -1,0 +1,104 @@
+@page "/customers"
+@inject CascadeWebApp.Services.CustomerService CustomerService
+
+<MudPaper Class="pa-4 mud-theme-dark">
+    <MudText Typo="Typo.h5">Customer List</MudText>
+    <MudTextField @bind-Value="_search" Placeholder="Search…" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-2" />
+    <MudTable Items="_filteredCustomers" Hover="true" Dense="true" OnRowClick="OpenCustomerModal">
+        <HeaderContent>
+            <MudTh>Studio</MudTh>
+            <MudTh>Email</MudTh>
+            <MudTh>Phone #</MudTh>
+            <MudTh>Discount Level</MudTh>
+            <MudTh>Payment Terms</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.Studio</MudTd>
+            <MudTd>@context.Email</MudTd>
+            <MudTd>@context.Phone</MudTd>
+            <MudTd>@context.DiscountLevel</MudTd>
+            <MudTd>@context.PaymentTerms</MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudPaper>
+
+<MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
+    @if (_selectedCustomer != null)
+    {
+        <MudDialogTitle>Customer Details - @_selectedCustomer.Studio</MudDialogTitle>
+        <MudDialogContent>
+            <MudText Typo="Typo.subtitle2">Studio: @_selectedCustomer.Studio</MudText>
+            <MudText Typo="Typo.subtitle2">Email: @_selectedCustomer.Email</MudText>
+            <MudText Typo="Typo.subtitle2">Phone #: @_selectedCustomer.Phone</MudText>
+            <MudText Typo="Typo.subtitle2">Discount Level: @_selectedCustomer.DiscountLevel</MudText>
+            <MudText Typo="Typo.subtitle2">Payment Terms: @_selectedCustomer.PaymentTerms</MudText>
+            <MudText Typo="Typo.subtitle2">Contact First Name: @_selectedCustomer.ContactFirstName</MudText>
+            <MudText Typo="Typo.subtitle2">Contact Second Name: @_selectedCustomer.ContactSecondName</MudText>
+            <MudText Typo="Typo.subtitle2">Shipping Address Line 1: @_selectedCustomer.ShippingAddressLine1</MudText>
+            <MudText Typo="Typo.subtitle2">Shipping Address Line 2: @_selectedCustomer.ShippingAddressLine2</MudText>
+            <MudText Typo="Typo.subtitle2">Shipping City: @_selectedCustomer.ShippingCity</MudText>
+            <MudText Typo="Typo.subtitle2">Shipping State: @_selectedCustomer.ShippingState</MudText>
+            <MudText Typo="Typo.subtitle2">Shipping Zip: @_selectedCustomer.ShippingZip</MudText>
+            <MudText Typo="Typo.subtitle2">Shipping Country: @_selectedCustomer.ShippingCountry</MudText>
+            <MudText Typo="Typo.subtitle2">Billing Address Line 1: @_selectedCustomer.BillingAddressLine1</MudText>
+            <MudText Typo="Typo.subtitle2">Billing Address Line 2: @_selectedCustomer.BillingAddressLine2</MudText>
+            <MudText Typo="Typo.subtitle2">Billing City: @_selectedCustomer.BillingCity</MudText>
+            <MudText Typo="Typo.subtitle2">Billing State: @_selectedCustomer.BillingState</MudText>
+            <MudText Typo="Typo.subtitle2">Billing Zip: @_selectedCustomer.BillingZip</MudText>
+            <MudText Typo="Typo.subtitle2">Billing Country: @_selectedCustomer.BillingCountry</MudText>
+            <!-- Orders List Table Placeholder -->
+            <MudTable Dense="true">
+                <HeaderContent>
+                    <MudTh>Order #</MudTh>
+                    <MudTh>Order Date</MudTh>
+                    <MudTh>Studio</MudTh>
+                    <MudTh>Est Ship Date</MudTh>
+                    <MudTh>Shipping Deadline</MudTh>
+                    <MudTh>Shipping Method</MudTh>
+                    <MudTh>Partial</MudTh>
+                    <MudTh>Order Status</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd>SampleOrder</MudTd>
+                    <MudTd>2025-08-17</MudTd>
+                    <MudTd>@_selectedCustomer.Studio</MudTd>
+                    <MudTd>2025-08-20</MudTd>
+                    <MudTd>2025-08-21</MudTd>
+                    <MudTd>UPS</MudTd>
+                    <MudTd>Yes</MudTd>
+                    <MudTd>Processing</MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudDialogContent>
+        <MudDialogActions>
+            <MudButton OnClick="CloseModal" Color="Color.Primary">Close</MudButton>
+        </MudDialogActions>
+    }
+</MudDialog>
+
+@code {
+    private string _search = "";
+    private List<CascadeWebApp.Models.Customer> _customers = new();
+    private IEnumerable<CascadeWebApp.Models.Customer> _filteredCustomers => string.IsNullOrWhiteSpace(_search)
+        ? _customers
+        : _customers.Where(c => c.Studio.Contains(_search, StringComparison.OrdinalIgnoreCase));
+    private CascadeWebApp.Models.Customer? _selectedCustomer;
+    private bool _showModal = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _customers = await CustomerService.GetCustomersAsync();
+    }
+
+    private void OpenCustomerModal(TableRowClickEventArgs<CascadeWebApp.Models.Customer> e)
+    {
+        _selectedCustomer = e.Item;
+        _showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        _showModal = false;
+        _selectedCustomer = null;
+    }
+}
