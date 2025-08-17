@@ -1,0 +1,13 @@
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            <MudPaper Class="pa-4 mud-theme-dark">
+                <MudText Typo="Typo.h5">Sorry, there's nothing at this address.</MudText>
+            </MudPaper>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
