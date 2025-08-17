@@ -1,0 +1,100 @@
+@page "/batches"
+@inject CascadeWebApp.Services.BatchService BatchService
+
+<MudPaper Class="pa-4 mud-theme-dark">
+    <MudText Typo="Typo.h5">Batch List</MudText>
+    <MudTextField @bind-Value="_search" Placeholder="Search…" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-2" />
+    <MudTable Items="_filteredBatches" Hover="true" Dense="true" OnRowClick="OpenBatchModal">
+        <HeaderContent>
+            <MudTh>Batch #</MudTh>
+            <MudTh>Status</MudTh>
+            <MudTh>Parts Count</MudTh>
+            <MudTh>Plugged Weight</MudTh>
+            <MudTh>Est Finish Date</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.BatchNumber</MudTd>
+            <MudTd>@context.Status</MudTd>
+            <MudTd>@context.PartsCount</MudTd>
+            <MudTd>@context.PluggedWeight</MudTd>
+            <MudTd>@context.EstFinishDate.ToShortDateString()</MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudPaper>
+
+<MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
+    @if (_selectedBatch != null)
+    {
+        <MudDialogTitle>Batch Details - @_selectedBatch.BatchNumber</MudDialogTitle>
+        <MudDialogContent>
+            <MudText Typo="Typo.subtitle2">Batch #: @_selectedBatch.BatchNumber</MudText>
+            <MudText Typo="Typo.subtitle2">Status: @_selectedBatch.Status</MudText>
+            <MudText Typo="Typo.subtitle2">Parts Count: @_selectedBatch.PartsCount</MudText>
+            <MudText Typo="Typo.subtitle2">Plugged Weight: @_selectedBatch.PluggedWeight</MudText>
+            <MudText Typo="Typo.subtitle2">Est Finish Date: @_selectedBatch.EstFinishDate.ToShortDateString()</MudText>
+            <!-- Batch Lines Table Placeholder -->
+            <MudTable Dense="true">
+                <HeaderContent>
+                    <MudTh>Item #</MudTh>
+                    <MudTh>Thread</MudTh>
+                    <MudTh>Gauge</MudTh>
+                    <MudTh>End Type</MudTh>
+                    <MudTh>End MM</MudTh>
+                    <MudTh>End Inch</MudTh>
+                    <MudTh>Length</MudTh>
+                    <MudTh>Qty</MudTh>
+                    <MudTh>Qty Lost</MudTh>
+                    <MudTh>Assign 1</MudTh>
+                    <MudTh>Qty 1</MudTh>
+                    <MudTh>Assign (Action)</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd>SampleItem</MudTd>
+                    <MudTd>M8</MudTd>
+                    <MudTd>10</MudTd>
+                    <MudTd>Flat</MudTd>
+                    <MudTd>12</MudTd>
+                    <MudTd>0.47</MudTd>
+                    <MudTd>100</MudTd>
+                    <MudTd>10</MudTd>
+                    <MudTd>0</MudTd>
+                    <MudTd>Assignee</MudTd>
+                    <MudTd>5</MudTd>
+                    <MudTd>
+                        <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled="true">Assign</MudButton>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudDialogContent>
+        <MudDialogActions>
+            <MudButton OnClick="CloseModal" Color="Color.Primary">Close</MudButton>
+        </MudDialogActions>
+    }
+</MudDialog>
+
+@code {
+    private string _search = "";
+    private List<CascadeWebApp.Models.Batch> _batches = new();
+    private IEnumerable<CascadeWebApp.Models.Batch> _filteredBatches => string.IsNullOrWhiteSpace(_search)
+        ? _batches
+        : _batches.Where(b => b.BatchNumber.Contains(_search, StringComparison.OrdinalIgnoreCase));
+    private CascadeWebApp.Models.Batch? _selectedBatch;
+    private bool _showModal = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _batches = await BatchService.GetBatchesAsync();
+    }
+
+    private void OpenBatchModal(TableRowClickEventArgs<CascadeWebApp.Models.Batch> e)
+    {
+        _selectedBatch = e.Item;
+        _showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        _showModal = false;
+        _selectedBatch = null;
+    }
+}
