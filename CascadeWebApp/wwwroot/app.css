@@ -81,6 +81,7 @@ h1:focus {
         vertical-align: middle;
         padding: 0.5rem 0.75rem;
         border: 1px solid #dee2e6;
+        color: #000;
     }
 
     .app-table thead th {
