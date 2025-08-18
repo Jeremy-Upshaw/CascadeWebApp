@@ -48,7 +48,7 @@ nav.flex-column {
 
 .nav-link.active, .nav-link:hover {
     background: rgba(255,255,255,0.12);
-    color: #ffd43b;
+    color: #fff;
 }
 
 .nav-link span {
