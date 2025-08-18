@@ -26,8 +26,10 @@
 <MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
     @if (_selectedCustomer != null)
     {
-        <MudDialogTitle>Customer Details - @_selectedCustomer.Studio</MudDialogTitle>
-        <MudDialogContent>
+        <div class="mud-dialog-title">
+            <MudText Typo="Typo.h6">Customer Details - @_selectedCustomer.Studio</MudText>
+        </div>
+        <div class="mud-dialog-content">
             <MudText Typo="Typo.subtitle2">Studio: @_selectedCustomer.Studio</MudText>
             <MudText Typo="Typo.subtitle2">Email: @_selectedCustomer.Email</MudText>
             <MudText Typo="Typo.subtitle2">Phone #: @_selectedCustomer.Phone</MudText>
@@ -70,10 +72,10 @@
                     <MudTd>Processing</MudTd>
                 </RowTemplate>
             </MudTable>
-        </MudDialogContent>
-        <MudDialogActions>
+        </div>
+        <div class="mud-dialog-actions">
             <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
-        </MudDialogActions>
+        </div>
     }
 </MudDialog>
 

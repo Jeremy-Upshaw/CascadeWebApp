@@ -32,8 +32,10 @@
 <MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
     @if (_selectedOrder != null)
     {
-        <MudDialogTitle>Order Details - @_selectedOrder.OrderNumber</MudDialogTitle>
-        <MudDialogContent>
+        <div class="mud-dialog-title">
+            <MudText Typo="Typo.h6">Order Details - @_selectedOrder.OrderNumber</MudText>
+        </div>
+        <div class="mud-dialog-content">
             <MudText Typo="Typo.subtitle2">Order #: @_selectedOrder.OrderNumber</MudText>
             <MudText Typo="Typo.subtitle2">Order Date: @_selectedOrder.OrderDate.ToShortDateString()</MudText>
             <MudText Typo="Typo.subtitle2">Studio: @_selectedOrder.Studio</MudText>
@@ -83,10 +85,10 @@
                     </MudTd>
                 </RowTemplate>
             </MudTable>
-        </MudDialogContent>
-        <MudDialogActions>
+        </div>
+        <div class="mud-dialog-actions">
             <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
-        </MudDialogActions>
+        </div>
     }
 </MudDialog>
 

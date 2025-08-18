@@ -3,14 +3,18 @@
 @inject IDialogService DialogService
 
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    [Parameter] public Batch Batch { get; set; }
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public Batch Batch { get; set; } = default!;
+    
+    private void CloseDialog() => MudDialog.Close();
 }
 
-<MudDialogTitle>Batch Details - @Batch.BatchNumber</MudDialogTitle>
-<MudDialogContent>
-    ...
-</MudDialogContent>
-<MudDialogActions>
-    <MudButton OnClick="MudDialog.Close" Color="Color.Primary">Close</MudButton>
-</MudDialogActions>
+<div class="mud-dialog-title">
+    <MudText Typo="Typo.h6">Batch Details - @Batch.BatchNumber</MudText>
+</div>
+<div class="mud-dialog-content">
+    <MudText>Content placeholder...</MudText>
+</div>
+<div class="mud-dialog-actions">
+    <MudButton OnClick="CloseDialog" Color="Color.Primary">Close</MudButton>
+</div>

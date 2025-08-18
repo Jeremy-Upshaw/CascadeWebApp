@@ -41,8 +41,10 @@
 <MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
     @if (_selectedItem != null)
     {
-        <MudDialogTitle>Item Details - @_selectedItem.ItemNumber</MudDialogTitle>
-        <MudDialogContent>
+        <div class="mud-dialog-title">
+            <MudText Typo="Typo.h6">Item Details - @_selectedItem.ItemNumber</MudText>
+        </div>
+        <div class="mud-dialog-content">
             <MudText Typo="Typo.subtitle2">Thread: @_selectedItem.Thread</MudText>
             <MudText Typo="Typo.subtitle2">Gauge: @_selectedItem.Gauge</MudText>
             <MudText Typo="Typo.subtitle2">End Type: @_selectedItem.EndType</MudText>
@@ -78,10 +80,10 @@
                     </MudTd>
                 </RowTemplate>
             </MudTable>
-        </MudDialogContent>
-        <MudDialogActions>
+        </div>
+        <div class="mud-dialog-actions">
             <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
-        </MudDialogActions>
+        </div>
     }
 </MudDialog>
 
