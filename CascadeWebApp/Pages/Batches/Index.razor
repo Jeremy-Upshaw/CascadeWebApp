@@ -40,11 +40,28 @@
             <button type="button" class="close" @onclick="CloseModal">&times;</button>
         </div>
         <div class="modal-body">
-            <div>Batch #: @_selectedBatch.BatchNumber</div>
-            <div>Status: @_selectedBatch.Status</div>
-            <div>Parts Count: @_selectedBatch.PartsCount</div>
-            <div>Plugged Weight: @_selectedBatch.PluggedWeight</div>
-            <div>Est Finish Date: @_selectedBatch.EstFinishDate.ToShortDateString()</div>
+            <div class="modal-details">
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Batch #</div>
+                    <div class="modal-detail-value">@_selectedBatch.BatchNumber</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Status</div>
+                    <div class="modal-detail-value">@_selectedBatch.Status</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Parts Count</div>
+                    <div class="modal-detail-value">@_selectedBatch.PartsCount</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Plugged Weight</div>
+                    <div class="modal-detail-value">@_selectedBatch.PluggedWeight</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Est Finish Date</div>
+                    <div class="modal-detail-value">@_selectedBatch.EstFinishDate.ToShortDateString()</div>
+                </div>
+            </div>
             <div class="table-scroll">
                 <table class="app-table">
                     <thead>
