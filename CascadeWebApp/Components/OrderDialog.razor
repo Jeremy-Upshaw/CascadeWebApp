@@ -1,0 +1,64 @@
+@using CascadeWebApp.Models
+@using MudBlazor
+@inject IDialogService DialogService
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public Order Order { get; set; } = default!;
+}
+
+<MudDialogTitle>Order Details - @Order.OrderNumber</MudDialogTitle>
+<MudDialogContent>
+    <MudText Typo="Typo.subtitle2">Order #: @Order.OrderNumber</MudText>
+    <MudText Typo="Typo.subtitle2">Order Date: @Order.OrderDate.ToShortDateString()</MudText>
+    <MudText Typo="Typo.subtitle2">Studio: @Order.Studio</MudText>
+    <MudText Typo="Typo.subtitle2">Est Ship Date: @Order.EstShipDate.ToShortDateString()</MudText>
+    <MudText Typo="Typo.subtitle2">Shipping Deadline: @Order.ShippingDeadline.ToShortDateString()</MudText>
+    <MudText Typo="Typo.subtitle2">Shipping Method: @Order.ShippingMethod</MudText>
+    <MudText Typo="Typo.subtitle2">Partial: @(Order.Partial ? "Yes" : "No")</MudText>
+    <MudText Typo="Typo.subtitle2">Order Status: @Order.OrderStatus</MudText>
+    <!-- Order Lines Table Placeholder -->
+    <MudTable T="object" Dense="true">
+        <HeaderContent>
+            <MudTh>Item #</MudTh>
+            <MudTh>Thread</MudTh>
+            <MudTh>Gauge</MudTh>
+            <MudTh>End Type</MudTh>
+            <MudTh>End MM</MudTh>
+            <MudTh>End Inch</MudTh>
+            <MudTh>Length</MudTh>
+            <MudTh>Qty Ordered</MudTh>
+            <MudTh>Qty Remaining</MudTh>
+            <MudTh>Qty Pulled</MudTh>
+            <MudTh>Qty Shipped</MudTh>
+            <MudTh>Qty Assigned</MudTh>
+            <MudTh>Assignment Location</MudTh>
+            <MudTh>Print Labels</MudTh>
+            <MudTh>Split</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>SampleItem</MudTd>
+            <MudTd>M8</MudTd>
+            <MudTd>10</MudTd>
+            <MudTd>Flat</MudTd>
+            <MudTd>12</MudTd>
+            <MudTd>0.47</MudTd>
+            <MudTd>100</MudTd>
+            <MudTd>20</MudTd>
+            <MudTd>10</MudTd>
+            <MudTd>10</MudTd>
+            <MudTd>5</MudTd>
+            <MudTd>5</MudTd>
+            <MudTd>Shop</MudTd>
+            <MudTd>
+                <MudCheckBox T="bool" Disabled="true"/>
+            </MudTd>
+            <MudTd>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled="true">Split</MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudDialogContent>
+<MudDialogActions>
+    <MudButton OnClick="@(() => MudDialog.Close())" Color="Color.Primary">Close</MudButton>
+</MudDialogActions>

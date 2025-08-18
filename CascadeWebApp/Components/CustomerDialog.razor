@@ -1,0 +1,57 @@
+@using CascadeWebApp.Models
+@using MudBlazor
+@inject IDialogService DialogService
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public Customer Customer { get; set; } = default!;
+}
+
+<MudDialogTitle>Customer Details - @Customer.Studio</MudDialogTitle>
+<MudDialogContent>
+    <MudText Typo="Typo.subtitle2">Studio: @Customer.Studio</MudText>
+    <MudText Typo="Typo.subtitle2">Email: @Customer.Email</MudText>
+    <MudText Typo="Typo.subtitle2">Phone #: @Customer.Phone</MudText>
+    <MudText Typo="Typo.subtitle2">Discount Level: @Customer.DiscountLevel</MudText>
+    <MudText Typo="Typo.subtitle2">Payment Terms: @Customer.PaymentTerms</MudText>
+    <MudText Typo="Typo.subtitle2">Contact First Name: @Customer.ContactFirstName</MudText>
+    <MudText Typo="Typo.subtitle2">Contact Second Name: @Customer.ContactSecondName</MudText>
+    <MudText Typo="Typo.subtitle2">Shipping Address Line 1: @Customer.ShippingAddressLine1</MudText>
+    <MudText Typo="Typo.subtitle2">Shipping Address Line 2: @Customer.ShippingAddressLine2</MudText>
+    <MudText Typo="Typo.subtitle2">Shipping City: @Customer.ShippingCity</MudText>
+    <MudText Typo="Typo.subtitle2">Shipping State: @Customer.ShippingState</MudText>
+    <MudText Typo="Typo.subtitle2">Shipping Zip: @Customer.ShippingZip</MudText>
+    <MudText Typo="Typo.subtitle2">Shipping Country: @Customer.ShippingCountry</MudText>
+    <MudText Typo="Typo.subtitle2">Billing Address Line 1: @Customer.BillingAddressLine1</MudText>
+    <MudText Typo="Typo.subtitle2">Billing Address Line 2: @Customer.BillingAddressLine2</MudText>
+    <MudText Typo="Typo.subtitle2">Billing City: @Customer.BillingCity</MudText>
+    <MudText Typo="Typo.subtitle2">Billing State: @Customer.BillingState</MudText>
+    <MudText Typo="Typo.subtitle2">Billing Zip: @Customer.BillingZip</MudText>
+    <MudText Typo="Typo.subtitle2">Billing Country: @Customer.BillingCountry</MudText>
+    <!-- Orders List Table Placeholder -->
+    <MudTable T="CascadeWebApp.Models.Order" Dense="true">
+        <HeaderContent>
+            <MudTh>Order #</MudTh>
+            <MudTh>Order Date</MudTh>
+            <MudTh>Studio</MudTh>
+            <MudTh>Est Ship Date</MudTh>
+            <MudTh>Shipping Deadline</MudTh>
+            <MudTh>Shipping Method</MudTh>
+            <MudTh>Partial</MudTh>
+            <MudTh>Order Status</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>SampleOrder</MudTd>
+            <MudTd>2025-08-17</MudTd>
+            <MudTd>@Customer.Studio</MudTd>
+            <MudTd>2025-08-20</MudTd>
+            <MudTd>2025-08-21</MudTd>
+            <MudTd>UPS</MudTd>
+            <MudTd>Yes</MudTd>
+            <MudTd>Processing</MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudDialogContent>
+<MudDialogActions>
+    <MudButton OnClick="@(() => MudDialog.Close())" Color="Color.Primary">Close</MudButton>
+</MudDialogActions>

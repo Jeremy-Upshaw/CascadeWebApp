@@ -1,0 +1,50 @@
+@using CascadeWebApp.Models
+@using MudBlazor
+@inject IDialogService DialogService
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public Item Item { get; set; } = default!;
+}
+
+<MudDialogTitle>Item Details - @Item.ItemNumber</MudDialogTitle>
+<MudDialogContent>
+    <MudText Typo="Typo.subtitle2">Thread: @Item.Thread</MudText>
+    <MudText Typo="Typo.subtitle2">Gauge: @Item.Gauge</MudText>
+    <MudText Typo="Typo.subtitle2">End Type: @Item.EndType</MudText>
+    <MudText Typo="Typo.subtitle2">End MM: @Item.EndMM</MudText>
+    <MudText Typo="Typo.subtitle2">End Inch: @Item.EndInch</MudText>
+    <MudText Typo="Typo.subtitle2">Length: @Item.Length</MudText>
+    <MudText Typo="Typo.subtitle2">On Order: @Item.OnOrder</MudText>
+    <MudText Typo="Typo.subtitle2">In Production: @Item.InProduction</MudText>
+    <MudText Typo="Typo.subtitle2">On the Wall: @Item.OnTheWall</MudText>
+    <MudText Typo="Typo.subtitle2">In the Shop: @Item.InTheShop</MudText>
+    <MudText Typo="Typo.subtitle2">Available: @Item.Available</MudText>
+    <MudText Typo="Typo.subtitle2">Machining Length: @Item.MachiningLength</MudText>
+    <MudText Typo="Typo.subtitle2">Cycle Time: @Item.CycleTime</MudText>
+    <MudText Typo="Typo.subtitle2">Stock Qty: @Item.StockQty</MudText>
+    <MudText Typo="Typo.subtitle2">Build Qty: @Item.BuildQty</MudText>
+    <MudText Typo="Typo.subtitle2">Min Stock Size: @Item.MinStockSize</MudText>
+    <!-- Item Lines Table Placeholder -->
+    <MudTable T="object" Dense="true">
+        <HeaderContent>
+            <MudTh>Batch #</MudTh>
+            <MudTh>Date Finished</MudTh>
+            <MudTh>Assign 1</MudTh>
+            <MudTh>Qty 1</MudTh>
+            <MudTh>Assign (Action)</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>SampleBatch</MudTd>
+            <MudTd>2025-08-17</MudTd>
+            <MudTd>Assignee</MudTd>
+            <MudTd>10</MudTd>
+            <MudTd>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled="true">Assign</MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudDialogContent>
+<MudDialogActions>
+    <MudButton OnClick="@(() => MudDialog.Close())" Color="Color.Primary">Close</MudButton>
+</MudDialogActions>

@@ -3,14 +3,51 @@
 @inject IDialogService DialogService
 
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    [Parameter] public Batch Batch { get; set; }
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = default!;
+    [Parameter] public Batch Batch { get; set; } = default!;
 }
 
 <MudDialogTitle>Batch Details - @Batch.BatchNumber</MudDialogTitle>
 <MudDialogContent>
-    ...
+    <MudText Typo="Typo.subtitle2">Batch #: @Batch.BatchNumber</MudText>
+    <MudText Typo="Typo.subtitle2">Status: @Batch.Status</MudText>
+    <MudText Typo="Typo.subtitle2">Parts Count: @Batch.PartsCount</MudText>
+    <MudText Typo="Typo.subtitle2">Plugged Weight: @Batch.PluggedWeight</MudText>
+    <MudText Typo="Typo.subtitle2">Est Finish Date: @Batch.EstFinishDate.ToShortDateString()</MudText>
+    <!-- Batch Lines Table Placeholder -->
+    <MudTable T="object" Dense="true">
+        <HeaderContent>
+            <MudTh>Item #</MudTh>
+            <MudTh>Thread</MudTh>
+            <MudTh>Gauge</MudTh>
+            <MudTh>End Type</MudTh>
+            <MudTh>End MM</MudTh>
+            <MudTh>End Inch</MudTh>
+            <MudTh>Length</MudTh>
+            <MudTh>Qty</MudTh>
+            <MudTh>Qty Lost</MudTh>
+            <MudTh>Assign 1</MudTh>
+            <MudTh>Qty 1</MudTh>
+            <MudTh>Assign (Action)</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>SampleItem</MudTd>
+            <MudTd>M8</MudTd>
+            <MudTd>10</MudTd>
+            <MudTd>Flat</MudTd>
+            <MudTd>12</MudTd>
+            <MudTd>0.47</MudTd>
+            <MudTd>100</MudTd>
+            <MudTd>10</MudTd>
+            <MudTd>0</MudTd>
+            <MudTd>Assignee</MudTd>
+            <MudTd>5</MudTd>
+            <MudTd>
+                <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled="true">Assign</MudButton>
+            </MudTd>
+        </RowTemplate>
+    </MudTable>
 </MudDialogContent>
 <MudDialogActions>
-    <MudButton OnClick="MudDialog.Close" Color="Color.Primary">Close</MudButton>
+    <MudButton OnClick="@(() => MudDialog.Close())" Color="Color.Primary">Close</MudButton>
 </MudDialogActions>

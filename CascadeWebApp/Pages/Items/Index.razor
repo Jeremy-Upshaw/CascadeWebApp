@@ -1,6 +1,7 @@
 @page "/items"
 @using MudBlazor
 @inject CascadeWebApp.Services.ItemService ItemService
+@inject IDialogService DialogService
 
 <MudPaper Class="pa-4 mud-theme-dark">
     <MudText Typo="Typo.h5">Item List</MudText>
@@ -38,76 +39,24 @@
     </MudTable>
 </MudPaper>
 
-<MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
-    @if (_selectedItem != null)
-    {
-        <MudDialogTitle>Item Details - @_selectedItem.ItemNumber</MudDialogTitle>
-        <MudDialogContent>
-            <MudText Typo="Typo.subtitle2">Thread: @_selectedItem.Thread</MudText>
-            <MudText Typo="Typo.subtitle2">Gauge: @_selectedItem.Gauge</MudText>
-            <MudText Typo="Typo.subtitle2">End Type: @_selectedItem.EndType</MudText>
-            <MudText Typo="Typo.subtitle2">End MM: @_selectedItem.EndMM</MudText>
-            <MudText Typo="Typo.subtitle2">End Inch: @_selectedItem.EndInch</MudText>
-            <MudText Typo="Typo.subtitle2">Length: @_selectedItem.Length</MudText>
-            <MudText Typo="Typo.subtitle2">On Order: @_selectedItem.OnOrder</MudText>
-            <MudText Typo="Typo.subtitle2">In Production: @_selectedItem.InProduction</MudText>
-            <MudText Typo="Typo.subtitle2">On the Wall: @_selectedItem.OnTheWall</MudText>
-            <MudText Typo="Typo.subtitle2">In the Shop: @_selectedItem.InTheShop</MudText>
-            <MudText Typo="Typo.subtitle2">Available: @_selectedItem.Available</MudText>
-            <MudText Typo="Typo.subtitle2">Machining Length: @_selectedItem.MachiningLength</MudText>
-            <MudText Typo="Typo.subtitle2">Cycle Time: @_selectedItem.CycleTime</MudText>
-            <MudText Typo="Typo.subtitle2">Stock Qty: @_selectedItem.StockQty</MudText>
-            <MudText Typo="Typo.subtitle2">Build Qty: @_selectedItem.BuildQty</MudText>
-            <MudText Typo="Typo.subtitle2">Min Stock Size: @_selectedItem.MinStockSize</MudText>
-            <!-- Item Lines Table Placeholder -->
-            <MudTable T="object" Dense="true">
-                <HeaderContent>
-                    <MudTh>Batch #</MudTh>
-                    <MudTh>Date Finished</MudTh>
-                    <MudTh>Assign 1</MudTh>
-                    <MudTh>Qty 1</MudTh>
-                    <MudTh>Assign (Action)</MudTh>
-                </HeaderContent>
-                <RowTemplate>
-                    <MudTd>SampleBatch</MudTd>
-                    <MudTd>2025-08-17</MudTd>
-                    <MudTd>Assignee</MudTd>
-                    <MudTd>10</MudTd>
-                    <MudTd>
-                        <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled="true">Assign</MudButton>
-                    </MudTd>
-                </RowTemplate>
-            </MudTable>
-        </MudDialogContent>
-        <MudDialogActions>
-            <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
-        </MudDialogActions>
-    }
-</MudDialog>
-
 @code {
     private string _search = "";
     private List<CascadeWebApp.Models.Item> _items = new();
     private IEnumerable<CascadeWebApp.Models.Item> _filteredItems => string.IsNullOrWhiteSpace(_search)
         ? _items
         : _items.Where(i => i.ItemNumber.Contains(_search, StringComparison.OrdinalIgnoreCase));
-    private CascadeWebApp.Models.Item? _selectedItem;
-    private bool _showModal = false;
 
     protected override async Task OnInitializedAsync()
     {
         _items = await ItemService.GetItemsAsync();
     }
 
-    private void OpenItemModal(TableRowClickEventArgs<CascadeWebApp.Models.Item> e)
+    private async Task OpenItemModal(TableRowClickEventArgs<CascadeWebApp.Models.Item> e)
     {
-        _selectedItem = e.Item;
-        _showModal = true;
-    }
-
-    private void CloseModal()
-    {
-        _showModal = false;
-        _selectedItem = null;
+        var parameters = new DialogParameters { ["Item"] = e.Item };
+        var options = new DialogOptions() { CloseOnEscapeKey = true, MaxWidth = MaxWidth.Medium };
+        
+        var dialog = await DialogService.ShowAsync<CascadeWebApp.Components.ItemDialog>("Item Details", parameters, options);
+        await dialog.Result;
     }
 }
