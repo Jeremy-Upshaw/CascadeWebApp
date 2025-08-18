@@ -1,16 +1,25 @@
 @using CascadeWebApp.Models
-@using MudBlazor
-@inject IDialogService DialogService
 
 @code {
-    [CascadingParameter] MudDialogInstance? MudDialog { get; set; }
     [Parameter] public Batch? Batch { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
 }
 
-<MudDialogTitle>Batch Details - @Batch?.BatchNumber</MudDialogTitle>
-<MudDialogContent>
-    ...
-</MudDialogContent>
-<MudDialogActions>
-    <MudButton OnClick="MudDialog?.Close" Color="Color.Primary">Close</MudButton>
-</MudDialogActions>
+@if (Batch != null)
+{
+    <div class="modal-backdrop" @onclick="OnClose.InvokeAsync"></div>
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h5>Batch Details - @Batch.BatchNumber</h5>
+            <button type="button" class="close" @onclick="OnClose.InvokeAsync">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div>Batch #: @Batch.BatchNumber</div>
+            <div>Status: @Batch.Status</div>
+            <!-- ...other fields as needed... -->
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" @onclick="OnClose.InvokeAsync">Close</button>
+        </div>
+    </div>
+}
