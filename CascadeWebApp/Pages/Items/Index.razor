@@ -1,11 +1,12 @@
 @page "/items"
+@using MudBlazor
 @inject CascadeWebApp.Services.ItemService ItemService
 
 <MudPaper Class="pa-4 mud-theme-dark">
     <MudText Typo="Typo.h5">Item List</MudText>
     <MudTextField @bind-Value="_search" Placeholder="Search…" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-2" />
     <!-- Filters can go here -->
-    <MudTable Items="_filteredItems" Hover="true" Dense="true" OnRowClick="OpenItemModal">
+    <MudTable T="CascadeWebApp.Models.Item" Items="_filteredItems" Hover="true" Dense="true" OnRowClick="@OpenItemModal">
         <HeaderContent>
             <MudTh>Item #</MudTh>
             <MudTh>Thread</MudTh>
@@ -59,7 +60,7 @@
             <MudText Typo="Typo.subtitle2">Build Qty: @_selectedItem.BuildQty</MudText>
             <MudText Typo="Typo.subtitle2">Min Stock Size: @_selectedItem.MinStockSize</MudText>
             <!-- Item Lines Table Placeholder -->
-            <MudTable Dense="true">
+            <MudTable T="object" Dense="true">
                 <HeaderContent>
                     <MudTh>Batch #</MudTh>
                     <MudTh>Date Finished</MudTh>
@@ -79,7 +80,7 @@
             </MudTable>
         </MudDialogContent>
         <MudDialogActions>
-            <MudButton OnClick="CloseModal" Color="Color.Primary">Close</MudButton>
+            <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
         </MudDialogActions>
     }
 </MudDialog>

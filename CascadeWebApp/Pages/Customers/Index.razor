@@ -1,10 +1,11 @@
 @page "/customers"
+@using MudBlazor
 @inject CascadeWebApp.Services.CustomerService CustomerService
 
 <MudPaper Class="pa-4 mud-theme-dark">
     <MudText Typo="Typo.h5">Customer List</MudText>
     <MudTextField @bind-Value="_search" Placeholder="Search…" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-2" />
-    <MudTable Items="_filteredCustomers" Hover="true" Dense="true" OnRowClick="OpenCustomerModal">
+    <MudTable T="CascadeWebApp.Models.Customer" Items="_filteredCustomers" Hover="true" Dense="true" OnRowClick="@OpenCustomerModal">
         <HeaderContent>
             <MudTh>Studio</MudTh>
             <MudTh>Email</MudTh>
@@ -47,7 +48,7 @@
             <MudText Typo="Typo.subtitle2">Billing Zip: @_selectedCustomer.BillingZip</MudText>
             <MudText Typo="Typo.subtitle2">Billing Country: @_selectedCustomer.BillingCountry</MudText>
             <!-- Orders List Table Placeholder -->
-            <MudTable Dense="true">
+            <MudTable T="CascadeWebApp.Models.Order" Dense="true">
                 <HeaderContent>
                     <MudTh>Order #</MudTh>
                     <MudTh>Order Date</MudTh>
@@ -71,7 +72,7 @@
             </MudTable>
         </MudDialogContent>
         <MudDialogActions>
-            <MudButton OnClick="CloseModal" Color="Color.Primary">Close</MudButton>
+            <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
         </MudDialogActions>
     }
 </MudDialog>

@@ -1,10 +1,11 @@
 @page "/batches"
+@using MudBlazor
 @inject CascadeWebApp.Services.BatchService BatchService
 
 <MudPaper Class="pa-4 mud-theme-dark">
     <MudText Typo="Typo.h5">Batch List</MudText>
     <MudTextField @bind-Value="_search" Placeholder="Search…" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-2" />
-    <MudTable Items="_filteredBatches" Hover="true" Dense="true" OnRowClick="OpenBatchModal">
+    <MudTable T="CascadeWebApp.Models.Batch" Items="_filteredBatches" Hover="true" Dense="true" OnRowClick="@OpenBatchModal">
         <HeaderContent>
             <MudTh>Batch #</MudTh>
             <MudTh>Status</MudTh>
@@ -33,7 +34,7 @@
             <MudText Typo="Typo.subtitle2">Plugged Weight: @_selectedBatch.PluggedWeight</MudText>
             <MudText Typo="Typo.subtitle2">Est Finish Date: @_selectedBatch.EstFinishDate.ToShortDateString()</MudText>
             <!-- Batch Lines Table Placeholder -->
-            <MudTable Dense="true">
+            <MudTable T="object" Dense="true">
                 <HeaderContent>
                     <MudTh>Item #</MudTh>
                     <MudTh>Thread</MudTh>
@@ -67,7 +68,7 @@
             </MudTable>
         </MudDialogContent>
         <MudDialogActions>
-            <MudButton OnClick="CloseModal" Color="Color.Primary">Close</MudButton>
+            <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
         </MudDialogActions>
     }
 </MudDialog>
