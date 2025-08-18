@@ -1,81 +1,94 @@
 @page "/customers"
-@using MudBlazor
 @inject CascadeWebApp.Services.CustomerService CustomerService
 
-<MudPaper Class="pa-4 mud-theme-dark">
-    <MudText Typo="Typo.h5">Customer List</MudText>
-    <MudTextField @bind-Value="_search" Placeholder="Search…" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-2" />
-    <MudTable T="CascadeWebApp.Models.Customer" Items="_filteredCustomers" Hover="true" Dense="true" OnRowClick="@OpenCustomerModal">
-        <HeaderContent>
-            <MudTh>Studio</MudTh>
-            <MudTh>Email</MudTh>
-            <MudTh>Phone #</MudTh>
-            <MudTh>Discount Level</MudTh>
-            <MudTh>Payment Terms</MudTh>
-        </HeaderContent>
-        <RowTemplate>
-            <MudTd>@context.Studio</MudTd>
-            <MudTd>@context.Email</MudTd>
-            <MudTd>@context.Phone</MudTd>
-            <MudTd>@context.DiscountLevel</MudTd>
-            <MudTd>@context.PaymentTerms</MudTd>
-        </RowTemplate>
-    </MudTable>
-</MudPaper>
+<div class="pa-4 mud-theme-dark">
+    <h5>Customer List</h5>
+    <input class="mb-2" placeholder="Search…" @bind="_search" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Studio</th>
+                <th>Email</th>
+                <th>Phone #</th>
+                <th>Discount Level</th>
+                <th>Payment Terms</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in _filteredCustomers)
+            {
+                <tr @onclick="() => OpenCustomerModal(customer)">
+                    <td>@customer.Studio</td>
+                    <td>@customer.Email</td>
+                    <td>@customer.Phone</td>
+                    <td>@customer.DiscountLevel</td>
+                    <td>@customer.PaymentTerms</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-<MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
-    @if (_selectedCustomer != null)
-    {
-        <MudDialogTitle>Customer Details - @_selectedCustomer.Studio</MudDialogTitle>
-        <MudDialogContent>
-            <MudText Typo="Typo.subtitle2">Studio: @_selectedCustomer.Studio</MudText>
-            <MudText Typo="Typo.subtitle2">Email: @_selectedCustomer.Email</MudText>
-            <MudText Typo="Typo.subtitle2">Phone #: @_selectedCustomer.Phone</MudText>
-            <MudText Typo="Typo.subtitle2">Discount Level: @_selectedCustomer.DiscountLevel</MudText>
-            <MudText Typo="Typo.subtitle2">Payment Terms: @_selectedCustomer.PaymentTerms</MudText>
-            <MudText Typo="Typo.subtitle2">Contact First Name: @_selectedCustomer.ContactFirstName</MudText>
-            <MudText Typo="Typo.subtitle2">Contact Second Name: @_selectedCustomer.ContactSecondName</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping Address Line 1: @_selectedCustomer.ShippingAddressLine1</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping Address Line 2: @_selectedCustomer.ShippingAddressLine2</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping City: @_selectedCustomer.ShippingCity</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping State: @_selectedCustomer.ShippingState</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping Zip: @_selectedCustomer.ShippingZip</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping Country: @_selectedCustomer.ShippingCountry</MudText>
-            <MudText Typo="Typo.subtitle2">Billing Address Line 1: @_selectedCustomer.BillingAddressLine1</MudText>
-            <MudText Typo="Typo.subtitle2">Billing Address Line 2: @_selectedCustomer.BillingAddressLine2</MudText>
-            <MudText Typo="Typo.subtitle2">Billing City: @_selectedCustomer.BillingCity</MudText>
-            <MudText Typo="Typo.subtitle2">Billing State: @_selectedCustomer.BillingState</MudText>
-            <MudText Typo="Typo.subtitle2">Billing Zip: @_selectedCustomer.BillingZip</MudText>
-            <MudText Typo="Typo.subtitle2">Billing Country: @_selectedCustomer.BillingCountry</MudText>
-            <!-- Orders List Table Placeholder -->
-            <MudTable T="CascadeWebApp.Models.Order" Dense="true">
-                <HeaderContent>
-                    <MudTh>Order #</MudTh>
-                    <MudTh>Order Date</MudTh>
-                    <MudTh>Studio</MudTh>
-                    <MudTh>Est Ship Date</MudTh>
-                    <MudTh>Shipping Deadline</MudTh>
-                    <MudTh>Shipping Method</MudTh>
-                    <MudTh>Partial</MudTh>
-                    <MudTh>Order Status</MudTh>
-                </HeaderContent>
-                <RowTemplate>
-                    <MudTd>SampleOrder</MudTd>
-                    <MudTd>2025-08-17</MudTd>
-                    <MudTd>@_selectedCustomer.Studio</MudTd>
-                    <MudTd>2025-08-20</MudTd>
-                    <MudTd>2025-08-21</MudTd>
-                    <MudTd>UPS</MudTd>
-                    <MudTd>Yes</MudTd>
-                    <MudTd>Processing</MudTd>
-                </RowTemplate>
-            </MudTable>
-        </MudDialogContent>
-        <MudDialogActions>
-            <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
-        </MudDialogActions>
-    }
-</MudDialog>
+@if (_showModal && _selectedCustomer != null)
+{
+    <div class="modal-backdrop" @onclick="CloseModal"></div>
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h5>Customer Details - @_selectedCustomer.Studio</h5>
+            <button type="button" class="close" @onclick="CloseModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div>Studio: @_selectedCustomer.Studio</div>
+            <div>Email: @_selectedCustomer.Email</div>
+            <div>Phone #: @_selectedCustomer.Phone</div>
+            <div>Discount Level: @_selectedCustomer.DiscountLevel</div>
+            <div>Payment Terms: @_selectedCustomer.PaymentTerms</div>
+            <div>Contact First Name: @_selectedCustomer.ContactFirstName</div>
+            <div>Contact Second Name: @_selectedCustomer.ContactSecondName</div>
+            <div>Shipping Address Line 1: @_selectedCustomer.ShippingAddressLine1</div>
+            <div>Shipping Address Line 2: @_selectedCustomer.ShippingAddressLine2</div>
+            <div>Shipping City: @_selectedCustomer.ShippingCity</div>
+            <div>Shipping State: @_selectedCustomer.ShippingState</div>
+            <div>Shipping Zip: @_selectedCustomer.ShippingZip</div>
+            <div>Shipping Country: @_selectedCustomer.ShippingCountry</div>
+            <div>Billing Address Line 1: @_selectedCustomer.BillingAddressLine1</div>
+            <div>Billing Address Line 2: @_selectedCustomer.BillingAddressLine2</div>
+            <div>Billing City: @_selectedCustomer.BillingCity</div>
+            <div>Billing State: @_selectedCustomer.BillingState</div>
+            <div>Billing Zip: @_selectedCustomer.BillingZip</div>
+            <div>Billing Country: @_selectedCustomer.BillingCountry</div>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Order #</th>
+                        <th>Order Date</th>
+                        <th>Studio</th>
+                        <th>Est Ship Date</th>
+                        <th>Shipping Deadline</th>
+                        <th>Shipping Method</th>
+                        <th>Partial</th>
+                        <th>Order Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SampleOrder</td>
+                        <td>2025-08-17</td>
+                        <td>@_selectedCustomer.Studio</td>
+                        <td>2025-08-20</td>
+                        <td>2025-08-21</td>
+                        <td>UPS</td>
+                        <td>Yes</td>
+                        <td>Processing</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" @onclick="CloseModal">Close</button>
+        </div>
+    </div>
+}
 
 @code {
     private string _search = "";
@@ -91,9 +104,9 @@
         _customers = await CustomerService.GetCustomersAsync();
     }
 
-    private void OpenCustomerModal(TableRowClickEventArgs<CascadeWebApp.Models.Customer> e)
+    private void OpenCustomerModal(CascadeWebApp.Models.Customer customer)
     {
-        _selectedCustomer = e.Item;
+        _selectedCustomer = customer;
         _showModal = true;
     }
 
