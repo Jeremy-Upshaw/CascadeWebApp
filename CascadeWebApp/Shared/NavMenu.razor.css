@@ -1,4 +1,4 @@
-﻿.top-row {
+.top-row {
     height: 56px;
     background-color: #232659;
     color: white;
@@ -40,15 +40,21 @@ nav.flex-column {
     text-decoration: none;
 }
 
-    .nav-link.active, .nav-link:hover {
-        background: rgba(255,255,255,0.12);
-        color: #ffd43b;
-    }
+/* Ensure visited nav links stay white and un-underlined */
+.nav-link:visited {
+    color: #fff;
+    text-decoration: none;
+}
 
-    .nav-link span {
-        margin-right: 1rem;
-        font-size: 1.2em;
-    }
+.nav-link.active, .nav-link:hover {
+    background: rgba(255,255,255,0.12);
+    color: #ffd43b;
+}
+
+.nav-link span {
+    margin-right: 1rem;
+    font-size: 1.2em;
+}
 
 @media (max-width: 640.98px) {
     .nav-scrollable {
