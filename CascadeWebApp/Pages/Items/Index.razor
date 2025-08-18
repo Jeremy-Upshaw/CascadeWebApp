@@ -1,89 +1,101 @@
 @page "/items"
-@using MudBlazor
 @inject CascadeWebApp.Services.ItemService ItemService
 
-<MudPaper Class="pa-4 mud-theme-dark">
-    <MudText Typo="Typo.h5">Item List</MudText>
-    <MudTextField @bind-Value="_search" Placeholder="Search…" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Class="mb-2" />
-    <!-- Filters can go here -->
-    <MudTable T="CascadeWebApp.Models.Item" Items="_filteredItems" Hover="true" Dense="true" OnRowClick="@OpenItemModal">
-        <HeaderContent>
-            <MudTh>Item #</MudTh>
-            <MudTh>Thread</MudTh>
-            <MudTh>Gauge</MudTh>
-            <MudTh>End Type</MudTh>
-            <MudTh>End MM</MudTh>
-            <MudTh>End Inch</MudTh>
-            <MudTh>Length</MudTh>
-            <MudTh>On Order</MudTh>
-            <MudTh>In Production</MudTh>
-            <MudTh>On the Wall</MudTh>
-            <MudTh>In the Shop</MudTh>
-            <MudTh>Available</MudTh>
-        </HeaderContent>
-        <RowTemplate>
-            <MudTd DataLabel="Item #">@context.ItemNumber</MudTd>
-            <MudTd DataLabel="Thread">@context.Thread</MudTd>
-            <MudTd DataLabel="Gauge">@context.Gauge</MudTd>
-            <MudTd DataLabel="End Type">@context.EndType</MudTd>
-            <MudTd DataLabel="End MM">@context.EndMM</MudTd>
-            <MudTd DataLabel="End Inch">@context.EndInch</MudTd>
-            <MudTd DataLabel="Length">@context.Length</MudTd>
-            <MudTd DataLabel="On Order">@context.OnOrder</MudTd>
-            <MudTd DataLabel="In Production">@context.InProduction</MudTd>
-            <MudTd DataLabel="On the Wall">@context.OnTheWall</MudTd>
-            <MudTd DataLabel="In the Shop">@context.InTheShop</MudTd>
-            <MudTd DataLabel="Available">@context.Available</MudTd>
-        </RowTemplate>
-    </MudTable>
-</MudPaper>
+<div class="pa-4 mud-theme-dark">
+    <h5>Item List</h5>
+    <input class="mb-2" placeholder="Search…" @bind="_search" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item #</th>
+                <th>Thread</th>
+                <th>Gauge</th>
+                <th>End Type</th>
+                <th>End MM</th>
+                <th>End Inch</th>
+                <th>Length</th>
+                <th>On Order</th>
+                <th>In Production</th>
+                <th>On the Wall</th>
+                <th>In the Shop</th>
+                <th>Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in _filteredItems)
+            {
+                <tr @onclick="() => OpenItemModal(item)">
+                    <td>@item.ItemNumber</td>
+                    <td>@item.Thread</td>
+                    <td>@item.Gauge</td>
+                    <td>@item.EndType</td>
+                    <td>@item.EndMM</td>
+                    <td>@item.EndInch</td>
+                    <td>@item.Length</td>
+                    <td>@item.OnOrder</td>
+                    <td>@item.InProduction</td>
+                    <td>@item.OnTheWall</td>
+                    <td>@item.InTheShop</td>
+                    <td>@item.Available</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
-<MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
-    @if (_selectedItem != null)
-    {
-        <MudDialogTitle>Item Details - @_selectedItem.ItemNumber</MudDialogTitle>
-        <MudDialogContent>
-            <MudText Typo="Typo.subtitle2">Thread: @_selectedItem.Thread</MudText>
-            <MudText Typo="Typo.subtitle2">Gauge: @_selectedItem.Gauge</MudText>
-            <MudText Typo="Typo.subtitle2">End Type: @_selectedItem.EndType</MudText>
-            <MudText Typo="Typo.subtitle2">End MM: @_selectedItem.EndMM</MudText>
-            <MudText Typo="Typo.subtitle2">End Inch: @_selectedItem.EndInch</MudText>
-            <MudText Typo="Typo.subtitle2">Length: @_selectedItem.Length</MudText>
-            <MudText Typo="Typo.subtitle2">On Order: @_selectedItem.OnOrder</MudText>
-            <MudText Typo="Typo.subtitle2">In Production: @_selectedItem.InProduction</MudText>
-            <MudText Typo="Typo.subtitle2">On the Wall: @_selectedItem.OnTheWall</MudText>
-            <MudText Typo="Typo.subtitle2">In the Shop: @_selectedItem.InTheShop</MudText>
-            <MudText Typo="Typo.subtitle2">Available: @_selectedItem.Available</MudText>
-            <MudText Typo="Typo.subtitle2">Machining Length: @_selectedItem.MachiningLength</MudText>
-            <MudText Typo="Typo.subtitle2">Cycle Time: @_selectedItem.CycleTime</MudText>
-            <MudText Typo="Typo.subtitle2">Stock Qty: @_selectedItem.StockQty</MudText>
-            <MudText Typo="Typo.subtitle2">Build Qty: @_selectedItem.BuildQty</MudText>
-            <MudText Typo="Typo.subtitle2">Min Stock Size: @_selectedItem.MinStockSize</MudText>
-            <!-- Item Lines Table Placeholder -->
-            <MudTable T="object" Dense="true">
-                <HeaderContent>
-                    <MudTh>Batch #</MudTh>
-                    <MudTh>Date Finished</MudTh>
-                    <MudTh>Assign 1</MudTh>
-                    <MudTh>Qty 1</MudTh>
-                    <MudTh>Assign (Action)</MudTh>
-                </HeaderContent>
-                <RowTemplate>
-                    <MudTd>SampleBatch</MudTd>
-                    <MudTd>2025-08-17</MudTd>
-                    <MudTd>Assignee</MudTd>
-                    <MudTd>10</MudTd>
-                    <MudTd>
-                        <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled="true">Assign</MudButton>
-                    </MudTd>
-                </RowTemplate>
-            </MudTable>
-        </MudDialogContent>
-        <MudDialogActions>
-            <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
-        </MudDialogActions>
-    }
-</MudDialog>
+@if (_showModal && _selectedItem != null)
+{
+    <div class="modal-backdrop" @onclick="CloseModal"></div>
+    <div class="modal-dialog">
+        <div class="modal-header">
+            <h5>Item Details - @_selectedItem.ItemNumber</h5>
+            <button type="button" class="close" @onclick="CloseModal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div>Thread: @_selectedItem.Thread</div>
+            <div>Gauge: @_selectedItem.Gauge</div>
+            <div>End Type: @_selectedItem.EndType</div>
+            <div>End MM: @_selectedItem.EndMM</div>
+            <div>End Inch: @_selectedItem.EndInch</div>
+            <div>Length: @_selectedItem.Length</div>
+            <div>On Order: @_selectedItem.OnOrder</div>
+            <div>In Production: @_selectedItem.InProduction</div>
+            <div>On the Wall: @_selectedItem.OnTheWall</div>
+            <div>In the Shop: @_selectedItem.InTheShop</div>
+            <div>Available: @_selectedItem.Available</div>
+            <div>Machining Length: @_selectedItem.MachiningLength</div>
+            <div>Cycle Time: @_selectedItem.CycleTime</div>
+            <div>Stock Qty: @_selectedItem.StockQty</div>
+            <div>Build Qty: @_selectedItem.BuildQty</div>
+            <div>Min Stock Size: @_selectedItem.MinStockSize</div>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Batch #</th>
+                        <th>Date Finished</th>
+                        <th>Assign 1</th>
+                        <th>Qty 1</th>
+                        <th>Assign (Action)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SampleBatch</td>
+                        <td>2025-08-17</td>
+                        <td>Assignee</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary" disabled>Assign</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" @onclick="CloseModal">Close</button>
+        </div>
+    </div>
+}
 
 @code {
     private string _search = "";
@@ -99,9 +111,9 @@
         _items = await ItemService.GetItemsAsync();
     }
 
-    private void OpenItemModal(TableRowClickEventArgs<CascadeWebApp.Models.Item> e)
+    private void OpenItemModal(CascadeWebApp.Models.Item item)
     {
-        _selectedItem = e.Item;
+        _selectedItem = item;
         _showModal = true;
     }
 
