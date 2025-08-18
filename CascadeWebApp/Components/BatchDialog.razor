@@ -1,16 +1,15 @@
-﻿@using CascadeWebApp.Models
+@using CascadeWebApp.Models
 @using MudBlazor
-@inject IDialogService DialogService
 
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    [Parameter] public Batch Batch { get; set; }
+    [CascadingParameter] MudDialogInstance? MudDialog { get; set; }
+    [Parameter] public Batch? Batch { get; set; }
 }
 
-<MudDialogTitle>Batch Details - @Batch.BatchNumber</MudDialogTitle>
+<MudDialogTitle>Batch Details - @Batch?.BatchNumber</MudDialogTitle>
 <MudDialogContent>
     ...
 </MudDialogContent>
 <MudDialogActions>
-    <MudButton OnClick="MudDialog.Close" Color="Color.Primary">Close</MudButton>
+    <MudButton OnClick="MudDialog?.Close" Color="Color.Primary">Close</MudButton>
 </MudDialogActions>
