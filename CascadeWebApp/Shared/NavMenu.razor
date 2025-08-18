@@ -1,17 +1,37 @@
-<MudNavMenu>
-    <MudNavLink Href="" Icon="@Icons.Material.Filled.Home" Match="NavLinkMatch.All">
-        Home
-    </MudNavLink>
-    <MudNavLink Href="items" Icon="@Icons.Material.Filled.List">
-        Items
-    </MudNavLink>
-    <MudNavLink Href="orders" Icon="@Icons.Material.Filled.Receipt">
-        Orders
-    </MudNavLink>
-    <MudNavLink Href="customers" Icon="@Icons.Material.Filled.People">
-        Customers
-    </MudNavLink>
-    <MudNavLink Href="batches" Icon="@Icons.Material.Filled.Inventory">
-        Batches
-    </MudNavLink>
-</MudNavMenu>
+<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Cascade.IMS</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="items">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Items
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="orders">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Orders
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="customers">
+                <span class="bi bi-person" aria-hidden="true"></span> Customers
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="batches">
+                <span class="bi bi-box-seam" aria-hidden="true"></span> Batches
+            </NavLink>
+        </div>
+    </nav>
+</div>

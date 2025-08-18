@@ -4,29 +4,31 @@
 <div class="pa-4 mud-theme-dark">
     <h5>Batch List</h5>
     <input class="mb-2" placeholder="Search…" @bind="_search" />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Batch #</th>
-                <th>Status</th>
-                <th>Parts Count</th>
-                <th>Plugged Weight</th>
-                <th>Est Finish Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var batch in _filteredBatches)
-            {
-                <tr @onclick="() => OpenBatchModal(batch)">
-                    <td>@batch.BatchNumber</td>
-                    <td>@batch.Status</td>
-                    <td>@batch.PartsCount</td>
-                    <td>@batch.PluggedWeight</td>
-                    <td>@batch.EstFinishDate.ToShortDateString()</td>
+    <div class="table-scroll">
+        <table class="app-table">
+            <thead>
+                <tr>
+                    <th>Batch #</th>
+                    <th>Status</th>
+                    <th>Parts Count</th>
+                    <th>Plugged Weight</th>
+                    <th>Est Finish Date</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var batch in _filteredBatches)
+                {
+                    <tr @onclick="() => OpenBatchModal(batch)">
+                        <td>@batch.BatchNumber</td>
+                        <td>@batch.Status</td>
+                        <td>@batch.PartsCount</td>
+                        <td>@batch.PluggedWeight</td>
+                        <td>@batch.EstFinishDate.ToShortDateString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @if (_showModal && _selectedBatch != null)
@@ -43,42 +45,44 @@
             <div>Parts Count: @_selectedBatch.PartsCount</div>
             <div>Plugged Weight: @_selectedBatch.PluggedWeight</div>
             <div>Est Finish Date: @_selectedBatch.EstFinishDate.ToShortDateString()</div>
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Item #</th>
-                        <th>Thread</th>
-                        <th>Gauge</th>
-                        <th>End Type</th>
-                        <th>End MM</th>
-                        <th>End Inch</th>
-                        <th>Length</th>
-                        <th>Qty</th>
-                        <th>Qty Lost</th>
-                        <th>Assign 1</th>
-                        <th>Qty 1</th>
-                        <th>Assign (Action)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>SampleItem</td>
-                        <td>M8</td>
-                        <td>10</td>
-                        <td>Flat</td>
-                        <td>12</td>
-                        <td>0.47</td>
-                        <td>100</td>
-                        <td>10</td>
-                        <td>0</td>
-                        <td>Assignee</td>
-                        <td>5</td>
-                        <td>
-                            <button class="btn btn-primary" disabled>Assign</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-scroll">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Item #</th>
+                            <th>Thread</th>
+                            <th>Gauge</th>
+                            <th>End Type</th>
+                            <th>End MM</th>
+                            <th>End Inch</th>
+                            <th>Length</th>
+                            <th>Qty</th>
+                            <th>Qty Lost</th>
+                            <th>Assign 1</th>
+                            <th>Qty 1</th>
+                            <th>Assign (Action)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SampleItem</td>
+                            <td>M8</td>
+                            <td>10</td>
+                            <td>Flat</td>
+                            <td>12</td>
+                            <td>0.47</td>
+                            <td>100</td>
+                            <td>10</td>
+                            <td>0</td>
+                            <td>Assignee</td>
+                            <td>5</td>
+                            <td>
+                                <button class="btn btn-primary" disabled>Assign</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" @onclick="CloseModal">Close</button>

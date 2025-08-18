@@ -4,35 +4,37 @@
 <div class="pa-4 mud-theme-dark">
     <h5>Order List</h5>
     <input class="mb-2" placeholder="Search…" @bind="_search" />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Order #</th>
-                <th>Order Date</th>
-                <th>Studio</th>
-                <th>Est Ship Date</th>
-                <th>Shipping Deadline</th>
-                <th>Shipping Method</th>
-                <th>Partial</th>
-                <th>Order Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var order in _filteredOrders)
-            {
-                <tr @onclick="() => OpenOrderModal(order)">
-                    <td>@order.OrderNumber</td>
-                    <td>@order.OrderDate.ToShortDateString()</td>
-                    <td>@order.Studio</td>
-                    <td>@order.EstShipDate.ToShortDateString()</td>
-                    <td>@order.ShippingDeadline.ToShortDateString()</td>
-                    <td>@order.ShippingMethod</td>
-                    <td>@(order.Partial ? "Yes" : "No")</td>
-                    <td>@order.OrderStatus</td>
+    <div class="table-scroll">
+        <table class="app-table">
+            <thead>
+                <tr>
+                    <th>Order #</th>
+                    <th>Order Date</th>
+                    <th>Studio</th>
+                    <th>Est Ship Date</th>
+                    <th>Shipping Deadline</th>
+                    <th>Shipping Method</th>
+                    <th>Partial</th>
+                    <th>Order Status</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var order in _filteredOrders)
+                {
+                    <tr @onclick="() => OpenOrderModal(order)">
+                        <td>@order.OrderNumber</td>
+                        <td>@order.OrderDate.ToShortDateString()</td>
+                        <td>@order.Studio</td>
+                        <td>@order.EstShipDate.ToShortDateString()</td>
+                        <td>@order.ShippingDeadline.ToShortDateString()</td>
+                        <td>@order.ShippingMethod</td>
+                        <td>@(order.Partial ? "Yes" : "No")</td>
+                        <td>@order.OrderStatus</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @if (_showModal && _selectedOrder != null)
@@ -52,50 +54,52 @@
             <div>Shipping Method: @_selectedOrder.ShippingMethod</div>
             <div>Partial: @(_selectedOrder.Partial ? "Yes" : "No")</div>
             <div>Order Status: @_selectedOrder.OrderStatus</div>
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Item #</th>
-                        <th>Thread</th>
-                        <th>Gauge</th>
-                        <th>End Type</th>
-                        <th>End MM</th>
-                        <th>End Inch</th>
-                        <th>Length</th>
-                        <th>Qty Ordered</th>
-                        <th>Qty Remaining</th>
-                        <th>Qty Pulled</th>
-                        <th>Qty Shipped</th>
-                        <th>Qty Assigned</th>
-                        <th>Assignment Location</th>
-                        <th>Print Labels</th>
-                        <th>Split</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>SampleItem</td>
-                        <td>M8</td>
-                        <td>10</td>
-                        <td>Flat</td>
-                        <td>12</td>
-                        <td>0.47</td>
-                        <td>100</td>
-                        <td>20</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>Shop</td>
-                        <td>
-                            <input type="checkbox" disabled />
-                        </td>
-                        <td>
-                            <button class="btn btn-primary" disabled>Split</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-scroll">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Item #</th>
+                            <th>Thread</th>
+                            <th>Gauge</th>
+                            <th>End Type</th>
+                            <th>End MM</th>
+                            <th>End Inch</th>
+                            <th>Length</th>
+                            <th>Qty Ordered</th>
+                            <th>Qty Remaining</th>
+                            <th>Qty Pulled</th>
+                            <th>Qty Shipped</th>
+                            <th>Qty Assigned</th>
+                            <th>Assignment Location</th>
+                            <th>Print Labels</th>
+                            <th>Split</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SampleItem</td>
+                            <td>M8</td>
+                            <td>10</td>
+                            <td>Flat</td>
+                            <td>12</td>
+                            <td>0.47</td>
+                            <td>100</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>5</td>
+                            <td>Shop</td>
+                            <td>
+                                <input type="checkbox" disabled />
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" disabled>Split</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" @onclick="CloseModal">Close</button>

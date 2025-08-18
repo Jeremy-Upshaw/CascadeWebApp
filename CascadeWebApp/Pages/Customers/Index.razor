@@ -4,29 +4,31 @@
 <div class="pa-4 mud-theme-dark">
     <h5>Customer List</h5>
     <input class="mb-2" placeholder="Search…" @bind="_search" />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Studio</th>
-                <th>Email</th>
-                <th>Phone #</th>
-                <th>Discount Level</th>
-                <th>Payment Terms</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var customer in _filteredCustomers)
-            {
-                <tr @onclick="() => OpenCustomerModal(customer)">
-                    <td>@customer.Studio</td>
-                    <td>@customer.Email</td>
-                    <td>@customer.Phone</td>
-                    <td>@customer.DiscountLevel</td>
-                    <td>@customer.PaymentTerms</td>
+    <div class="table-scroll">
+        <table class="app-table">
+            <thead>
+                <tr>
+                    <th>Studio</th>
+                    <th>Email</th>
+                    <th>Phone #</th>
+                    <th>Discount Level</th>
+                    <th>Payment Terms</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var customer in _filteredCustomers)
+                {
+                    <tr @onclick="() => OpenCustomerModal(customer)">
+                        <td>@customer.Studio</td>
+                        <td>@customer.Email</td>
+                        <td>@customer.Phone</td>
+                        <td>@customer.DiscountLevel</td>
+                        <td>@customer.PaymentTerms</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @if (_showModal && _selectedCustomer != null)
@@ -57,32 +59,34 @@
             <div>Billing State: @_selectedCustomer.BillingState</div>
             <div>Billing Zip: @_selectedCustomer.BillingZip</div>
             <div>Billing Country: @_selectedCustomer.BillingCountry</div>
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Order #</th>
-                        <th>Order Date</th>
-                        <th>Studio</th>
-                        <th>Est Ship Date</th>
-                        <th>Shipping Deadline</th>
-                        <th>Shipping Method</th>
-                        <th>Partial</th>
-                        <th>Order Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>SampleOrder</td>
-                        <td>2025-08-17</td>
-                        <td>@_selectedCustomer.Studio</td>
-                        <td>2025-08-20</td>
-                        <td>2025-08-21</td>
-                        <td>UPS</td>
-                        <td>Yes</td>
-                        <td>Processing</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-scroll">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Order #</th>
+                            <th>Order Date</th>
+                            <th>Studio</th>
+                            <th>Est Ship Date</th>
+                            <th>Shipping Deadline</th>
+                            <th>Shipping Method</th>
+                            <th>Partial</th>
+                            <th>Order Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SampleOrder</td>
+                            <td>2025-08-17</td>
+                            <td>@_selectedCustomer.Studio</td>
+                            <td>2025-08-20</td>
+                            <td>2025-08-21</td>
+                            <td>UPS</td>
+                            <td>Yes</td>
+                            <td>Processing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" @onclick="CloseModal">Close</button>

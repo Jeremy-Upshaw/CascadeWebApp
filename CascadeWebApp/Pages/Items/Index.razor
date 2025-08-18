@@ -4,43 +4,45 @@
 <div class="pa-4 mud-theme-dark">
     <h5>Item List</h5>
     <input class="mb-2" placeholder="Search…" @bind="_search" />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Item #</th>
-                <th>Thread</th>
-                <th>Gauge</th>
-                <th>End Type</th>
-                <th>End MM</th>
-                <th>End Inch</th>
-                <th>Length</th>
-                <th>On Order</th>
-                <th>In Production</th>
-                <th>On the Wall</th>
-                <th>In the Shop</th>
-                <th>Available</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in _filteredItems)
-            {
-                <tr @onclick="() => OpenItemModal(item)">
-                    <td>@item.ItemNumber</td>
-                    <td>@item.Thread</td>
-                    <td>@item.Gauge</td>
-                    <td>@item.EndType</td>
-                    <td>@item.EndMM</td>
-                    <td>@item.EndInch</td>
-                    <td>@item.Length</td>
-                    <td>@item.OnOrder</td>
-                    <td>@item.InProduction</td>
-                    <td>@item.OnTheWall</td>
-                    <td>@item.InTheShop</td>
-                    <td>@item.Available</td>
+    <div class="table-scroll">
+        <table class="app-table">
+            <thead>
+                <tr>
+                    <th>Item #</th>
+                    <th>Thread</th>
+                    <th>Gauge</th>
+                    <th>End Type</th>
+                    <th>End MM</th>
+                    <th>End Inch</th>
+                    <th>Length</th>
+                    <th>On Order</th>
+                    <th>In Production</th>
+                    <th>On the Wall</th>
+                    <th>In the Shop</th>
+                    <th>Available</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in _filteredItems)
+                {
+                    <tr @onclick="() => OpenItemModal(item)">
+                        <td>@item.ItemNumber</td>
+                        <td>@item.Thread</td>
+                        <td>@item.Gauge</td>
+                        <td>@item.EndType</td>
+                        <td>@item.EndMM</td>
+                        <td>@item.EndInch</td>
+                        <td>@item.Length</td>
+                        <td>@item.OnOrder</td>
+                        <td>@item.InProduction</td>
+                        <td>@item.OnTheWall</td>
+                        <td>@item.InTheShop</td>
+                        <td>@item.Available</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @if (_showModal && _selectedItem != null)
@@ -68,28 +70,30 @@
             <div>Stock Qty: @_selectedItem.StockQty</div>
             <div>Build Qty: @_selectedItem.BuildQty</div>
             <div>Min Stock Size: @_selectedItem.MinStockSize</div>
-            <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Batch #</th>
-                        <th>Date Finished</th>
-                        <th>Assign 1</th>
-                        <th>Qty 1</th>
-                        <th>Assign (Action)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>SampleBatch</td>
-                        <td>2025-08-17</td>
-                        <td>Assignee</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-primary" disabled>Assign</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-scroll">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Batch #</th>
+                            <th>Date Finished</th>
+                            <th>Assign 1</th>
+                            <th>Qty 1</th>
+                            <th>Assign (Action)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SampleBatch</td>
+                            <td>2025-08-17</td>
+                            <td>Assignee</td>
+                            <td>10</td>
+                            <td>
+                                <button class="btn btn-primary" disabled>Assign</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" @onclick="CloseModal">Close</button>

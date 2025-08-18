@@ -27,3 +27,96 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1050;
+}
+
+.modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 5px;
+    padding: 1rem;
+    z-index: 1060;
+    min-width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.modal-header, .modal-footer {
+    padding-bottom: 0.5rem;
+}
+
+.modal-body {
+    margin-bottom: 0.5rem;
+}
+
+.close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+}
+
+/* ====== GLOBAL TABLE STYLES (appended) ====== */
+
+.app-table {
+    width: 100%;
+    font-size: 0.95rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+    .app-table th, .app-table td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #dee2e6;
+    }
+
+    .app-table thead th {
+        position: sticky;
+        top: 0;
+        background-color: #f8f9fa;
+        z-index: 2;
+        border-bottom: 2px solid #444;
+        font-weight: bold;
+    }
+
+    .app-table tbody tr {
+        cursor: pointer;
+        transition: background 0.15s;
+    }
+
+        .app-table tbody tr:hover {
+            background: #e6e6f7;
+        }
+
+        .app-table tbody tr:nth-of-type(odd) {
+            background-color: #f7f7fa;
+        }
+
+.table-scroll {
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .app-table {
+        font-size: 0.85rem;
+    }
+
+    .table-scroll {
+        max-height: 400px;
+    }
+}
