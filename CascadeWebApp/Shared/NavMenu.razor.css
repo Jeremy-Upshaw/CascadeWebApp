@@ -16,7 +16,7 @@
 .nav-scrollable {
     overflow-y: auto;
     height: calc(100vh - 56px);
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg, black 0%, #666666 70%);
 }
 
 nav.flex-column {
