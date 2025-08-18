@@ -46,14 +46,40 @@
             <button type="button" class="close" @onclick="CloseModal">&times;</button>
         </div>
         <div class="modal-body">
-            <div>Order #: @_selectedOrder.OrderNumber</div>
-            <div>Order Date: @_selectedOrder.OrderDate.ToShortDateString()</div>
-            <div>Studio: @_selectedOrder.Studio</div>
-            <div>Est Ship Date: @_selectedOrder.EstShipDate.ToShortDateString()</div>
-            <div>Shipping Deadline: @_selectedOrder.ShippingDeadline.ToShortDateString()</div>
-            <div>Shipping Method: @_selectedOrder.ShippingMethod</div>
-            <div>Partial: @(_selectedOrder.Partial ? "Yes" : "No")</div>
-            <div>Order Status: @_selectedOrder.OrderStatus</div>
+            <div class="modal-details">
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Order #</div>
+                    <div class="modal-detail-value">@_selectedOrder.OrderNumber</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Order Date</div>
+                    <div class="modal-detail-value">@_selectedOrder.OrderDate.ToShortDateString()</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Studio</div>
+                    <div class="modal-detail-value">@_selectedOrder.Studio</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Est Ship Date</div>
+                    <div class="modal-detail-value">@_selectedOrder.EstShipDate.ToShortDateString()</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Shipping Deadline</div>
+                    <div class="modal-detail-value">@_selectedOrder.ShippingDeadline.ToShortDateString()</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Shipping Method</div>
+                    <div class="modal-detail-value">@_selectedOrder.ShippingMethod</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Partial</div>
+                    <div class="modal-detail-value">@(_selectedOrder.Partial ? "Yes" : "No")</div>
+                </div>
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Order Status</div>
+                    <div class="modal-detail-value">@_selectedOrder.OrderStatus</div>
+                </div>
+            </div>
             <div class="table-scroll">
                 <table class="app-table">
                     <thead>

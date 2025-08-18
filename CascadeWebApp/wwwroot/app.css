@@ -63,6 +63,48 @@ h1:focus {
     background: none;
     border: none;
     font-size: 1.5rem;
+    color: #333; /* Dark color for readability */
+}
+
+/* Modal detail fields horizontal layout */
+.modal-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal-detail-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 120px;
+    margin: 0.5rem 0;
+}
+
+.modal-detail-label {
+    font-size: 1rem; /* Base size for labels */
+    color: #333; /* Dark color for readability */
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.modal-detail-value {
+    font-size: 2rem; /* Double the current size */
+    color: #222; /* Very dark color for values */
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+/* Ensure all modal text is dark */
+.modal-dialog h5 {
+    color: #333;
+}
+
+.modal-dialog {
+    color: #333; /* Default dark text */
 }
 
 /* ====== GLOBAL TABLE STYLES (appended) ====== */
