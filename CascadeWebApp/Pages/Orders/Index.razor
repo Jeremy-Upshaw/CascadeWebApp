@@ -46,11 +46,10 @@
             <button type="button" class="close" @onclick="CloseModal">&times;</button>
         </div>
         <div class="modal-body">
+            <!-- Title field - Order Number centered without label -->
+            <div class="modal-detail-title">@_selectedOrder.OrderNumber</div>
+            
             <div class="modal-details">
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Order #</div>
-                    <div class="modal-detail-value">@_selectedOrder.OrderNumber</div>
-                </div>
                 <div class="modal-detail-field">
                     <div class="modal-detail-label">Order Date</div>
                     <div class="modal-detail-value">@_selectedOrder.OrderDate.ToShortDateString()</div>
