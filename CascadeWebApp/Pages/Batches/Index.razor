@@ -23,55 +23,58 @@
     </MudTable>
 </MudPaper>
 
-<MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
-    @if (_selectedBatch != null)
-    {
-        <MudDialogTitle>Batch Details - @_selectedBatch.BatchNumber</MudDialogTitle>
-        <MudDialogContent>
-            <MudText Typo="Typo.subtitle2">Batch #: @_selectedBatch.BatchNumber</MudText>
-            <MudText Typo="Typo.subtitle2">Status: @_selectedBatch.Status</MudText>
-            <MudText Typo="Typo.subtitle2">Parts Count: @_selectedBatch.PartsCount</MudText>
-            <MudText Typo="Typo.subtitle2">Plugged Weight: @_selectedBatch.PluggedWeight</MudText>
-            <MudText Typo="Typo.subtitle2">Est Finish Date: @_selectedBatch.EstFinishDate.ToShortDateString()</MudText>
-            <!-- Batch Lines Table Placeholder -->
-            <MudTable T="object" Dense="true">
-                <HeaderContent>
-                    <MudTh>Item #</MudTh>
-                    <MudTh>Thread</MudTh>
-                    <MudTh>Gauge</MudTh>
-                    <MudTh>End Type</MudTh>
-                    <MudTh>End MM</MudTh>
-                    <MudTh>End Inch</MudTh>
-                    <MudTh>Length</MudTh>
-                    <MudTh>Qty</MudTh>
-                    <MudTh>Qty Lost</MudTh>
-                    <MudTh>Assign 1</MudTh>
-                    <MudTh>Qty 1</MudTh>
-                    <MudTh>Assign (Action)</MudTh>
-                </HeaderContent>
-                <RowTemplate>
-                    <MudTd>SampleItem</MudTd>
-                    <MudTd>M8</MudTd>
-                    <MudTd>10</MudTd>
-                    <MudTd>Flat</MudTd>
-                    <MudTd>12</MudTd>
-                    <MudTd>0.47</MudTd>
-                    <MudTd>100</MudTd>
-                    <MudTd>10</MudTd>
-                    <MudTd>0</MudTd>
-                    <MudTd>Assignee</MudTd>
-                    <MudTd>5</MudTd>
-                    <MudTd>
-                        <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled="true">Assign</MudButton>
-                    </MudTd>
-                </RowTemplate>
-            </MudTable>
-        </MudDialogContent>
-        <MudDialogActions>
-            <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
-        </MudDialogActions>
-    }
-</MudDialog>
+@if (_showModal && _selectedBatch != null)
+{
+    <MudOverlay @onclick="CloseModal" />
+    <MudPaper Class="fixed inset-0 z-50 flex items-center justify-center p-4" Style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1300; background-color: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;">
+        <MudPaper Class="p-6 max-w-md w-full" Style="max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto;">
+            <MudText Typo="Typo.h6" Class="mb-4">Batch Details - @_selectedBatch.BatchNumber</MudText>
+            <div>
+                <MudText Typo="Typo.subtitle2">Batch #: @_selectedBatch.BatchNumber</MudText>
+                <MudText Typo="Typo.subtitle2">Status: @_selectedBatch.Status</MudText>
+                <MudText Typo="Typo.subtitle2">Parts Count: @_selectedBatch.PartsCount</MudText>
+                <MudText Typo="Typo.subtitle2">Plugged Weight: @_selectedBatch.PluggedWeight</MudText>
+                <MudText Typo="Typo.subtitle2">Est Finish Date: @_selectedBatch.EstFinishDate.ToShortDateString()</MudText>
+                <!-- Batch Lines Table Placeholder -->
+                <MudTable T="object" Dense="true">
+                    <HeaderContent>
+                        <MudTh>Item #</MudTh>
+                        <MudTh>Thread</MudTh>
+                        <MudTh>Gauge</MudTh>
+                        <MudTh>End Type</MudTh>
+                        <MudTh>End MM</MudTh>
+                        <MudTh>End Inch</MudTh>
+                        <MudTh>Length</MudTh>
+                        <MudTh>Qty</MudTh>
+                        <MudTh>Qty Lost</MudTh>
+                        <MudTh>Assign 1</MudTh>
+                        <MudTh>Qty 1</MudTh>
+                        <MudTh>Assign (Action)</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd>SampleItem</MudTd>
+                        <MudTd>M8</MudTd>
+                        <MudTd>10</MudTd>
+                        <MudTd>Flat</MudTd>
+                        <MudTd>12</MudTd>
+                        <MudTd>0.47</MudTd>
+                        <MudTd>100</MudTd>
+                        <MudTd>10</MudTd>
+                        <MudTd>0</MudTd>
+                        <MudTd>Assignee</MudTd>
+                        <MudTd>5</MudTd>
+                        <MudTd>
+                            <MudButton Color="Color.Primary" Variant="Variant.Filled" Disabled="true">Assign</MudButton>
+                        </MudTd>
+                    </RowTemplate>
+                </MudTable>
+            </div>
+            <div class="mt-4 flex justify-end">
+                <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
+            </div>
+        </MudPaper>
+    </MudPaper>
+}
 
 @code {
     private string _search = "";

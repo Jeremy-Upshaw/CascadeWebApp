@@ -3,14 +3,21 @@
 @inject IDialogService DialogService
 
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    [Parameter] public Batch Batch { get; set; }
+    [CascadingParameter] MudDialogInstance? MudDialog { get; set; }
+    [Parameter] public Batch? Batch { get; set; }
 }
 
-<MudDialogTitle>Batch Details - @Batch.BatchNumber</MudDialogTitle>
-<MudDialogContent>
-    ...
-</MudDialogContent>
-<MudDialogActions>
-    <MudButton OnClick="MudDialog.Close" Color="Color.Primary">Close</MudButton>
-</MudDialogActions>
+<MudText Typo="Typo.h6" Class="mb-4">Batch Details - @(Batch?.BatchNumber ?? "Unknown")</MudText>
+<div class="mud-dialog-content">
+    @if (Batch != null)
+    {
+        <MudText Typo="Typo.subtitle2">Batch #: @Batch.BatchNumber</MudText>
+        <MudText Typo="Typo.subtitle2">Status: @Batch.Status</MudText>
+        <MudText Typo="Typo.subtitle2">Parts Count: @Batch.PartsCount</MudText>
+        <MudText Typo="Typo.subtitle2">Plugged Weight: @Batch.PluggedWeight</MudText>
+        <MudText Typo="Typo.subtitle2">Est Finish Date: @Batch.EstFinishDate.ToShortDateString()</MudText>
+    }
+</div>
+<div class="mud-dialog-actions">
+    <MudButton OnClick="@(() => MudDialog?.Close())" Color="Color.Primary">Close</MudButton>
+</div>

@@ -23,59 +23,62 @@
     </MudTable>
 </MudPaper>
 
-<MudDialog @bind-IsOpen="_showModal" MaxWidth="MaxWidth.Medium">
-    @if (_selectedCustomer != null)
-    {
-        <MudDialogTitle>Customer Details - @_selectedCustomer.Studio</MudDialogTitle>
-        <MudDialogContent>
-            <MudText Typo="Typo.subtitle2">Studio: @_selectedCustomer.Studio</MudText>
-            <MudText Typo="Typo.subtitle2">Email: @_selectedCustomer.Email</MudText>
-            <MudText Typo="Typo.subtitle2">Phone #: @_selectedCustomer.Phone</MudText>
-            <MudText Typo="Typo.subtitle2">Discount Level: @_selectedCustomer.DiscountLevel</MudText>
-            <MudText Typo="Typo.subtitle2">Payment Terms: @_selectedCustomer.PaymentTerms</MudText>
-            <MudText Typo="Typo.subtitle2">Contact First Name: @_selectedCustomer.ContactFirstName</MudText>
-            <MudText Typo="Typo.subtitle2">Contact Second Name: @_selectedCustomer.ContactSecondName</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping Address Line 1: @_selectedCustomer.ShippingAddressLine1</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping Address Line 2: @_selectedCustomer.ShippingAddressLine2</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping City: @_selectedCustomer.ShippingCity</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping State: @_selectedCustomer.ShippingState</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping Zip: @_selectedCustomer.ShippingZip</MudText>
-            <MudText Typo="Typo.subtitle2">Shipping Country: @_selectedCustomer.ShippingCountry</MudText>
-            <MudText Typo="Typo.subtitle2">Billing Address Line 1: @_selectedCustomer.BillingAddressLine1</MudText>
-            <MudText Typo="Typo.subtitle2">Billing Address Line 2: @_selectedCustomer.BillingAddressLine2</MudText>
-            <MudText Typo="Typo.subtitle2">Billing City: @_selectedCustomer.BillingCity</MudText>
-            <MudText Typo="Typo.subtitle2">Billing State: @_selectedCustomer.BillingState</MudText>
-            <MudText Typo="Typo.subtitle2">Billing Zip: @_selectedCustomer.BillingZip</MudText>
-            <MudText Typo="Typo.subtitle2">Billing Country: @_selectedCustomer.BillingCountry</MudText>
-            <!-- Orders List Table Placeholder -->
-            <MudTable T="CascadeWebApp.Models.Order" Dense="true">
-                <HeaderContent>
-                    <MudTh>Order #</MudTh>
-                    <MudTh>Order Date</MudTh>
-                    <MudTh>Studio</MudTh>
-                    <MudTh>Est Ship Date</MudTh>
-                    <MudTh>Shipping Deadline</MudTh>
-                    <MudTh>Shipping Method</MudTh>
-                    <MudTh>Partial</MudTh>
-                    <MudTh>Order Status</MudTh>
-                </HeaderContent>
-                <RowTemplate>
-                    <MudTd>SampleOrder</MudTd>
-                    <MudTd>2025-08-17</MudTd>
-                    <MudTd>@_selectedCustomer.Studio</MudTd>
-                    <MudTd>2025-08-20</MudTd>
-                    <MudTd>2025-08-21</MudTd>
-                    <MudTd>UPS</MudTd>
-                    <MudTd>Yes</MudTd>
-                    <MudTd>Processing</MudTd>
-                </RowTemplate>
-            </MudTable>
-        </MudDialogContent>
-        <MudDialogActions>
-            <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
-        </MudDialogActions>
-    }
-</MudDialog>
+@if (_showModal && _selectedCustomer != null)
+{
+    <MudOverlay @onclick="CloseModal" />
+    <MudPaper Class="fixed inset-0 z-50 flex items-center justify-center p-4" Style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1300; background-color: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;">
+        <MudPaper Class="p-6 max-w-md w-full" Style="max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto;">
+            <MudText Typo="Typo.h6" Class="mb-4">Customer Details - @_selectedCustomer.Studio</MudText>
+            <div>
+                <MudText Typo="Typo.subtitle2">Studio: @_selectedCustomer.Studio</MudText>
+                <MudText Typo="Typo.subtitle2">Email: @_selectedCustomer.Email</MudText>
+                <MudText Typo="Typo.subtitle2">Phone #: @_selectedCustomer.Phone</MudText>
+                <MudText Typo="Typo.subtitle2">Discount Level: @_selectedCustomer.DiscountLevel</MudText>
+                <MudText Typo="Typo.subtitle2">Payment Terms: @_selectedCustomer.PaymentTerms</MudText>
+                <MudText Typo="Typo.subtitle2">Contact First Name: @_selectedCustomer.ContactFirstName</MudText>
+                <MudText Typo="Typo.subtitle2">Contact Second Name: @_selectedCustomer.ContactSecondName</MudText>
+                <MudText Typo="Typo.subtitle2">Shipping Address Line 1: @_selectedCustomer.ShippingAddressLine1</MudText>
+                <MudText Typo="Typo.subtitle2">Shipping Address Line 2: @_selectedCustomer.ShippingAddressLine2</MudText>
+                <MudText Typo="Typo.subtitle2">Shipping City: @_selectedCustomer.ShippingCity</MudText>
+                <MudText Typo="Typo.subtitle2">Shipping State: @_selectedCustomer.ShippingState</MudText>
+                <MudText Typo="Typo.subtitle2">Shipping Zip: @_selectedCustomer.ShippingZip</MudText>
+                <MudText Typo="Typo.subtitle2">Shipping Country: @_selectedCustomer.ShippingCountry</MudText>
+                <MudText Typo="Typo.subtitle2">Billing Address Line 1: @_selectedCustomer.BillingAddressLine1</MudText>
+                <MudText Typo="Typo.subtitle2">Billing Address Line 2: @_selectedCustomer.BillingAddressLine2</MudText>
+                <MudText Typo="Typo.subtitle2">Billing City: @_selectedCustomer.BillingCity</MudText>
+                <MudText Typo="Typo.subtitle2">Billing State: @_selectedCustomer.BillingState</MudText>
+                <MudText Typo="Typo.subtitle2">Billing Zip: @_selectedCustomer.BillingZip</MudText>
+                <MudText Typo="Typo.subtitle2">Billing Country: @_selectedCustomer.BillingCountry</MudText>
+                <!-- Orders List Table Placeholder -->
+                <MudTable T="CascadeWebApp.Models.Order" Dense="true">
+                    <HeaderContent>
+                        <MudTh>Order #</MudTh>
+                        <MudTh>Order Date</MudTh>
+                        <MudTh>Studio</MudTh>
+                        <MudTh>Est Ship Date</MudTh>
+                        <MudTh>Shipping Deadline</MudTh>
+                        <MudTh>Shipping Method</MudTh>
+                        <MudTh>Partial</MudTh>
+                        <MudTh>Order Status</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd>SampleOrder</MudTd>
+                        <MudTd>2025-08-17</MudTd>
+                        <MudTd>@_selectedCustomer.Studio</MudTd>
+                        <MudTd>2025-08-20</MudTd>
+                        <MudTd>2025-08-21</MudTd>
+                        <MudTd>UPS</MudTd>
+                        <MudTd>Yes</MudTd>
+                        <MudTd>Processing</MudTd>
+                    </RowTemplate>
+                </MudTable>
+            </div>
+            <div class="mt-4 flex justify-end">
+                <MudButton OnClick="@CloseModal" Color="Color.Primary">Close</MudButton>
+            </div>
+        </MudPaper>
+    </MudPaper>
+}
 
 @code {
     private string _search = "";
