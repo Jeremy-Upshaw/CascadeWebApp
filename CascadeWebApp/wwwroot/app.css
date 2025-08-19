@@ -163,14 +163,14 @@ h1:focus {
 }
 
 .modal-detail-label {
-    font-size: 2rem; /* 4pt larger than value, reduced by 10% */
+    font-size: 1.8rem; /* 2rem reduced by 10% */
     color: #333; /* Dark color for readability */
     font-weight: 500;
     margin-bottom: 0.25rem;
 }
 
 .modal-detail-value {
-    font-size: 1.8rem; /* Previous size reduced by 10% */
+    font-size: 1.62rem; /* 1.8rem reduced by 10% */
     color: #222; /* Very dark color for values */
     font-weight: 400;
     line-height: 1.2;
