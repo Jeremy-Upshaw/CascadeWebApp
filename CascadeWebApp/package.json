@@ -11,7 +11,7 @@
   "description": "",
   "devDependencies": {
     "@material/ripple": "^14.0.0",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.7",
     "sass": "^1.90.0"
   },
   "dependencies": {

@@ -32,6 +32,9 @@
         .nav {
             flex-direction: column;
             flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+            padding-top: 1rem;
 
             .drawer-menu-heading {
                 padding-top: 2.5rem;
@@ -53,6 +56,8 @@
             .nav-link {
                 display: flex;
                 align-items: center;
+                justify-content: center;
+                text-align: center;
                 padding-top: 0.75rem;
                 padding-bottom: 0.75rem;
                 padding-left: $spacer * 1.5;

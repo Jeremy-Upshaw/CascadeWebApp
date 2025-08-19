@@ -292,3 +292,66 @@ main {
 #blazor-error-ui {
     z-index: 2000;
 }
+
+/* Navigation Drawer Toggle Fix and Menu Centering */
+/* Enhanced drawer nav menu centering and vertical alignment */
+.drawer .drawer-menu .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding-top: 1rem;
+    gap: 0.25rem;
+}
+
+.drawer .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.875rem 1.5rem;
+    margin: 0 0.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    min-height: 48px;
+    transition: all 0.2s ease;
+}
+
+.drawer-dark .nav-link {
+    justify-content: center;
+    text-align: center;
+}
+
+/* Ensure proper responsive behavior for drawer toggle */
+@media (max-width: 1199px) {
+    #layoutDrawer_nav {
+        transform: translateX(-100%);
+    }
+    
+    #layoutDrawer_content {
+        margin-left: 0;
+    }
+    
+    body.drawer-toggled #layoutDrawer_nav {
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 1200px) {
+    #layoutDrawer_nav {
+        transform: translateX(0);
+    }
+    
+    #layoutDrawer_content {
+        margin-left: var(--drawer-width);
+    }
+    
+    body.drawer-toggled #layoutDrawer_nav {
+        transform: translateX(-100%);
+    }
+    
+    body.drawer-toggled #layoutDrawer_content {
+        margin-left: 0;
+    }
+}
