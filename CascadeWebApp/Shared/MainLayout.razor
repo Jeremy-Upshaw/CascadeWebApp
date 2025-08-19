@@ -1,19 +1,75 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
+<!-- Top app bar navigation menu -->
+<nav class="top-app-bar navbar navbar-expand navbar-dark bg-dark">
+    <div class="container-fluid px-4">
+        <!-- Drawer toggle button -->
+        <button id="drawerToggle" class="btn btn-lg btn-icon order-1 order-lg-0" type="button">
+            <i class="material-icons">menu</i>
+        </button>
+        
+        <!-- Navbar brand with company logo -->
+        <a class="navbar-brand me-auto d-flex align-items-center" href="/">
+            <!-- TODO: Verify company logo path and optimize for navbar display -->
+            <img src="assets/img/company-logo.jpg" alt="Company Logo" style="height: 32px; margin-right: 0.5rem;" class="d-none d-sm-inline" />
+            <span class="text-uppercase font-monospace">Cascade Web App</span>
+        </a>
+        
+        <!-- Navbar items -->
+        <div class="d-flex align-items-center mx-3 me-lg-0">
+            <!-- Navbar links for larger screens -->
+            <ul class="navbar-nav d-none d-lg-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://learn.microsoft.com/aspnet/core/" target="_blank">Documentation</a>
+                </li>
+            </ul>
+            
+            <!-- Notifications dropdown placeholder -->
+            <div class="dropdown d-none d-sm-block me-3">
+                <button class="btn btn-lg btn-icon dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <i class="material-icons">notifications</i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><h6 class="dropdown-header">Notifications</h6></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">No new notifications</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Layout wrapper with drawer structure -->
+<div id="layoutDrawer">
+    <!-- Layout navigation (drawer) -->
+    <div id="layoutDrawer_nav">
         <NavMenu />
     </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
+    <!-- Layout content -->
+    <div id="layoutDrawer_content">
+        <!-- Main page content -->
+        <main>
             @Body
-        </article>
-    </main>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="footer py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Cascade Web App @DateTime.Now.Year</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 </div>
 
 <div id="blazor-error-ui">
