@@ -1,37 +1,83 @@
-<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Cascade.IMS</a>
-    </div>
-</div>
+<!-- Material Admin Pro drawer navigation -->
+<nav class="drawer accordion drawer-light bg-white" id="drawerAccordion">
+    <div class="drawer-menu">
+        <div class="nav">
+            <!-- Mobile-only account items -->
+            <div class="drawer-menu-heading d-sm-none">
+                Account
+            </div>
+            
+            <!-- Mobile-only notification items -->
+            <a class="nav-link d-sm-none" href="#">
+                <div class="nav-link-icon">
+                    <i class="material-icons">notifications</i>
+                </div>
+                Notifications
+            </a>
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+            <!-- Divider -->
+            <div class="drawer-menu-divider d-sm-none"></div>
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
+            <!-- Main navigation section -->
+            <div class="drawer-menu-heading">
+                Navigation
+            </div>
+
+            <!-- Home/Dashboard -->
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                <div class="nav-link-icon">
+                    <i class="material-icons">dashboard</i>
+                </div>
+                Home
             </NavLink>
-        </div>
-        <div class="nav-item px-3">
+
+            <!-- Items -->
             <NavLink class="nav-link" href="items">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Items
+                <div class="nav-link-icon">
+                    <i class="material-icons">inventory</i>
+                </div>
+                Items
             </NavLink>
-        </div>
-        <div class="nav-item px-3">
+
+            <!-- Orders -->
             <NavLink class="nav-link" href="orders">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Orders
+                <div class="nav-link-icon">
+                    <i class="material-icons">shopping_cart</i>
+                </div>
+                Orders
             </NavLink>
-        </div>
-        <div class="nav-item px-3">
+
+            <!-- Customers -->
             <NavLink class="nav-link" href="customers">
-                <span class="bi bi-person" aria-hidden="true"></span> Customers
+                <div class="nav-link-icon">
+                    <i class="material-icons">people</i>
+                </div>
+                Customers
             </NavLink>
-        </div>
-        <div class="nav-item px-3">
+
+            <!-- Batches -->
             <NavLink class="nav-link" href="batches">
-                <span class="bi bi-box-seam" aria-hidden="true"></span> Batches
+                <div class="nav-link-icon">
+                    <i class="material-icons">category</i>
+                </div>
+                Batches
             </NavLink>
+            
+            <!-- Divider -->
+            <div class="drawer-menu-divider"></div>
+            
+            <!-- Additional section -->
+            <div class="drawer-menu-heading">
+                Resources
+            </div>
+            
+            <!-- Documentation -->
+            <a class="nav-link" href="https://learn.microsoft.com/aspnet/core/" target="_blank">
+                <div class="nav-link-icon">
+                    <i class="material-icons">help</i>
+                </div>
+                Documentation
+            </a>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>
