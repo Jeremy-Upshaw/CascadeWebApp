@@ -4,7 +4,7 @@
 
 // Bring in Material ripple for use with navs
 
-@use "@material/ripple";
+
 
 // Apply ripple effect to base nav links
 
@@ -14,10 +14,10 @@
         overflow: hidden;
     }
     .nav-link:not(.active) {
-        @include ripple.surface;
-        @include ripple.radius-bounded;
-        @include ripple.states-base-color($primary);
-        @include ripple.states-opacities((hover: .08, focus: .12, press: .16));
+        
+        
+        
+        
     }
 }
 

@@ -2,9 +2,7 @@
 // * * Chips * *
 // * * * * * * *
 
-// Bring in Material ripple for use with chips
-
-@use "@material/ripple";
+// Simple chip effects without Material dependencies
 
 // Global styling for custom chip component
 
@@ -14,10 +12,15 @@
     padding: 0.25rem;
 
     .chip {
-        @include ripple.surface;
-        @include ripple.radius-bounded;
-        @include ripple.states-base-color($gray-800);
-        @include ripple.states-opacities((hover: .08, focus: .12, press: .16));
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.2s ease;
+        
+        &:hover {
+            background-color: rgba($gray-800, 0.08);
+        }
 
         position: relative;
         overflow: hidden;
@@ -40,8 +43,8 @@
         color: fade-out($black, .13);
 
         &.active {
-            @include ripple.states-base-color($primary);
-            @include ripple.states-opacities((hover: .08, focus: .12, press: .24));
+            
+            
             color: $primary;
             background-color: fade-out($primary, 0.92);
         }

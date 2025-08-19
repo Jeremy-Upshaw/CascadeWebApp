@@ -2,9 +2,7 @@
 // * * Buttons * *
 // * * * * * * * *
 
-// Bring in Material ripple for use with buttons
-
-@use "@material/ripple";
+// Simple button effects without Material dependencies
 
 //
 // Global button defaults
@@ -33,14 +31,11 @@
 $value in $theme-colors {
     .btn-#{$color} {
         @include button-variant($value, $value);
-        @include ripple.surface;
-        @include ripple.radius-bounded;
-        @include ripple.states-base-color(color-contrast($value));
-        @include ripple.states-opacities((hover: .06, focus: .12, press: .18));
         overflow: hidden;
         position: relative;
         border: none;
         padding: add($btn-padding-y, $btn-border-width) add($btn-padding-x, $btn-border-width);
+        transition: all 0.2s ease;
 
         &:hover,
         &:focus {
@@ -75,14 +70,11 @@ $value in $theme-colors {
     .btn-raised-#{$color} {
         @extend .shadow-2;
         @include button-variant($value, $value);
-        @include ripple.surface;
-        @include ripple.radius-bounded;
-        @include ripple.states-base-color(color-contrast($value));
-        @include ripple.states-opacities((hover: .06, focus: .12, press: .18));
         overflow: hidden;
         position: relative;
         border: none;
         padding: add($btn-padding-y, $btn-border-width) add($btn-padding-x, $btn-border-width);
+        transition: all 0.2s ease;
 
         &:hover,
         &:focus {
@@ -122,23 +114,17 @@ $value in $theme-colors {
 $value in $theme-colors {
     .btn-outline-#{$color} {
         @include button-outline-variant($value);
-        @include ripple.surface;
-        @include ripple.radius-bounded;
-        @include ripple.states-base-color($value);
-        @include ripple.states-opacities((hover: .06, focus: .12, press: .18));
         overflow: hidden;
         position: relative;
+        transition: all 0.2s ease;
 
         &:hover,
-        &:focus,
-        &:active {
-            color: $value;
-            background-color: transparent;
+        &:focus {
+            background-color: $medium-gray;
         }
 
         &:active {
-            color: $value !important;
-            background-color: transparent !important;
+            background-color: $medium-gray;
         }
     }
 }
@@ -152,15 +138,12 @@ $value in $theme-colors {
 @each $color,
 $value in $theme-colors {
     .btn-text-#{$color} {
-        @include ripple.surface;
-        @include ripple.radius-bounded;
-        @include ripple.states-base-color($value);
-        @include ripple.states-opacities((hover: .06, focus: .12, press: .18));
         overflow: hidden;
         position: relative;
         border: none;
         padding: add($btn-padding-y, $btn-border-width) add($btn-padding-x * 0.5, $btn-border-width);
         color: $value;
+        transition: all 0.2s ease;
 
         &:hover,
         &:focus,

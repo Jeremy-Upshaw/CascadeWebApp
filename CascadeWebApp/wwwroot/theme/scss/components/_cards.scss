@@ -2,9 +2,7 @@
 // * * Cards * *
 // * * * * * * *
 
-// Bring in Material ripple for use with collapsible card
-
-@use "@material/ripple";
+// Simple card effects without Material dependencies
 
 // 
 // Global card defaults
@@ -146,10 +144,6 @@
     overflow: hidden;
 
     .card-header {
-        @include ripple.surface;
-        @include ripple.radius-bounded;
-        @include ripple.states-base-color($primary);
-        @include ripple.states-opacities((hover: .1, focus: .15, press: .2));
         overflow: hidden;
         cursor: pointer;
         user-select: none;
@@ -157,6 +151,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: rgba($medium-gray, 0.1);
+        }
 
         .card-header-icon {
             color: $gray-600;
