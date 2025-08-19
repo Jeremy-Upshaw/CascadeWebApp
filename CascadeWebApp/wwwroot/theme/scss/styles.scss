@@ -8,13 +8,13 @@
 // * * Import Bootstrap  * *
 // * * * * * * * * * * * * *
 
-@import 'bootstrap/scss/bootstrap';
+@import '../../../node_modules/bootstrap/scss/bootstrap';
 
 // * * * * * * * * * * * * * * * * * * * * *
 // * * Import Ripple Material Component  * *
 // * * * * * * * * * * * * * * * * * * * * *
 
-@import '@material/ripple/styles';
+@import '../../../node_modules/@material/ripple/styles';
 
 // * * * * * * * * * * * * * *
 // * * Import Custom SCSS  * *
