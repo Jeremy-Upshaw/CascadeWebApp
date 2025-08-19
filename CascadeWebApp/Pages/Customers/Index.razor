@@ -49,7 +49,7 @@
                 </div>
                 <div class="modal-detail-field">
                     <div class="modal-detail-label">Phone #</div>
-                    <div class="modal-detail-value">@_selectedCustomer.Phone</div>
+                    <div class="modal-detail-value">@FormatPhoneNumber(_selectedCustomer.Phone)</div>
                 </div>
                 <div class="modal-detail-field">
                     <div class="modal-detail-label">Discount Level</div>
@@ -175,5 +175,29 @@
     {
         _showModal = false;
         _selectedCustomer = null;
+    }
+
+    private string FormatPhoneNumber(string phone)
+    {
+        if (string.IsNullOrWhiteSpace(phone))
+            return phone;
+        
+        // Remove all non-digit characters
+        var digits = new string(phone.Where(char.IsDigit).ToArray());
+        
+        // If we have exactly 7 digits, assume it needs a default area code (e.g., 555)
+        if (digits.Length == 7)
+        {
+            digits = "555" + digits;
+        }
+        
+        // If we have exactly 10 digits, format as 999-999-9999
+        if (digits.Length == 10)
+        {
+            return $"{digits.Substring(0, 3)}-{digits.Substring(3, 3)}-{digits.Substring(6, 4)}";
+        }
+        
+        // Return original if we can't format it properly
+        return phone;
     }
 }
