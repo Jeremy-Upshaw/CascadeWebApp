@@ -1,0 +1,176 @@
+// * * * * * * * * * * * * * * *
+// * * Table Enhancements  * *
+// * * * * * * * * * * * * * * *
+
+// Page titles above tables - centered, ALL CAPS, 2.5x base font size
+.table-page-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5rem; // 2.5x the base font size
+    font-weight: 600;
+    margin: 1.5rem 0;
+    color: white !important; // Force white color to be visible on dark background
+}
+
+// Table container with rounded corners
+.table-container {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+// Search functionality with toggle icon
+.search-container {
+    position: relative;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.search-toggle-icon {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: $medium-gray;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: rgba($medium-gray, 0.1);
+        color: darken($medium-gray, 10%);
+    }
+}
+
+.search-input {
+    border-radius: 2rem;
+    background-color: $medium-gray;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    width: 250px;
+    transition: all 0.3s ease;
+    
+    &::placeholder {
+        color: rgba(white, 0.8);
+    }
+    
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba($medium-gray, 0.3);
+        background-color: darken($medium-gray, 5%);
+    }
+}
+
+.search-input.hidden {
+    display: none;
+}
+
+// Table column headers with hover arrows
+.datatable-table th {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    
+    &:hover .sort-arrows {
+        opacity: 1;
+    }
+}
+
+// Sort arrows - hidden by default, shown on hover
+.sort-arrows {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    font-size: 0.8rem;
+    line-height: 1;
+    color: $medium-gray;
+}
+
+.sort-arrow-up {
+    display: block;
+    margin-bottom: -2px;
+}
+
+.sort-arrow-down {
+    display: block;
+    margin-top: -2px;
+}
+
+// When column is actively sorted
+.datatable-table th.sort-asc,
+.datatable-table th.sort-desc {
+    .sort-arrows {
+        opacity: 1;
+    }
+}
+
+.datatable-table th.sort-asc .sort-arrow-up,
+.datatable-table th.sort-desc .sort-arrow-down {
+    color: $dark;
+    font-weight: bold;
+}
+
+// Enhanced table styling for app tables
+.app-table {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    
+    th, td {
+        position: relative;
+        
+        &:first-child {
+            border-left: none;
+        }
+        
+        &:last-child {
+            border-right: none;
+        }
+    }
+    
+    thead th {
+        &:first-child {
+            border-top-left-radius: 0.75rem;
+        }
+        
+        &:last-child {
+            border-top-right-radius: 0.75rem;
+        }
+    }
+    
+    tbody tr:last-child {
+        td:first-child {
+            border-bottom-left-radius: 0.75rem;
+        }
+        
+        td:last-child {
+            border-bottom-right-radius: 0.75rem;
+        }
+    }
+}
+
+// Update existing table-scroll to work with rounded corners
+.table-scroll {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    
+    .app-table {
+        border-radius: 0;
+        
+        thead th {
+            border-radius: 0;
+        }
+        
+        tbody tr:last-child td {
+            border-radius: 0;
+        }
+    }
+}

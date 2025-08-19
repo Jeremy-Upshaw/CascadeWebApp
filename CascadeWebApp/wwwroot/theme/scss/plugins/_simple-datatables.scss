@@ -122,7 +122,7 @@
 // * * Updated * *
 // * * * * * * * *
 .datatable-pagination a:hover {
-    background-color: $pagination-hover-bg;
+    background-color: $medium-gray;
 }
 
 // * * * * * * * *
@@ -131,7 +131,7 @@
 .datatable-pagination .active a,
 .datatable-pagination .active a:focus,
 .datatable-pagination .active a:hover {
-    background-color: $pagination-active-bg;
+    background-color: $medium-gray;
     // cursor: default;
 }
 
