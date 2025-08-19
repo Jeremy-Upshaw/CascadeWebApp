@@ -1,3 +1,16 @@
+// Function to initialize drawer toggle
+function initializeDrawerToggle() {
+    // Toggle the side navigation
+    const drawerToggle = document.querySelector('#drawerToggle');
+    if (drawerToggle && !drawerToggle.hasAttribute('data-drawer-initialized')) {
+        drawerToggle.setAttribute('data-drawer-initialized', 'true');
+        drawerToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('drawer-toggled');
+        });
+    }
+}
+
 window.addEventListener('DOMContentLoaded', event => {
     // Enable tooltips globally
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -20,14 +33,11 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
-    // Toggle the side navigation
-    const drawerToggle = document.body.querySelector('#drawerToggle');
-    if (drawerToggle) {
-        drawerToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('drawer-toggled');
-        });
-    }
+    // Initialize drawer toggle
+    initializeDrawerToggle();
+    
+    // Also initialize after a slight delay to handle Blazor rendering
+    setTimeout(initializeDrawerToggle, 100);
 
     // Close side navigation when width < LG
     const drawerContent = document.body.querySelector('#layoutDrawer_content');
@@ -71,3 +81,6 @@ window.addEventListener('DOMContentLoaded', event => {
         targetAnchor.classList.add('active');
     });
 });
+
+// Also try to initialize when Blazor is ready
+window.addEventListener('load', initializeDrawerToggle);
