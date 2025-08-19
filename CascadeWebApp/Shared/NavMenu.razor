@@ -1,83 +1,51 @@
 <!-- Material Admin Pro drawer navigation -->
-<nav class="drawer accordion drawer-light bg-white" id="drawerAccordion">
+<nav class="drawer accordion drawer-dark bg-dark text-light" id="drawerAccordion">
     <div class="drawer-menu">
-        <div class="nav">
-            <!-- Mobile-only account items -->
-            <div class="drawer-menu-heading d-sm-none">
-                Account
-            </div>
-            
-            <!-- Mobile-only notification items -->
-            <a class="nav-link d-sm-none" href="#">
-                <div class="nav-link-icon">
-                    <i class="material-icons">notifications</i>
-                </div>
-                Notifications
-            </a>
-
-            <!-- Divider -->
-            <div class="drawer-menu-divider d-sm-none"></div>
-
+        <div class="nav d-flex flex-column align-items-center text-center">
             <!-- Main navigation section -->
-            <div class="drawer-menu-heading">
+            <div class="drawer-menu-heading text-secondary">
                 Navigation
             </div>
 
             <!-- Home/Dashboard -->
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <div class="nav-link-icon">
-                    <i class="material-icons">dashboard</i>
+            <NavLink class="nav-link text-light d-flex flex-column align-items-center py-3" href="" Match="NavLinkMatch.All">
+                <div class="nav-link-icon mb-2">
+                    <i class="material-icons" style="font-size: 2rem;">dashboard</i>
                 </div>
                 Home
             </NavLink>
 
             <!-- Items -->
-            <NavLink class="nav-link" href="items">
-                <div class="nav-link-icon">
-                    <i class="material-icons">inventory</i>
+            <NavLink class="nav-link text-light d-flex flex-column align-items-center py-3" href="items">
+                <div class="nav-link-icon mb-2">
+                    <i class="material-icons" style="font-size: 2rem;">inventory</i>
                 </div>
                 Items
             </NavLink>
 
             <!-- Orders -->
-            <NavLink class="nav-link" href="orders">
-                <div class="nav-link-icon">
-                    <i class="material-icons">shopping_cart</i>
+            <NavLink class="nav-link text-light d-flex flex-column align-items-center py-3" href="orders">
+                <div class="nav-link-icon mb-2">
+                    <i class="material-icons" style="font-size: 2rem;">shopping_cart</i>
                 </div>
                 Orders
             </NavLink>
 
             <!-- Customers -->
-            <NavLink class="nav-link" href="customers">
-                <div class="nav-link-icon">
-                    <i class="material-icons">people</i>
+            <NavLink class="nav-link text-light d-flex flex-column align-items-center py-3" href="customers">
+                <div class="nav-link-icon mb-2">
+                    <i class="material-icons" style="font-size: 2rem;">people</i>
                 </div>
                 Customers
             </NavLink>
 
             <!-- Batches -->
-            <NavLink class="nav-link" href="batches">
-                <div class="nav-link-icon">
-                    <i class="material-icons">category</i>
+            <NavLink class="nav-link text-light d-flex flex-column align-items-center py-3" href="batches">
+                <div class="nav-link-icon mb-2">
+                    <i class="material-icons" style="font-size: 2rem;">category</i>
                 </div>
                 Batches
             </NavLink>
-            
-            <!-- Divider -->
-            <div class="drawer-menu-divider"></div>
-            
-            <!-- Additional section -->
-            <div class="drawer-menu-heading">
-                Resources
-            </div>
-            
-            <!-- Documentation -->
-            <a class="nav-link" href="https://learn.microsoft.com/aspnet/core/" target="_blank">
-                <div class="nav-link-icon">
-                    <i class="material-icons">help</i>
-                </div>
-                Documentation
-            </a>
         </div>
     </div>
 </nav>
