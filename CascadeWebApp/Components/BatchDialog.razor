@@ -9,10 +9,9 @@
 {
     <div class="modal-backdrop" @onclick="@(() => OnClose.InvokeAsync())"></div>
     <div class="modal-dialog">
-        <div class="modal-header">
-            <h5>Batch Details - @Batch.BatchNumber</h5>
-            <button type="button" class="close" @onclick="@(() => OnClose.InvokeAsync())">&times;</button>
-        </div>
+        <!-- Floating close button -->
+        <button type="button" class="modal-close-floating" @onclick="@(() => OnClose.InvokeAsync())">&times;</button>
+        
         <div class="modal-body">
             <!-- Title field - Batch Number centered without label -->
             <div class="modal-detail-title">@Batch.BatchNumber</div>

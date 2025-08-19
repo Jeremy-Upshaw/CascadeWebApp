@@ -41,10 +41,9 @@
 {
     <div class="modal-backdrop" @onclick="CloseModal"></div>
     <div class="modal-dialog">
-        <div class="modal-header">
-            <h5>Order Details - @_selectedOrder.OrderNumber</h5>
-            <button type="button" class="close" @onclick="CloseModal">&times;</button>
-        </div>
+        <!-- Floating close button -->
+        <button type="button" class="modal-close-floating" @onclick="CloseModal">&times;</button>
+        
         <div class="modal-body">
             <!-- Title field - Order Number centered without label -->
             <div class="modal-detail-title">@_selectedOrder.OrderNumber</div>
