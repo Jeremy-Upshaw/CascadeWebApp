@@ -2,10 +2,16 @@
 @inject CascadeWebApp.Services.BatchService BatchService
 
 <div class="pa-4" style="background: #222; color: #fff;">
-    <h5>Batch List</h5>
-    <input class="mb-2" placeholder="Search…" @bind="_search" />
-    <div class="table-scroll">
-        <table class="app-table">
+    <h5 class="table-page-title">Batch List</h5>
+    <div class="search-container">
+        <input class="search-input" placeholder="Search batches…" @bind="_search" />
+        <button class="search-toggle-icon" title="Toggle search">
+            <i class="material-icons">search</i>
+        </button>
+    </div>
+    <div class="table-container">
+        <div class="table-scroll">
+            <table class="app-table">
             <thead>
                 <tr>
                     <th>Batch #</th>
@@ -28,6 +34,7 @@
                 }
             </tbody>
         </table>
+        </div>
     </div>
 </div>
 

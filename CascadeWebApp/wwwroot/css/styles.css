@@ -17542,10 +17542,10 @@ div.code-toolbar > .toolbar > .toolbar-item button {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-primary:hover, .btn-primary:focus {
-  background-color: #6200ea;
+  background-color: #565759;
 }
 .btn-primary:active {
-  background-color: #6200ea;
+  background-color: #565759;
 }
 .btn-primary.btn-sm, .btn-group-sm > .btn-primary.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-primary,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-primary {
@@ -17664,10 +17664,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-primary {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-secondary:hover, .btn-secondary:focus {
-  background-color: #9c27b0;
+  background-color: #565759;
 }
 .btn-secondary:active {
-  background-color: #9c27b0;
+  background-color: #565759;
 }
 .btn-secondary.btn-sm, .btn-group-sm > .btn-secondary.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-secondary,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-secondary {
@@ -17786,10 +17786,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-secondary
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-success:hover, .btn-success:focus {
-  background-color: #2e7d32;
+  background-color: #565759;
 }
 .btn-success:active {
-  background-color: #2e7d32;
+  background-color: #565759;
 }
 .btn-success.btn-sm, .btn-group-sm > .btn-success.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-success,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-success {
@@ -17908,10 +17908,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-success {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-info:hover, .btn-info:focus {
-  background-color: #26a69a;
+  background-color: #565759;
 }
 .btn-info:active {
-  background-color: #26a69a;
+  background-color: #565759;
 }
 .btn-info.btn-sm, .btn-group-sm > .btn-info.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-info,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-info {
@@ -18030,10 +18030,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-info {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-warning:hover, .btn-warning:focus {
-  background-color: #ffb300;
+  background-color: #565759;
 }
 .btn-warning:active {
-  background-color: #ffb300;
+  background-color: #565759;
 }
 .btn-warning.btn-sm, .btn-group-sm > .btn-warning.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-warning,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-warning {
@@ -18152,10 +18152,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-warning {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-danger:hover, .btn-danger:focus {
-  background-color: #d32f2f;
+  background-color: #565759;
 }
 .btn-danger:active {
-  background-color: #d32f2f;
+  background-color: #565759;
 }
 .btn-danger.btn-sm, .btn-group-sm > .btn-danger.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-danger,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-danger {
@@ -18274,10 +18274,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-danger {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-light:hover, .btn-light:focus {
-  background-color: #f5f5f5;
+  background-color: #565759;
 }
 .btn-light:active {
-  background-color: #f5f5f5;
+  background-color: #565759;
 }
 .btn-light.btn-sm, .btn-group-sm > .btn-light.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-light,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-light {
@@ -18396,10 +18396,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-light {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-dark:hover, .btn-dark:focus {
-  background-color: #212121;
+  background-color: #565759;
 }
 .btn-dark:active {
-  background-color: #212121;
+  background-color: #565759;
 }
 .btn-dark.btn-sm, .btn-group-sm > .btn-dark.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-dark,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-dark {
@@ -18518,10 +18518,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-dark {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-white:hover, .btn-white:focus {
-  background-color: #fff;
+  background-color: #565759;
 }
 .btn-white:active {
-  background-color: #fff;
+  background-color: #565759;
 }
 .btn-white.btn-sm, .btn-group-sm > .btn-white.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-white,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-white {
@@ -18640,10 +18640,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-white {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-black:hover, .btn-black:focus {
-  background-color: #000;
+  background-color: #565759;
 }
 .btn-black:active {
-  background-color: #000;
+  background-color: #565759;
 }
 .btn-black.btn-sm, .btn-group-sm > .btn-black.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-black,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-black {
@@ -18762,10 +18762,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-black {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-gray:hover, .btn-gray:focus {
-  background-color: #9e9e9e;
+  background-color: #565759;
 }
 .btn-gray:active {
-  background-color: #9e9e9e;
+  background-color: #565759;
 }
 .btn-gray.btn-sm, .btn-group-sm > .btn-gray.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-gray,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-gray {
@@ -18884,10 +18884,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-gray {
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-primary:hover, .btn-raised-primary:focus {
-  background-color: #6200ea;
+  background-color: #565759;
 }
 .btn-raised-primary:active {
-  background-color: #6200ea;
+  background-color: #565759;
 }
 .btn-raised-primary.btn-sm, .btn-group-sm > .btn-raised-primary.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-primary,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-primary {
@@ -19006,10 +19006,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-pr
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-secondary:hover, .btn-raised-secondary:focus {
-  background-color: #9c27b0;
+  background-color: #565759;
 }
 .btn-raised-secondary:active {
-  background-color: #9c27b0;
+  background-color: #565759;
 }
 .btn-raised-secondary.btn-sm, .btn-group-sm > .btn-raised-secondary.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-secondary,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-secondary {
@@ -19128,10 +19128,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-se
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-success:hover, .btn-raised-success:focus {
-  background-color: #2e7d32;
+  background-color: #565759;
 }
 .btn-raised-success:active {
-  background-color: #2e7d32;
+  background-color: #565759;
 }
 .btn-raised-success.btn-sm, .btn-group-sm > .btn-raised-success.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-success,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-success {
@@ -19250,10 +19250,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-su
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-info:hover, .btn-raised-info:focus {
-  background-color: #26a69a;
+  background-color: #565759;
 }
 .btn-raised-info:active {
-  background-color: #26a69a;
+  background-color: #565759;
 }
 .btn-raised-info.btn-sm, .btn-group-sm > .btn-raised-info.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-info,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-info {
@@ -19372,10 +19372,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-in
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-warning:hover, .btn-raised-warning:focus {
-  background-color: #ffb300;
+  background-color: #565759;
 }
 .btn-raised-warning:active {
-  background-color: #ffb300;
+  background-color: #565759;
 }
 .btn-raised-warning.btn-sm, .btn-group-sm > .btn-raised-warning.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-warning,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-warning {
@@ -19494,10 +19494,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-wa
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-danger:hover, .btn-raised-danger:focus {
-  background-color: #d32f2f;
+  background-color: #565759;
 }
 .btn-raised-danger:active {
-  background-color: #d32f2f;
+  background-color: #565759;
 }
 .btn-raised-danger.btn-sm, .btn-group-sm > .btn-raised-danger.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-danger,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-danger {
@@ -19616,10 +19616,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-da
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-light:hover, .btn-raised-light:focus {
-  background-color: #f5f5f5;
+  background-color: #565759;
 }
 .btn-raised-light:active {
-  background-color: #f5f5f5;
+  background-color: #565759;
 }
 .btn-raised-light.btn-sm, .btn-group-sm > .btn-raised-light.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-light,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-light {
@@ -19738,10 +19738,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-li
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-dark:hover, .btn-raised-dark:focus {
-  background-color: #212121;
+  background-color: #565759;
 }
 .btn-raised-dark:active {
-  background-color: #212121;
+  background-color: #565759;
 }
 .btn-raised-dark.btn-sm, .btn-group-sm > .btn-raised-dark.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-dark,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-dark {
@@ -19860,10 +19860,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-da
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-white:hover, .btn-raised-white:focus {
-  background-color: #fff;
+  background-color: #565759;
 }
 .btn-raised-white:active {
-  background-color: #fff;
+  background-color: #565759;
 }
 .btn-raised-white.btn-sm, .btn-group-sm > .btn-raised-white.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-white,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-white {
@@ -19982,10 +19982,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-wh
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-black:hover, .btn-raised-black:focus {
-  background-color: #000;
+  background-color: #565759;
 }
 .btn-raised-black:active {
-  background-color: #000;
+  background-color: #565759;
 }
 .btn-raised-black.btn-sm, .btn-group-sm > .btn-raised-black.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-black,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-black {
@@ -20104,10 +20104,10 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-lg > button.btn-raised-bl
   --mdc-ripple-fg-opacity: var(--mdc-ripple-press-opacity, 0.18);
 }
 .btn-raised-gray:hover, .btn-raised-gray:focus {
-  background-color: #9e9e9e;
+  background-color: #565759;
 }
 .btn-raised-gray:active {
-  background-color: #9e9e9e;
+  background-color: #565759;
 }
 .btn-raised-gray.btn-sm, .btn-group-sm > .btn-raised-gray.btn, div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > a.btn-raised-gray,
 div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-raised-gray {
@@ -24269,6 +24269,151 @@ mwc-circular-progress {
   top: 7rem;
 }
 
+.table-page-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 1.5rem 0;
+  color: white !important;
+}
+
+.table-container {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.search-container {
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.search-toggle-icon {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #565759;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+.search-toggle-icon:hover {
+  background-color: rgba(86, 87, 89, 0.1);
+  color: rgb(60.9371428571, 61.6457142857, 63.0628571429);
+}
+
+.search-input {
+  border-radius: 2rem;
+  background-color: #565759;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(86, 87, 89, 0.3);
+  background-color: rgb(73.4685714286, 74.3228571429, 76.0314285714);
+}
+
+.search-input.hidden {
+  display: none;
+}
+
+.datatable-table th {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+.datatable-table th:hover .sort-arrows {
+  opacity: 1;
+}
+
+.sort-arrows {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  font-size: 0.8rem;
+  line-height: 1;
+  color: #565759;
+}
+
+.sort-arrow-up {
+  display: block;
+  margin-bottom: -2px;
+}
+
+.sort-arrow-down {
+  display: block;
+  margin-top: -2px;
+}
+
+.datatable-table th.sort-asc .sort-arrows,
+.datatable-table th.sort-desc .sort-arrows {
+  opacity: 1;
+}
+
+.datatable-table th.sort-asc .sort-arrow-up,
+.datatable-table th.sort-desc .sort-arrow-down {
+  color: #212121;
+  font-weight: bold;
+}
+
+.app-table {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.app-table th, .app-table td {
+  position: relative;
+}
+.app-table th:first-child, .app-table td:first-child {
+  border-left: none;
+}
+.app-table th:last-child, .app-table td:last-child {
+  border-right: none;
+}
+.app-table thead th:first-child {
+  border-top-left-radius: 0.75rem;
+}
+.app-table thead th:last-child {
+  border-top-right-radius: 0.75rem;
+}
+.app-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 0.75rem;
+}
+.app-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 0.75rem;
+}
+
+.table-scroll {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.table-scroll .app-table {
+  border-radius: 0;
+}
+.table-scroll .app-table thead th {
+  border-radius: 0;
+}
+.table-scroll .app-table tbody tr:last-child td {
+  border-radius: 0;
+}
+
 .toast {
   border: none;
   line-height: 1.25rem;
@@ -24773,13 +24918,13 @@ pre[class*=language-] {
 
 /* PAGER */
 .datatable-pagination a:hover {
-  background-color: var(--bs-tertiary-bg);
+  background-color: #565759;
 }
 
 .datatable-pagination .active a,
 .datatable-pagination .active a:focus,
 .datatable-pagination .active a:hover {
-  background-color: #6200ea;
+  background-color: #565759;
 }
 
 .datatable-pagination .ellipsis a,

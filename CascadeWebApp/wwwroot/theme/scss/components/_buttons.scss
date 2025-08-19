@@ -44,11 +44,11 @@ $value in $theme-colors {
 
         &:hover,
         &:focus {
-            background-color: $value;
+            background-color: $medium-gray;
         }
 
         &:active {
-            background-color: $value;
+            background-color: $medium-gray;
         }
 
         // Support for button sizes
@@ -87,12 +87,12 @@ $value in $theme-colors {
         &:hover,
         &:focus {
             @extend .shadow-4;
-            background-color: $value;
+            background-color: $medium-gray;
         }
 
         &:active {
             @extend .shadow-8;
-            background-color: $value;
+            background-color: $medium-gray;
         }
 
         &:disabled {
