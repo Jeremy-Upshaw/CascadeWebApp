@@ -11,6 +11,16 @@ function initializeDrawerToggle() {
     }
 }
 
+// Enhanced initialization for Blazor Server compatibility
+function ensureDrawerToggleInit() {
+    const drawerToggle = document.querySelector('#drawerToggle');
+    if (drawerToggle && !drawerToggle.hasAttribute('data-drawer-initialized')) {
+        initializeDrawerToggle();
+        return true;
+    }
+    return false;
+}
+
 window.addEventListener('DOMContentLoaded', event => {
     // Enable tooltips globally
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -38,6 +48,17 @@ window.addEventListener('DOMContentLoaded', event => {
     
     // Also initialize after a slight delay to handle Blazor rendering
     setTimeout(initializeDrawerToggle, 100);
+    
+    // Additional initialization attempts with longer delays for Blazor Server
+    setTimeout(ensureDrawerToggleInit, 500);
+    setTimeout(ensureDrawerToggleInit, 1000);
+    
+    // Also initialize when Blazor finishes loading (if available)
+    if (typeof Blazor !== 'undefined') {
+        Blazor.addEventListener('enhancedload', () => {
+            setTimeout(ensureDrawerToggleInit, 50);
+        });
+    }
 
     // Close side navigation when width < LG
     const drawerContent = document.body.querySelector('#layoutDrawer_content');
