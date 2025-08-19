@@ -42,15 +42,24 @@
             <!-- Title field - Studio centered without label -->
             <div class="modal-detail-title">@_selectedCustomer.Studio</div>
             
-            <div class="modal-details">
+            <!-- First row: Contact Name, Email, Phone -->
+            <div class="modal-row">
+                <div class="modal-detail-field">
+                    <div class="modal-detail-label">Contact Name</div>
+                    <div class="modal-detail-value">@((_selectedCustomer.ContactFirstName + " " + _selectedCustomer.ContactSecondName).Trim())</div>
+                </div>
                 <div class="modal-detail-field">
                     <div class="modal-detail-label">Email</div>
                     <div class="modal-detail-value">@_selectedCustomer.Email</div>
                 </div>
                 <div class="modal-detail-field">
-                    <div class="modal-detail-label">Phone #</div>
+                    <div class="modal-detail-label">Phone Number</div>
                     <div class="modal-detail-value">@_selectedCustomer.Phone</div>
                 </div>
+            </div>
+
+            <!-- Second row: Discount Level, Payment Terms -->
+            <div class="modal-row">
                 <div class="modal-detail-field">
                     <div class="modal-detail-label">Discount Level</div>
                     <div class="modal-detail-value">@_selectedCustomer.DiscountLevel</div>
@@ -59,61 +68,36 @@
                     <div class="modal-detail-label">Payment Terms</div>
                     <div class="modal-detail-value">@_selectedCustomer.PaymentTerms</div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Contact First Name</div>
-                    <div class="modal-detail-value">@_selectedCustomer.ContactFirstName</div>
+            </div>
+
+            <!-- Address Sections -->
+            <div class="address-sections">
+                <!-- Shipping Address -->
+                <div class="address-section">
+                    <div class="address-section-label">Shipping Address</div>
+                    <div class="address-content">
+                        <div class="address-line">@_selectedCustomer.ShippingAddressLine1</div>
+                        @if (!string.IsNullOrWhiteSpace(_selectedCustomer.ShippingAddressLine2))
+                        {
+                            <div class="address-line">@_selectedCustomer.ShippingAddressLine2</div>
+                        }
+                        <div class="address-line">@_selectedCustomer.ShippingCity, @_selectedCustomer.ShippingState @_selectedCustomer.ShippingZip</div>
+                        <div class="address-line">@_selectedCustomer.ShippingCountry</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Contact Second Name</div>
-                    <div class="modal-detail-value">@_selectedCustomer.ContactSecondName</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Shipping Address Line 1</div>
-                    <div class="modal-detail-value">@_selectedCustomer.ShippingAddressLine1</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Shipping Address Line 2</div>
-                    <div class="modal-detail-value">@_selectedCustomer.ShippingAddressLine2</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Shipping City</div>
-                    <div class="modal-detail-value">@_selectedCustomer.ShippingCity</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Shipping State</div>
-                    <div class="modal-detail-value">@_selectedCustomer.ShippingState</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Shipping Zip</div>
-                    <div class="modal-detail-value">@_selectedCustomer.ShippingZip</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Shipping Country</div>
-                    <div class="modal-detail-value">@_selectedCustomer.ShippingCountry</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Billing Address Line 1</div>
-                    <div class="modal-detail-value">@_selectedCustomer.BillingAddressLine1</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Billing Address Line 2</div>
-                    <div class="modal-detail-value">@_selectedCustomer.BillingAddressLine2</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Billing City</div>
-                    <div class="modal-detail-value">@_selectedCustomer.BillingCity</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Billing State</div>
-                    <div class="modal-detail-value">@_selectedCustomer.BillingState</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Billing Zip</div>
-                    <div class="modal-detail-value">@_selectedCustomer.BillingZip</div>
-                </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Billing Country</div>
-                    <div class="modal-detail-value">@_selectedCustomer.BillingCountry</div>
+
+                <!-- Billing Address -->
+                <div class="address-section">
+                    <div class="address-section-label">Billing Address</div>
+                    <div class="address-content">
+                        <div class="address-line">@_selectedCustomer.BillingAddressLine1</div>
+                        @if (!string.IsNullOrWhiteSpace(_selectedCustomer.BillingAddressLine2))
+                        {
+                            <div class="address-line">@_selectedCustomer.BillingAddressLine2</div>
+                        }
+                        <div class="address-line">@_selectedCustomer.BillingCity, @_selectedCustomer.BillingState @_selectedCustomer.BillingZip</div>
+                        <div class="address-line">@_selectedCustomer.BillingCountry</div>
+                    </div>
                 </div>
             </div>
             <div class="table-scroll">
