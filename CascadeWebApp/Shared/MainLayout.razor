@@ -1,44 +1,18 @@
 ﻿@inherits LayoutComponentBase
 
 <!-- Top app bar navigation menu -->
-<nav class="top-app-bar navbar navbar-expand navbar-dark bg-dark">
+<nav class="top-app-bar navbar navbar-expand bg-dark">
     <div class="container-fluid px-4">
         <!-- Drawer toggle button -->
         <button id="drawerToggle" class="btn btn-lg btn-icon order-1 order-lg-0" type="button">
-            <i class="material-icons">menu</i>
+            <i class="material-icons text-white">menu</i>
         </button>
         
         <!-- Navbar brand with company logo -->
-        <a class="navbar-brand me-auto d-flex align-items-center" href="/">
-            <!-- TODO: Verify company logo path and optimize for navbar display -->
+        <a class="navbar-brand me-auto d-flex align-items-center text-white" href="/">
             <img src="assets/img/company-logo.jpg" alt="Company Logo" style="height: 32px; margin-right: 0.5rem;" class="d-none d-sm-inline" />
             <span class="text-uppercase font-monospace">Cascade Web App</span>
         </a>
-        
-        <!-- Navbar items -->
-        <div class="d-flex align-items-center mx-3 me-lg-0">
-            <!-- Navbar links for larger screens -->
-            <ul class="navbar-nav d-none d-lg-flex">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://learn.microsoft.com/aspnet/core/" target="_blank">Documentation</a>
-                </li>
-            </ul>
-            
-            <!-- Notifications dropdown placeholder -->
-            <div class="dropdown d-none d-sm-block me-3">
-                <button class="btn btn-lg btn-icon dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                    <i class="material-icons">notifications</i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><h6 class="dropdown-header">Notifications</h6></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">No new notifications</a></li>
-                </ul>
-            </div>
-        </div>
     </div>
 </nav>
 
@@ -57,14 +31,14 @@
         </main>
         
         <!-- Footer -->
-        <footer class="footer py-4 bg-light mt-auto">
+        <footer class="footer py-4 bg-dark text-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
                     <div class="text-muted">Copyright &copy; Cascade Web App @DateTime.Now.Year</div>
                     <div>
-                        <a href="#">Privacy Policy</a>
+                        <a href="#" class="text-light">Privacy Policy</a>
                         &middot;
-                        <a href="#">Terms &amp; Conditions</a>
+                        <a href="#" class="text-light">Terms &amp; Conditions</a>
                     </div>
                 </div>
             </div>
