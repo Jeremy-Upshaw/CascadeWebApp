@@ -12,3 +12,7 @@ obj/
 *.log
 *.db
 *.DS_Store
+
+# Theme files - keep organized versions, exclude originals
+CascadeWebApp/material-admin-pro-1.0.6/
+CascadeWebApp/material-admin-pro-1.0.6.zip
