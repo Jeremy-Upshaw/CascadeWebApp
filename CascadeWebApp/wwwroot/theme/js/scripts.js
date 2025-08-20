@@ -1,7 +1,5 @@
-// Function to initialize drawer toggle - DISABLED for fixed drawer layout
+// Function to initialize drawer toggle
 function initializeDrawerToggle() {
-    // Drawer toggle functionality disabled - drawer is now fixed and always visible
-    /*
     const drawerToggle = document.querySelector('#drawerToggle');
     if (drawerToggle && !drawerToggle.hasAttribute('data-drawer-initialized')) {
         drawerToggle.setAttribute('data-drawer-initialized', 'true');
@@ -10,19 +8,15 @@ function initializeDrawerToggle() {
             document.body.classList.toggle('drawer-toggled');
         });
     }
-    */
 }
 
-// Enhanced initialization for Blazor Server compatibility - DISABLED
+// Enhanced initialization for Blazor Server compatibility
 function ensureDrawerToggleInit() {
-    // Drawer toggle functionality disabled - drawer is now fixed and always visible
-    /*
     const drawerToggle = document.querySelector('#drawerToggle');
     if (drawerToggle && !drawerToggle.hasAttribute('data-drawer-initialized')) {
         initializeDrawerToggle();
         return true;
     }
-    */
     return false;
 }
 
@@ -65,14 +59,12 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
-    // Close side navigation when width < LG - DISABLED for fixed drawer
-    // The drawer now remains fixed and always visible on all screen sizes
-    /*
+    // Close side navigation when clicking content area on mobile
     const drawerContent = document.body.querySelector('#layoutDrawer_content');
     if (drawerContent) {
         drawerContent.addEventListener('click', event => {
-            const BOOTSTRAP_LG_WIDTH = 992;
-            if (window.innerWidth >= 992) {
+            const BOOTSTRAP_LG_WIDTH = 1200;
+            if (window.innerWidth >= BOOTSTRAP_LG_WIDTH) {
                 return;
             }
             if (document.body.classList.contains("drawer-toggled")) {
@@ -80,7 +72,6 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     }
-    */
 
 
     // Add active state to sidbar nav links

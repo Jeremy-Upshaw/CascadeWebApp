@@ -64,21 +64,21 @@ body {
     min-height: 100vh;
 }
 
-#layoutDrawer_nav {
+#layoutDrawer #layoutDrawer_nav {
     position: fixed;
     top: var(--top-app-bar-height);
     left: 0;
     width: var(--drawer-width);
     height: calc(100vh - var(--top-app-bar-height));
     z-index: 1040;
-    transform: translateX(-100%);
+    transform: translateX(-100%) !important;
     transition: transform 0.3s ease;
     overflow-y: auto;
 }
 
-#layoutDrawer_content {
+#layoutDrawer #layoutDrawer_content {
     flex: 1;
-    margin-left: 0;
+    margin-left: 0 !important;
     min-height: calc(100vh - var(--top-app-bar-height));
     transition: margin-left 0.3s ease;
     display: flex;
@@ -87,35 +87,27 @@ body {
     z-index: 1;
 }
 
-/* Show drawer on larger screens */
+/* Base responsive behavior - drawer closed by default */
 @media (min-width: 992px) {
-    #layoutDrawer_nav {
-        transform: translateX(0);
+    #layoutDrawer #layoutDrawer_nav {
+        transform: translateX(-100%) !important;
     }
     
-    #layoutDrawer_content {
-        margin-left: var(--drawer-width);
+    #layoutDrawer #layoutDrawer_content {
+        margin-left: 0 !important;
     }
     
-    body:not(.drawer-toggled) #layoutDrawer_nav {
-        transform: translateX(0);
+    body.drawer-toggled #layoutDrawer #layoutDrawer_nav {
+        transform: translateX(0) !important;
     }
     
-    body:not(.drawer-toggled) #layoutDrawer_content {
-        margin-left: var(--drawer-width);
+    body.drawer-toggled #layoutDrawer #layoutDrawer_content {
+        margin-left: var(--drawer-width) !important;
     }
 }
 
-/* Drawer toggled state */
-body.drawer-toggled #layoutDrawer_nav {
-    transform: translateX(0);
-}
-
+/* Mobile drawer overlay */
 @media (max-width: 991px) {
-    body.drawer-toggled #layoutDrawer_nav {
-        transform: translateX(0);
-    }
-    
     body.drawer-toggled::after {
         content: '';
         position: fixed;
@@ -328,33 +320,37 @@ main {
 
 /* Ensure proper responsive behavior for drawer toggle */
 @media (max-width: 1199px) {
-    #layoutDrawer_nav {
-        transform: translateX(-100%);
+    /* Mobile: drawer hidden by default */
+    #layoutDrawer #layoutDrawer_nav {
+        transform: translateX(-100%) !important;
     }
     
-    #layoutDrawer_content {
-        margin-left: 0;
+    #layoutDrawer #layoutDrawer_content {
+        margin-left: 0 !important;
     }
     
-    body.drawer-toggled #layoutDrawer_nav {
-        transform: translateX(0);
+    /* Mobile: when toggled, show drawer with overlay */
+    body.drawer-toggled #layoutDrawer #layoutDrawer_nav {
+        transform: translateX(0) !important;
     }
 }
 
 @media (min-width: 1200px) {
-    #layoutDrawer_nav {
-        transform: translateX(0);
+    /* Desktop: drawer hidden by default, content centered */
+    #layoutDrawer #layoutDrawer_nav {
+        transform: translateX(-100%) !important;
     }
     
-    #layoutDrawer_content {
-        margin-left: var(--drawer-width);
+    #layoutDrawer #layoutDrawer_content {
+        margin-left: 0 !important;
     }
     
-    body.drawer-toggled #layoutDrawer_nav {
-        transform: translateX(-100%);
+    /* Desktop: when toggled, show drawer and move content right */
+    body.drawer-toggled #layoutDrawer #layoutDrawer_nav {
+        transform: translateX(0) !important;
     }
     
-    body.drawer-toggled #layoutDrawer_content {
-        margin-left: 0;
+    body.drawer-toggled #layoutDrawer #layoutDrawer_content {
+        margin-left: var(--drawer-width) !important;
     }
 }
