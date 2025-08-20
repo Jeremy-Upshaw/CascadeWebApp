@@ -2,8 +2,9 @@
 
 /* CSS isolation diagnostic rule - this bright style should be visible if CSS isolation is working */
 .modal-field-container {
-    border: 4px solid red !important;
-    background: yellow !important;
+    border: 2px black !important;
+    background: #9c9ea0 !important;
+    padding: 0.5rem;
 }
 
 /* Modal detail fields horizontal layout */
