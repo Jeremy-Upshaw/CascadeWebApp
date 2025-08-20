@@ -14,8 +14,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: 120px;
-    margin: 0.5rem 0;
+    min-width: 0px;
+    margin: 0.1rem 0;
 }
 
 /* Modal title field (first field, no label, centered, larger) */
