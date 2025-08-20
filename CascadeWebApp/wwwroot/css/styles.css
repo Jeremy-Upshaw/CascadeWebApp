@@ -17201,12 +17201,13 @@ div.code-toolbar > .toolbar > .toolbar-item .btn-group-sm > button.btn-icon i {
   left: 50%;
   transform: translate(-50%, -50%);
   background: #D8D9DA;
-  border-radius: 5px;
+  border-radius: 1rem;
   padding: 1rem;
   z-index: 1060;
   min-width: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   color: #333; /* Default dark text */
+  overflow: hidden;
 }
 .modal-dialog h5, .modal-dialog .h5 {
   color: #333;

@@ -147,12 +147,6 @@ main {
     overflow: hidden;
 }
 
-/* Modal with rounded corners */
-.modal-dialog {
-    border-radius: 1rem;
-    overflow: hidden;
-}
-
 /* Search container with better alignment */
 .search-container {
     justify-content: center;
