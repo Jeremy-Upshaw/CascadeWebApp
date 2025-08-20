@@ -1,0 +1,106 @@
+// Function to initialize drawer toggle
+function initializeDrawerToggle() {
+    const drawerToggle = document.querySelector('#drawerToggle');
+    if (drawerToggle && !drawerToggle.hasAttribute('data-drawer-initialized')) {
+        drawerToggle.setAttribute('data-drawer-initialized', 'true');
+        drawerToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('drawer-toggled');
+        });
+    }
+}
+
+// Enhanced initialization for Blazor Server compatibility
+function ensureDrawerToggleInit() {
+    const drawerToggle = document.querySelector('#drawerToggle');
+    if (drawerToggle && !drawerToggle.hasAttribute('data-drawer-initialized')) {
+        initializeDrawerToggle();
+        return true;
+    }
+    return false;
+}
+
+window.addEventListener('DOMContentLoaded', event => {
+    // Enable tooltips globally
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    // Enable popovers globally
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl);
+    });
+
+    // Activate Bootstrap scrollspy for the sticky nav component
+    const navStick = document.body.querySelector('#navStick');
+    if (navStick) {
+        new bootstrap.ScrollSpy(document.body, {
+            target: '#navStick',
+            rootMargin: '0px 0px -45%',
+        });
+    }
+
+    // Initialize drawer toggle
+    initializeDrawerToggle();
+    
+    // Also initialize after a slight delay to handle Blazor rendering
+    setTimeout(initializeDrawerToggle, 100);
+    
+    // Additional initialization attempts with longer delays for Blazor Server
+    setTimeout(ensureDrawerToggleInit, 500);
+    setTimeout(ensureDrawerToggleInit, 1000);
+    
+    // Also initialize when Blazor finishes loading (if available)
+    if (typeof Blazor !== 'undefined') {
+        Blazor.addEventListener('enhancedload', () => {
+            setTimeout(ensureDrawerToggleInit, 50);
+        });
+    }
+
+    // Close side navigation when clicking content area on mobile
+    const drawerContent = document.body.querySelector('#layoutDrawer_content');
+    if (drawerContent) {
+        drawerContent.addEventListener('click', event => {
+            const BOOTSTRAP_LG_WIDTH = 1200;
+            if (window.innerWidth >= BOOTSTRAP_LG_WIDTH) {
+                return;
+            }
+            if (document.body.classList.contains("drawer-toggled")) {
+                document.body.classList.toggle("drawer-toggled");
+            }
+        });
+    }
+
+
+    // Add active state to sidbar nav links
+    let activatedPath = window.location.pathname.match(/([\w-]+\.html)/, '$1');
+
+    if (activatedPath) {
+        activatedPath = activatedPath[0];
+    } else {
+        activatedPath = 'index.html';
+    }
+
+    const targetAnchors = document.body.querySelectorAll('[href="' + activatedPath + '"].nav-link');
+
+    targetAnchors.forEach(targetAnchor => {
+        let parentNode = targetAnchor.parentNode;
+        while (parentNode !== null && parentNode !== document.documentElement) {
+            if (parentNode.classList.contains('collapse')) {
+                parentNode.classList.add('show');
+                const parentNavLink = document.body.querySelector(
+                    '[data-bs-target="#' + parentNode.id + '"]'
+                );
+                parentNavLink.classList.remove('collapsed');
+                parentNavLink.classList.add('active');
+            }
+            parentNode = parentNode.parentNode;
+        }
+        targetAnchor.classList.add('active');
+    });
+});
+
+// Also try to initialize when Blazor is ready
+window.addEventListener('load', initializeDrawerToggle);

@@ -1,0 +1,150 @@
+@page "/batches"
+@inject CascadeWebApp.Services.BatchService BatchService
+
+<div class="pa-4" style="background: #222; color: #fff;">
+    <h5 class="table-page-title">Batch List</h5>
+    <div class="search-container">
+        <input class="search-input" placeholder="Search batches…" @bind="_search" />
+        <button class="search-toggle-icon" title="Toggle search">
+            <i class="material-icons">search</i>
+        </button>
+    </div>
+    <div class="table-container">
+        <div class="table-scroll">
+            <table class="app-table">
+            <thead>
+                <tr>
+                    <th>Batch #</th>
+                    <th>Status</th>
+                    <th>Parts Count</th>
+                    <th>Plugged Weight</th>
+                    <th>Est Finish Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var batch in _filteredBatches)
+                {
+                    <tr @onclick="() => OpenBatchModal(batch)">
+                        <td>@batch.BatchNumber</td>
+                        <td>@batch.Status</td>
+                        <td>@batch.PartsCount</td>
+                        <td>@batch.PluggedWeight</td>
+                        <td>@batch.EstFinishDate.ToShortDateString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+@if (_showModal && _selectedBatch != null)
+{
+    <div class="modal-backdrop" @onclick="CloseModal"></div>
+    <div class="modal-dialog">
+        <!-- Floating close button -->
+        <button type="button" class="modal-close-floating" @onclick="CloseModal">&times;</button>
+        
+        <div class="modal-body">
+            <!-- Title field - Batch Number centered without label -->
+            <div class="modal-title-container">
+                <div class="modal-detail-title">@_selectedBatch.BatchNumber</div>
+            </div>
+            
+            <div class="modal-details">
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Status</div>
+                        <div class="modal-detail-value">@_selectedBatch.Status</div>
+                    </div>
+                </div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Parts Count</div>
+                        <div class="modal-detail-value">@_selectedBatch.PartsCount</div>
+                    </div>
+                </div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Plugged Weight</div>
+                        <div class="modal-detail-value">@_selectedBatch.PluggedWeight</div>
+                    </div>
+                </div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Est Finish Date</div>
+                        <div class="modal-detail-value">@_selectedBatch.EstFinishDate.ToShortDateString()</div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-scroll">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Item #</th>
+                            <th>Thread</th>
+                            <th>Gauge</th>
+                            <th>End Type</th>
+                            <th>End MM</th>
+                            <th>End Inch</th>
+                            <th>Length</th>
+                            <th>Qty</th>
+                            <th>Qty Lost</th>
+                            <th>Assign 1</th>
+                            <th>Qty 1</th>
+                            <th>Assign (Action)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SampleItem</td>
+                            <td>M8</td>
+                            <td>10</td>
+                            <td>Flat</td>
+                            <td>12</td>
+                            <td>0.47</td>
+                            <td>100</td>
+                            <td>10</td>
+                            <td>0</td>
+                            <td>Assignee</td>
+                            <td>5</td>
+                            <td>
+                                <button class="btn btn-primary" disabled>Assign</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" @onclick="CloseModal">Close</button>
+        </div>
+    </div>
+}
+
+@code {
+    private string _search = "";
+    private List<CascadeWebApp.Models.Batch> _batches = new();
+    private IEnumerable<CascadeWebApp.Models.Batch> _filteredBatches => string.IsNullOrWhiteSpace(_search)
+        ? _batches
+        : _batches.Where(b => b.BatchNumber.Contains(_search, StringComparison.OrdinalIgnoreCase));
+    private CascadeWebApp.Models.Batch? _selectedBatch;
+    private bool _showModal = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _batches = await BatchService.GetBatchesAsync();
+    }
+
+    private void OpenBatchModal(CascadeWebApp.Models.Batch batch)
+    {
+        _selectedBatch = batch;
+        _showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        _showModal = false;
+        _selectedBatch = null;
+    }
+}
