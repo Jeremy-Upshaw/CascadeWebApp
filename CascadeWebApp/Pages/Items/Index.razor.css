@@ -102,3 +102,13 @@
         max-height: 400px;
     }
 }
+
+/* Modal field container styling - copied from styles.css for Items modal testing */
+.modal-field-container {
+    border: 1px solid #black;
+    border-radius: 5px;
+    padding: 0.2rem;
+    margin-bottom: 0.75rem;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
