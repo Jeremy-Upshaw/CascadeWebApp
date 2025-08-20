@@ -1,0 +1,202 @@
+@page "/customers"
+@inject CascadeWebApp.Services.CustomerService CustomerService
+
+<div class="pa-4" style="background: #222; color: #fff;">
+    <h5 class="table-page-title">Customer List</h5>
+    <div class="search-container">
+        <input class="search-input" placeholder="Search customers…" @bind="_search" />
+        <button class="search-toggle-icon" title="Toggle search">
+            <i class="material-icons">search</i>
+        </button>
+    </div>
+    <div class="table-container">
+        <div class="table-scroll">
+            <table class="app-table">
+            <thead>
+                <tr>
+                    <th>Studio</th>
+                    <th>Email</th>
+                    <th>Phone #</th>
+                    <th>Discount Level</th>
+                    <th>Payment Terms</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in _filteredCustomers)
+                {
+                    <tr @onclick="() => OpenCustomerModal(customer)">
+                        <td>@customer.Studio</td>
+                        <td>@customer.Email</td>
+                        <td>@customer.Phone</td>
+                        <td>@customer.DiscountLevel</td>
+                        <td>@customer.PaymentTerms</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+@if (_showModal && _selectedCustomer != null)
+{
+    <div class="modal-backdrop" @onclick="CloseModal"></div>
+    <div class="modal-dialog">
+        <!-- Floating close button -->
+        <button type="button" class="modal-close-floating" @onclick="CloseModal">&times;</button>
+        
+        <div class="modal-body">
+            <!-- Title field - Studio centered without label -->
+            <div class="modal-title-container">
+                <div class="modal-detail-title">@_selectedCustomer.Studio</div>
+            </div>
+            
+            <!-- First row: Contact Name, Email, Phone -->
+            <div class="modal-field-container">
+                <div class="modal-row">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Contact Name</div>
+                        <div class="modal-detail-value">@((_selectedCustomer.ContactFirstName + " " + _selectedCustomer.ContactSecondName).Trim())</div>
+                    </div>
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Email</div>
+                        <div class="modal-detail-value">@_selectedCustomer.Email</div>
+                    </div>
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Phone Number</div>
+                        <div class="modal-detail-value">@_selectedCustomer.Phone</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second row: Discount Level, Payment Terms -->
+            <div class="modal-field-container">
+                <div class="modal-row">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Discount Level</div>
+                        <div class="modal-detail-value">@_selectedCustomer.DiscountLevel</div>
+                    </div>
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Payment Terms</div>
+                        <div class="modal-detail-value">@_selectedCustomer.PaymentTerms</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address Sections -->
+            <div class="modal-field-container">
+                <div class="address-sections">
+                    <!-- Shipping Address -->
+                    <div class="address-section">
+                        <div class="address-section-label">Shipping Address</div>
+                        <div class="address-content">
+                            <div class="address-line">@_selectedCustomer.ShippingAddressLine1</div>
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.ShippingAddressLine2))
+                            {
+                                <div class="address-line">@_selectedCustomer.ShippingAddressLine2</div>
+                            }
+                            <div class="address-line">@_selectedCustomer.ShippingCity, @_selectedCustomer.ShippingState @_selectedCustomer.ShippingZip</div>
+                            <div class="address-line">@_selectedCustomer.ShippingCountry</div>
+                        </div>
+                    </div>
+
+                    <!-- Billing Address -->
+                    <div class="address-section">
+                        <div class="address-section-label">Billing Address</div>
+                        <div class="address-content">
+                            <div class="address-line">@_selectedCustomer.BillingAddressLine1</div>
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.BillingAddressLine2))
+                            {
+                                <div class="address-line">@_selectedCustomer.BillingAddressLine2</div>
+                            }
+                            <div class="address-line">@_selectedCustomer.BillingCity, @_selectedCustomer.BillingState @_selectedCustomer.BillingZip</div>
+                            <div class="address-line">@_selectedCustomer.BillingCountry</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-scroll">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Order #</th>
+                            <th>Order Date</th>
+                            <th>Studio</th>
+                            <th>Est Ship Date</th>
+                            <th>Shipping Deadline</th>
+                            <th>Shipping Method</th>
+                            <th>Partial</th>
+                            <th>Order Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SampleOrder</td>
+                            <td>2025-08-17</td>
+                            <td>@_selectedCustomer.Studio</td>
+                            <td>2025-08-20</td>
+                            <td>2025-08-21</td>
+                            <td>UPS</td>
+                            <td>Yes</td>
+                            <td>Processing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" @onclick="CloseModal">Close</button>
+        </div>
+    </div>
+}
+
+@code {
+    private string _search = "";
+    private List<CascadeWebApp.Models.Customer> _customers = new();
+    private IEnumerable<CascadeWebApp.Models.Customer> _filteredCustomers => string.IsNullOrWhiteSpace(_search)
+        ? _customers
+        : _customers.Where(c => c.Studio.Contains(_search, StringComparison.OrdinalIgnoreCase));
+    private CascadeWebApp.Models.Customer? _selectedCustomer;
+    private bool _showModal = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _customers = await CustomerService.GetCustomersAsync();
+    }
+
+    private void OpenCustomerModal(CascadeWebApp.Models.Customer customer)
+    {
+        _selectedCustomer = customer;
+        _showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        _showModal = false;
+        _selectedCustomer = null;
+    }
+
+    private string FormatPhoneNumber(string phone)
+    {
+        if (string.IsNullOrWhiteSpace(phone))
+            return phone;
+        
+        // Remove all non-digit characters
+        var digits = new string(phone.Where(char.IsDigit).ToArray());
+        
+        // If we have exactly 7 digits, assume it needs a default area code (e.g., 555)
+        if (digits.Length == 7)
+        {
+            digits = "555" + digits;
+        }
+        
+        // If we have exactly 10 digits, format as 999-999-9999
+        if (digits.Length == 10)
+        {
+            return $"{digits.Substring(0, 3)}-{digits.Substring(3, 3)}-{digits.Substring(6, 4)}";
+        }
+        
+        // Return original if we can't format it properly
+        return phone;
+    }
+}

@@ -1,0 +1,25 @@
+# Ignore Visual Studio temporary files, build results, and
+# User-specific files
+.vs/
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+
+# Others
+*.log
+*.db
+*.DS_Store
+
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Theme files - keep organized versions, exclude originals
+CascadeWebApp/material-admin-pro-1.0.6/
+CascadeWebApp/material-admin-pro-1.0.6.zip
+
+# Screenshots and temporary demo files
+screenshots/
