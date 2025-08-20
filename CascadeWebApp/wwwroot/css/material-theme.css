@@ -62,7 +62,6 @@ body {
 #layoutDrawer {
     display: flex;
     min-height: 100vh;
-    padding-top: var(--top-app-bar-height);
 }
 
 #layoutDrawer_nav {
