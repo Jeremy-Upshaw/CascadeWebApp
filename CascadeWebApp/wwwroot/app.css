@@ -80,102 +80,6 @@ h1:focus {
     padding: 0.25rem;
 }
 
-/* Modal detail fields horizontal layout */
-.modal-details {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.modal-detail-field {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-width: 120px;
-    margin: 0.5rem 0;
-}
-
-/* New row-based layout for customer modal */
-.modal-row {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.modal-row .modal-detail-field {
-    flex: 1;
-    min-width: 150px;
-    max-width: 200px;
-}
-
-/* Address sections layout */
-.address-sections {
-    display: flex;
-    justify-content: space-around;
-    gap: 3rem;
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.address-section {
-    flex: 1;
-    min-width: 250px;
-    text-align: center;
-}
-
-.address-section-label {
-    font-size: 1.4rem; /* 2rem reduced by 30% */
-    color: #333;
-    font-weight: 500;
-    margin-bottom: 0.75rem;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 0.25rem;
-}
-
-.address-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.address-line {
-    font-size: 1.26rem; /* 1.8rem reduced by 30% */
-    color: #222;
-    font-weight: 400;
-    line-height: 1.2;
-}
-
-/* Modal title field (first field, no label, centered, larger) */
-.modal-detail-title {
-    font-size: 2.375rem; /* 6pt larger than corrected label size */
-    color: #222; /* Very dark color for readability */
-    font-weight: 600;
-    line-height: 1.2;
-    text-align: center;
-    margin: 1rem 0; /* Padding above and below */
-    padding-top: 0.5rem; /* Additional padding at top for floating close button */
-}
-
-.modal-detail-label {
-    font-size: 1.26rem; /* 1.8rem reduced by 30% */
-    color: #333; /* Dark color for readability */
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-}
-
-.modal-detail-value {
-    font-size: 1.134rem; /* 1.62rem reduced by 30% */
-    color: #222; /* Very dark color for values */
-    font-weight: 400;
-    line-height: 1.2;
-}
-
 /* Ensure all modal text is dark */
 .modal-dialog h5 {
     color: #333;
@@ -183,63 +87,6 @@ h1:focus {
 
 .modal-dialog {
     color: #333; /* Default dark text */
-}
-
-/* ====== GLOBAL TABLE STYLES (appended) ====== */
-
-.app-table {
-    width: 100%;
-    font-size: 0.95rem;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-}
-
-    .app-table th, .app-table td {
-        text-align: center;
-        vertical-align: middle;
-        padding: 0.5rem 0.75rem;
-        border: 1px solid #dee2e6;
-        color: #000;
-    }
-
-    .app-table thead th {
-        position: sticky;
-        top: 0;
-        background-color: #f8f9fa;
-        z-index: 2;
-        border-bottom: 2px solid #444;
-        font-weight: bold;
-    }
-
-    .app-table tbody tr {
-        cursor: pointer;
-        transition: background 0.15s;
-    }
-
-        .app-table tbody tr:hover {
-            background: rgba(86, 87, 89, 0.1);
-        }
-
-        .app-table tbody tr:nth-of-type(odd) {
-            background-color: #f7f7fa;
-        }
-
-.table-scroll {
-    max-height: 600px;
-    overflow-y: auto;
-    overflow-x: auto;
-}
-
-@media (max-width: 768px) {
-    .app-table {
-        font-size: 0.85rem;
-    }
-
-    .table-scroll {
-        max-height: 400px;
-    }
 }
 
 /* ====== CENTERED LAYOUT AND ROUNDED CORNERS ENHANCEMENT ====== */
@@ -290,18 +137,6 @@ main {
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0,0,0,0.2);
     margin: 1rem 0;
-}
-
-/* Enhanced table scroll with rounded corners */
-.table-scroll {
-    border-radius: 1rem;
-    overflow: hidden;
-}
-
-/* Enhanced app-table with rounded corners */
-.app-table {
-    border-radius: 1rem;
-    overflow: hidden;
 }
 
 /* Modal with rounded corners */
