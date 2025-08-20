@@ -338,11 +338,3 @@ body {
     margin: 0;
     padding: 0;
 }
-
-#layoutDrawer_content {
-    padding-top: 0;
-}
-
-#layoutDrawer {
-    padding-top: 0; /* Removed top padding from background */
-}
