@@ -8,7 +8,7 @@
 @if (Batch != null)
 {
     <div class="modal-backdrop" @onclick="@(() => OnClose.InvokeAsync())"></div>
-    <div class="modal-dialog">
+    <div class="modal-dialog batch-dialog">
         <!-- Floating close button -->
         <button type="button" class="modal-close-floating" @onclick="@(() => OnClose.InvokeAsync())">&times;</button>
         

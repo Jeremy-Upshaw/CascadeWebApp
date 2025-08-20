@@ -338,3 +338,106 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* ====== COMPACT MODAL STYLES ====== */
+
+/* Items Modal Compact Styling */
+.items-modal .modal-dialog {
+    padding: 0.5rem;
+}
+
+.items-modal .modal-details {
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.items-modal .modal-detail-field {
+    margin: 0.25rem 0;
+}
+
+.items-modal .modal-detail-title {
+    margin: 0.75rem 0;
+    padding-top: 0.25rem;
+}
+
+/* Orders Modal Compact Styling */
+.orders-modal .modal-dialog {
+    padding: 0.5rem;
+}
+
+.orders-modal .modal-details {
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.orders-modal .modal-detail-field {
+    margin: 0.25rem 0;
+}
+
+.orders-modal .modal-detail-title {
+    margin: 0.75rem 0;
+    padding-top: 0.25rem;
+}
+
+/* Batches Modal Compact Styling */
+.batches-modal .modal-dialog {
+    padding: 0.5rem;
+}
+
+.batches-modal .modal-details {
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.batches-modal .modal-detail-field {
+    margin: 0.25rem 0;
+}
+
+.batches-modal .modal-detail-title {
+    margin: 0.75rem 0;
+    padding-top: 0.25rem;
+}
+
+/* Customers Modal Compact Styling */
+.customers-modal .modal-dialog {
+    padding: 0.5rem;
+}
+
+.customers-modal .modal-row {
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.customers-modal .address-sections {
+    gap: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.customers-modal .modal-detail-title {
+    margin: 0.75rem 0;
+    padding-top: 0.25rem;
+}
+
+.customers-modal .modal-detail-field {
+    margin: 0.25rem 0;
+}
+
+/* Batch Dialog Component Compact Styling */
+.batch-dialog .modal-dialog {
+    padding: 0.5rem;
+}
+
+.batch-dialog .modal-details {
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.batch-dialog .modal-detail-field {
+    margin: 0.25rem 0;
+}
+
+.batch-dialog .modal-detail-title {
+    margin: 0.75rem 0;
+    padding-top: 0.25rem;
+}
