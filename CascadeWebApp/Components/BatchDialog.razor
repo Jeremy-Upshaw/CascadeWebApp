@@ -14,12 +14,16 @@
         
         <div class="modal-body">
             <!-- Title field - Batch Number centered without label -->
-            <div class="modal-detail-title">@Batch.BatchNumber</div>
+            <div class="modal-title-container">
+                <div class="modal-detail-title">@Batch.BatchNumber</div>
+            </div>
             
             <div class="modal-details">
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Status</div>
-                    <div class="modal-detail-value">@Batch.Status</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Status</div>
+                        <div class="modal-detail-value">@Batch.Status</div>
+                    </div>
                 </div>
             </div>
             <!-- ...other fields as needed... -->
