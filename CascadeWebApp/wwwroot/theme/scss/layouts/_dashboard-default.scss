@@ -12,7 +12,7 @@
 // 
 
 // Default behavior for the drawer layout
-// The default positioning for the drawer is a static position
+// The drawer is fixed and always visible
 
 #layoutDrawer {
     display: flex;
@@ -21,10 +21,9 @@
     #layoutDrawer_nav {
         flex-basis: $drawer-base-width;
         flex-shrink: 0;
-        transition: transform 0.15s ease-in-out;
         z-index: $zindex-drawer;
-        // Mobile first transform - by default the drawer will be moved off-canvas
-        transform: translateX(-$drawer-base-width);
+        // Fixed drawer - always visible, no transform
+        transform: translateX(0);
     }
 
     // Wraps the content when using the drawer layout
@@ -36,11 +35,14 @@
         min-width: 0;
         flex-grow: 1;
         min-height: calc(100vh - #{$app-bar-base-height});
-        margin-left: -$drawer-base-width;
+        // Content offset to accommodate fixed drawer
+        margin-left: 0;
     }
 }
 
-// Default behavior for the static drawer collapse
+// Drawer toggle functionality disabled - drawer is always visible
+// The following styles are commented out to disable toggle behavior
+/*
 .drawer-toggled {
     #layoutDrawer {
         #layoutDrawer_nav {
@@ -64,8 +66,10 @@
         }
     }
 }
+*/
 
 // Responsive styling for the drawer layout
+// Fixed drawer behavior - always visible on all screen sizes
 @include media-breakpoint-up(xl) {
     #layoutDrawer {
         #layoutDrawer_nav {
@@ -77,7 +81,8 @@
         }
     }
 
-    // Behavior for the drawer collapse on screens larger than the med breakpoint
+    // Drawer toggle functionality disabled on larger screens
+    /*
     .drawer-toggled {
         #layoutDrawer {
             #layoutDrawer_nav {
@@ -94,4 +99,5 @@
             }
         }
     }
+    */
 }
