@@ -1,0 +1,25 @@
+{
+  "name": "cascadewebapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@material/ripple": "^14.0.0",
+    "bootstrap": "^5.3.7",
+    "sass": "^1.90.0"
+  },
+  "dependencies": {
+    "@material/animation": "^14.0.0",
+    "@material/base": "^14.0.0",
+    "@material/dom": "^14.0.0",
+    "@material/elevation": "^14.0.0",
+    "@material/feature-targeting": "^14.0.0",
+    "@material/theme": "^14.0.0"
+  }
+}

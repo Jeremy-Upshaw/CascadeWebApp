@@ -1,0 +1,389 @@
+{
+  "Files": [
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/obj/Release/net8.0/scopedcss/projectbundle/CascadeWebApp.bundle.scp.css",
+      "PackagePath": "staticwebassets/CascadeWebApp.bundle.scp.css"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/demo/material-admin-pro-icon-outline.svg",
+      "PackagePath": "staticwebassets/assets/demo/material-admin-pro-icon-outline.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/demo/material-admin-pro-icon.svg",
+      "PackagePath": "staticwebassets/assets/demo/material-admin-pro-icon.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/demo/material-icons.png",
+      "PackagePath": "staticwebassets/assets/demo/material-icons.png"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/Logo Large Trans.jpg",
+      "PackagePath": "staticwebassets/assets/img/Logo Large Trans.jpg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/bootstrap.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/bootstrap.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-amazon-pay.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-amazon-pay.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-amex.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-amex.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-apple-pay.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-apple-pay.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-diners-club.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-diners-club.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-discover.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-discover.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-jcb.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-jcb.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-mastercard.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-mastercard.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-paypal.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-paypal.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-stripe.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-stripe.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/cc-visa.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/cc-visa.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/chartjs.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/chartjs.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/github.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/github.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/litepicker.png",
+      "PackagePath": "staticwebassets/assets/img/brands/litepicker.png"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/material-design.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/material-design.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/brands/prism.svg",
+      "PackagePath": "staticwebassets/assets/img/brands/prism.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/company-logo.jpg",
+      "PackagePath": "staticwebassets/assets/img/company-logo.jpg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/favicon.ico",
+      "PackagePath": "staticwebassets/assets/img/favicon.ico"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/alerts.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/alerts.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/background.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/background.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/badges.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/badges.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/borders.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/borders.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/buttons.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/buttons.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/cards.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/cards.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/charts.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/charts.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/checks-and-radios.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/checks-and-radios.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/chips.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/chips.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/code-blocks.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/code-blocks.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/data-tables.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/data-tables.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/datepicker.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/datepicker.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/dropdowns.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/dropdowns.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/icon-buttons.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/icon-buttons.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/icons.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/icons.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/input-groups.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/input-groups.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/inputs.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/inputs.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/modals.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/modals.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/navs.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/navs.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/progress.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/progress.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/range.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/range.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/ripples.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/ripples.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/select.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/select.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/shadows.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/shadows.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/spinners.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/spinners.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/tables.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/tables.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/text.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/text.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/tooltips.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/tooltips.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/transforms.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/transforms.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/icons/typography.svg",
+      "PackagePath": "staticwebassets/assets/img/icons/typography.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/cloud.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/cloud.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/create.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/create.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/error-400.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/error-400.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/error-401.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/error-401.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/error-403.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/error-403.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/error-404.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/error-404.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/error-429.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/error-429.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/error-500.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/error-500.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/error-503.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/error-503.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/error-504.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/error-504.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/illustrations/security.svg",
+      "PackagePath": "staticwebassets/assets/img/illustrations/security.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/patterns/doubs.svg",
+      "PackagePath": "staticwebassets/assets/img/patterns/doubs.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/assets/img/patterns/waihou.svg",
+      "PackagePath": "staticwebassets/assets/img/patterns/waihou.svg"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/css/material-theme.css",
+      "PackagePath": "staticwebassets/css/material-theme.css"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/css/styles.css",
+      "PackagePath": "staticwebassets/css/styles.css"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/chart-defaults.js",
+      "PackagePath": "staticwebassets/theme/js/charts/chart-defaults.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-area-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-area-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-area-smooth-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-area-smooth-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-bar-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-bar-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-bar-grouped-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-bar-grouped-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-bar-grouped-horizontal-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-bar-grouped-horizontal-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-bar-horizontal-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-bar-horizontal-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-doughnut-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-doughnut-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-line-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-line-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-line-smooth-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-line-smooth-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/chart-pie-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/chart-pie-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/dashboard-chart-area-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/dashboard-chart-area-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/dashboard-chart-area-light-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/dashboard-chart-area-light-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/dashboard-chart-bar-grouped-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/dashboard-chart-bar-grouped-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/charts/demos/dashboard-chart-bar-horizontal-demo.js",
+      "PackagePath": "staticwebassets/theme/js/charts/demos/dashboard-chart-bar-horizontal-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/datatables/datatables-simple-demo.js",
+      "PackagePath": "staticwebassets/theme/js/datatables/datatables-simple-demo.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/litepicker.js",
+      "PackagePath": "staticwebassets/theme/js/litepicker.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/material.js",
+      "PackagePath": "staticwebassets/theme/js/material.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/prism.js",
+      "PackagePath": "staticwebassets/theme/js/prism.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/scripts.js",
+      "PackagePath": "staticwebassets/theme/js/scripts.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/table-enhancements.js",
+      "PackagePath": "staticwebassets/theme/js/table-enhancements.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/js/widgets/checklist.js",
+      "PackagePath": "staticwebassets/theme/js/widgets/checklist.js"
+    },
+    {
+      "Id": "/home/runner/work/CascadeWebApp/CascadeWebApp/CascadeWebApp/wwwroot/theme/scss/styles.scss",
+      "PackagePath": "staticwebassets/theme/scss/styles.scss"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.CascadeWebApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.build.CascadeWebApp.props",
+      "PackagePath": "build\\CascadeWebApp.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildMultiTargeting.CascadeWebApp.props",
+      "PackagePath": "buildMultiTargeting\\CascadeWebApp.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/staticwebassets/msbuild.buildTransitive.CascadeWebApp.props",
+      "PackagePath": "buildTransitive\\CascadeWebApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
