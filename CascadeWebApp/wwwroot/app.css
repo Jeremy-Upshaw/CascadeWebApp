@@ -219,7 +219,7 @@ h1:focus {
     }
 
         .app-table tbody tr:hover {
-            background: #e6e6f7;
+            background: rgba(86, 87, 89, 0.1);
         }
 
         .app-table tbody tr:nth-of-type(odd) {
@@ -240,4 +240,101 @@ h1:focus {
     .table-scroll {
         max-height: 400px;
     }
+}
+
+/* ====== CENTERED LAYOUT AND ROUNDED CORNERS ENHANCEMENT ====== */
+
+/* Main content wrapper with centered blocks */
+main > * {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Content blocks with rounded corners and proper spacing */
+.pa-4 {
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Page title centering and styling */
+.table-page-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0 0 2rem 0;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 1rem 0;
+}
+
+/* Enhanced table container with better rounded corners */
+.table-container {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    margin: 1rem 0;
+}
+
+/* Enhanced table scroll with rounded corners */
+.table-scroll {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Enhanced app-table with rounded corners */
+.app-table {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Modal with rounded corners */
+.modal-dialog {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Search container with better alignment */
+.search-container {
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons with rounded corners and medium gray accents */
+button, .btn {
+    border-radius: 0.75rem;
+}
+
+.btn-primary {
+    background-color: #565759 !important;
+    border-color: #565759 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #4a4b4d !important;
+    border-color: #4a4b4d !important;
+}
+
+/* Remove white space at top and improve centering */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#layoutDrawer_content {
+    padding-top: 0;
+}
+
+#layoutDrawer {
+    padding-top: 4.5rem;
 }
