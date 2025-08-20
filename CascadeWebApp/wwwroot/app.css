@@ -251,10 +251,18 @@ main > * {
     margin: 0 auto;
 }
 
+/* Ensure all page content is horizontally centered */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 /* Content blocks with rounded corners and proper spacing */
 .pa-4 {
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 2rem 1rem; /* Reduced side padding by half: 2rem -> 1rem */
     margin: 2rem auto;
     width: 90%;
     max-width: 1200px;
@@ -273,7 +281,7 @@ main > * {
     align-items: center;
     justify-content: center;
     height: auto;
-    padding: 1rem 0;
+    padding: 1.5rem 0 1rem 0; /* Added small top padding and kept bottom padding */
 }
 
 /* Enhanced table container with better rounded corners */
@@ -336,5 +344,5 @@ body {
 }
 
 #layoutDrawer {
-    padding-top: 4.5rem;
+    padding-top: 0; /* Removed top padding from background */
 }
