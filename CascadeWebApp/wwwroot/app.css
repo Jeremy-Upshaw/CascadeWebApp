@@ -43,7 +43,7 @@ h1:focus {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    background: #d8d9da;
     border-radius: 5px;
     padding: 1rem;
     z-index: 1060;
@@ -130,7 +130,7 @@ h1:focus {
 }
 
 .address-section-label {
-    font-size: 2rem;
+    font-size: 1.4rem; /* 2rem reduced by 30% */
     color: #333;
     font-weight: 500;
     margin-bottom: 0.75rem;
@@ -145,7 +145,7 @@ h1:focus {
 }
 
 .address-line {
-    font-size: 1.8rem;
+    font-size: 1.26rem; /* 1.8rem reduced by 30% */
     color: #222;
     font-weight: 400;
     line-height: 1.2;
@@ -163,14 +163,14 @@ h1:focus {
 }
 
 .modal-detail-label {
-    font-size: 1.8rem; /* 2rem reduced by 10% */
+    font-size: 1.26rem; /* 1.8rem reduced by 30% */
     color: #333; /* Dark color for readability */
     font-weight: 500;
     margin-bottom: 0.25rem;
 }
 
 .modal-detail-value {
-    font-size: 1.62rem; /* 1.8rem reduced by 10% */
+    font-size: 1.134rem; /* 1.62rem reduced by 30% */
     color: #222; /* Very dark color for values */
     font-weight: 400;
     line-height: 1.2;
