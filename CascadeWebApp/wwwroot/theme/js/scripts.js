@@ -1,6 +1,7 @@
-// Function to initialize drawer toggle
+// Function to initialize drawer toggle - DISABLED for fixed drawer layout
 function initializeDrawerToggle() {
-    // Toggle the side navigation
+    // Drawer toggle functionality disabled - drawer is now fixed and always visible
+    /*
     const drawerToggle = document.querySelector('#drawerToggle');
     if (drawerToggle && !drawerToggle.hasAttribute('data-drawer-initialized')) {
         drawerToggle.setAttribute('data-drawer-initialized', 'true');
@@ -9,15 +10,19 @@ function initializeDrawerToggle() {
             document.body.classList.toggle('drawer-toggled');
         });
     }
+    */
 }
 
-// Enhanced initialization for Blazor Server compatibility
+// Enhanced initialization for Blazor Server compatibility - DISABLED
 function ensureDrawerToggleInit() {
+    // Drawer toggle functionality disabled - drawer is now fixed and always visible
+    /*
     const drawerToggle = document.querySelector('#drawerToggle');
     if (drawerToggle && !drawerToggle.hasAttribute('data-drawer-initialized')) {
         initializeDrawerToggle();
         return true;
     }
+    */
     return false;
 }
 
@@ -60,7 +65,9 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
-    // Close side navigation when width < LG
+    // Close side navigation when width < LG - DISABLED for fixed drawer
+    // The drawer now remains fixed and always visible on all screen sizes
+    /*
     const drawerContent = document.body.querySelector('#layoutDrawer_content');
     if (drawerContent) {
         drawerContent.addEventListener('click', event => {
@@ -73,6 +80,7 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     }
+    */
 
 
     // Add active state to sidbar nav links
