@@ -61,72 +61,106 @@
         
         <div class="modal-body">
             <!-- Title field - Item Number centered without label -->
-            <div class="modal-detail-title">@_selectedItem.ItemNumber</div>
+            <div class="modal-title-container">
+                <div class="modal-detail-title">@_selectedItem.ItemNumber</div>
+            </div>
             
             <div class="modal-details">
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Thread</div>
-                    <div class="modal-detail-value">@_selectedItem.Thread</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Thread</div>
+                        <div class="modal-detail-value">@_selectedItem.Thread</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Gauge</div>
-                    <div class="modal-detail-value">@_selectedItem.Gauge</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Gauge</div>
+                        <div class="modal-detail-value">@_selectedItem.Gauge</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">End Type</div>
-                    <div class="modal-detail-value">@_selectedItem.EndType</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">End Type</div>
+                        <div class="modal-detail-value">@_selectedItem.EndType</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">End MM</div>
-                    <div class="modal-detail-value">@_selectedItem.EndMM</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">End MM</div>
+                        <div class="modal-detail-value">@_selectedItem.EndMM</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">End Inch</div>
-                    <div class="modal-detail-value">@_selectedItem.EndInch</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">End Inch</div>
+                        <div class="modal-detail-value">@_selectedItem.EndInch</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Length</div>
-                    <div class="modal-detail-value">@_selectedItem.Length</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Length</div>
+                        <div class="modal-detail-value">@_selectedItem.Length</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">On Order</div>
-                    <div class="modal-detail-value">@_selectedItem.OnOrder</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">On Order</div>
+                        <div class="modal-detail-value">@_selectedItem.OnOrder</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">In Production</div>
-                    <div class="modal-detail-value">@_selectedItem.InProduction</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">In Production</div>
+                        <div class="modal-detail-value">@_selectedItem.InProduction</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">On the Wall</div>
-                    <div class="modal-detail-value">@_selectedItem.OnTheWall</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">On the Wall</div>
+                        <div class="modal-detail-value">@_selectedItem.OnTheWall</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">In the Shop</div>
-                    <div class="modal-detail-value">@_selectedItem.InTheShop</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">In the Shop</div>
+                        <div class="modal-detail-value">@_selectedItem.InTheShop</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Available</div>
-                    <div class="modal-detail-value">@_selectedItem.Available</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Available</div>
+                        <div class="modal-detail-value">@_selectedItem.Available</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Machining Length</div>
-                    <div class="modal-detail-value">@_selectedItem.MachiningLength</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Machining Length</div>
+                        <div class="modal-detail-value">@_selectedItem.MachiningLength</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Cycle Time</div>
-                    <div class="modal-detail-value">@_selectedItem.CycleTime</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Cycle Time</div>
+                        <div class="modal-detail-value">@_selectedItem.CycleTime</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Stock Qty</div>
-                    <div class="modal-detail-value">@_selectedItem.StockQty</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Stock Qty</div>
+                        <div class="modal-detail-value">@_selectedItem.StockQty</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Build Qty</div>
-                    <div class="modal-detail-value">@_selectedItem.BuildQty</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Build Qty</div>
+                        <div class="modal-detail-value">@_selectedItem.BuildQty</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Min Stock Size</div>
-                    <div class="modal-detail-value">@_selectedItem.MinStockSize</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Min Stock Size</div>
+                        <div class="modal-detail-value">@_selectedItem.MinStockSize</div>
+                    </div>
                 </div>
             </div>
             <div class="table-scroll">

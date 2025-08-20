@@ -43,7 +43,7 @@ h1:focus {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
+    background: #D8D9DA;
     border-radius: 5px;
     padding: 1rem;
     z-index: 1060;
@@ -130,7 +130,7 @@ h1:focus {
 }
 
 .address-section-label {
-    font-size: 2rem;
+    font-size: 1.4rem; /* 2rem reduced by 30% */
     color: #333;
     font-weight: 500;
     margin-bottom: 0.75rem;
@@ -145,7 +145,7 @@ h1:focus {
 }
 
 .address-line {
-    font-size: 1.8rem;
+    font-size: 1.26rem; /* 1.8rem reduced by 30% */
     color: #222;
     font-weight: 400;
     line-height: 1.2;
@@ -153,7 +153,7 @@ h1:focus {
 
 /* Modal title field (first field, no label, centered, larger) */
 .modal-detail-title {
-    font-size: 2.375rem; /* 6pt larger than corrected label size */
+    font-size: 1.6625rem; /* 2.375rem reduced by 30% */
     color: #222; /* Very dark color for readability */
     font-weight: 600;
     line-height: 1.2;
@@ -163,17 +163,37 @@ h1:focus {
 }
 
 .modal-detail-label {
-    font-size: 1.8rem; /* 2rem reduced by 10% */
+    font-size: 1.26rem; /* 1.8rem reduced by 30% */
     color: #333; /* Dark color for readability */
     font-weight: 500;
     margin-bottom: 0.25rem;
 }
 
 .modal-detail-value {
-    font-size: 1.62rem; /* 1.8rem reduced by 10% */
+    font-size: 1.134rem; /* 1.62rem reduced by 30% */
     color: #222; /* Very dark color for values */
     font-weight: 400;
     line-height: 1.2;
+}
+
+/* Modal field containers with borders and rounded corners */
+.modal-field-container {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Modal title container matching card/header style */
+.modal-title-container {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Ensure all modal text is dark */

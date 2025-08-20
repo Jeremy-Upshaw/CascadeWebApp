@@ -47,24 +47,34 @@
         
         <div class="modal-body">
             <!-- Title field - Batch Number centered without label -->
-            <div class="modal-detail-title">@_selectedBatch.BatchNumber</div>
+            <div class="modal-title-container">
+                <div class="modal-detail-title">@_selectedBatch.BatchNumber</div>
+            </div>
             
             <div class="modal-details">
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Status</div>
-                    <div class="modal-detail-value">@_selectedBatch.Status</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Status</div>
+                        <div class="modal-detail-value">@_selectedBatch.Status</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Parts Count</div>
-                    <div class="modal-detail-value">@_selectedBatch.PartsCount</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Parts Count</div>
+                        <div class="modal-detail-value">@_selectedBatch.PartsCount</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Plugged Weight</div>
-                    <div class="modal-detail-value">@_selectedBatch.PluggedWeight</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Plugged Weight</div>
+                        <div class="modal-detail-value">@_selectedBatch.PluggedWeight</div>
+                    </div>
                 </div>
-                <div class="modal-detail-field">
-                    <div class="modal-detail-label">Est Finish Date</div>
-                    <div class="modal-detail-value">@_selectedBatch.EstFinishDate.ToShortDateString()</div>
+                <div class="modal-field-container">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Est Finish Date</div>
+                        <div class="modal-detail-value">@_selectedBatch.EstFinishDate.ToShortDateString()</div>
+                    </div>
                 </div>
             </div>
             <div class="table-scroll">
