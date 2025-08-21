@@ -10,26 +10,18 @@
 
 /* Row-based layout for items modal */
 .modal-row {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 0.25rem;
-    flex-wrap: wrap;
-    align-items: flex-start; /* ensures all boxes in the row have the same height */
+    display: inline-block !important; /* Use inline-block for content hugging */
+    white-space: nowrap !important; /* Keep all fields on single line */
+    margin-bottom: 0;
 }
 
-.modal-row .modal-detail-field {
-    flex: 0 0 auto; /* flex to fit content but don't grow or shrink unnecessarily */
-    min-width: 0 !important; /* small minimum for very short content */
-    max-width: none; /* no maximum width - let content determine */
-}
+/* Removed flex-specific rule since using inline-block layout */
 
 .modal-field-container {
     border: 2px solid black !important;
     background: #9c9ea0 !important;
-    display: flex; /* Use flex to contain the row */
-    align-self: flex-start; /* Ensure all children have the same height */
-    justify-content: center;
+    display: inline-block !important; /* Use inline-block to hug content */
+    white-space: nowrap !important; /* Prevent wrapping, keep content on single line */
     padding: 0.25rem;
     box-sizing: border-box;
     margin-bottom: 1rem;
@@ -41,21 +33,20 @@
     min-height: 0 !important;
     height: auto !important;
     max-height: none !important;
-    flex: 0 0 auto !important;
 }
 
 .modal-detail-field {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: inline-block !important; /* Use inline-block for content hugging */
+    vertical-align: top; /* Align tops of fields */
     text-align: center;
+    width: auto !important; /* Let content determine width */
+    max-width: none !important; /* No maximum width restriction */
     min-width: 0 !important;
     min-height: 0 !important;
-    width: auto !important;
     height: auto !important;
-    margin: 0;
+    margin: 0 0.5rem 0 0; /* Small right margin for spacing between fields */
     padding: 0.25rem 0.25rem; /* Add some internal padding */
-    flex-wrap: nowrap; /* Prevent text wrapping */
+    white-space: nowrap; /* Prevent text wrapping within field */
 }
 
 /* Modal title field (first field, no label, centered, larger) */
@@ -74,6 +65,7 @@
     color: #333; /* Dark color for readability */
     font-weight: 500;
     margin-bottom: 0.25rem;
+    display: block; /* Stack vertically within the field */
 }
 
 .modal-detail-value {
@@ -81,6 +73,7 @@
     color: #222; /* Very dark color for values */
     font-weight: 400;
     line-height: 1.2;
+    display: block; /* Stack vertically within the field */
 }
 
 /* Table styles for modal content */
