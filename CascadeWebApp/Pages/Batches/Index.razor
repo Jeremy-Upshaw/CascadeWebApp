@@ -51,26 +51,21 @@
                 <div class="modal-detail-title">@_selectedBatch.BatchNumber</div>
             </div>
             
-            <div class="modal-details">
-                <div class="modal-field-container">
+            <!-- Single row: Status, Parts Count, Plugged Weight, Est Finish Date -->
+            <div class="modal-field-container">
+                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Status</div>
                         <div class="modal-detail-value">@_selectedBatch.Status</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Parts Count</div>
                         <div class="modal-detail-value">@_selectedBatch.PartsCount</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Plugged Weight</div>
                         <div class="modal-detail-value">@_selectedBatch.PluggedWeight</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Est Finish Date</div>
                         <div class="modal-detail-value">@_selectedBatch.EstFinishDate.ToShortDateString()</div>
