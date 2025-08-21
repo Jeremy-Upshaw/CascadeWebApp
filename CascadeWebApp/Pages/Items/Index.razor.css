@@ -19,8 +19,8 @@
 }
 
 .modal-row .modal-detail-field {
-    flex: 0 1 auto; /* flex to fit content but don't grow or shrink unnecessarily */
-    min-width: 0px !important; /* small minimum for very short content */
+    flex: 0 0 auto; /* flex to fit content but don't grow or shrink unnecessarily */
+    min-width: 0 !important; /* small minimum for very short content */
     max-width: none; /* no maximum width - let content determine */
 }
 
