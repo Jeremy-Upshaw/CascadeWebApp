@@ -5,19 +5,25 @@
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+    align-items: flex-start; /* allows boxes to have different heights */
 }
 
 .modal-field-container {
     border: 2px solid black !important;
     background: #9c9ea0 !important;
-    box-sizing: border-box;
-    display: inline-flex;        /* <- Use inline-flex instead of flex */
+    display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.75rem;
-    flex: 0 0 auto !important;   /* <- Enforce box sizing to content */
-    width: auto !important;      /* <- Prevent any fixed width */
-    min-width: 0 !important;     /* <- Prevent min size */
-    max-width: none !important;  /* <- Prevent max size */
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    box-sizing: border-box;
+    min-width: 0 !important;   /* absolutely no minimum width */
+    width: auto !important;
+    max-width: none !important;
+    min-height: 0 !important;  /* absolutely no minimum height */
+    height: auto !important;
+    max-height: none !important;
+    flex: 0 0 auto !important; /* do not allow flex to set width or height */
+    /* Remove any width/min-width/max-width/min-height/max-height elsewhere! */
 }
 
 .modal-detail-field {
