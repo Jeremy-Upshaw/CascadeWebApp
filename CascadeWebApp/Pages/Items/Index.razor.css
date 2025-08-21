@@ -60,7 +60,7 @@
     border: 2px solid black !important;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Center the title since button is now positioned absolutely */
     position: relative;
 }
 
@@ -73,14 +73,26 @@
     text-align: center;
     margin: 1rem 0; /* Padding above and below */
     padding-top: 0.5rem; /* Additional padding at top for floating close button */
-    flex: 1; /* Take up remaining space to keep title centered */
+    /* Removed flex: 1 since button is now positioned absolutely */
 }
 
-/* Assign Parts button in modal title */
+/* Assign Parts button in modal title - floating above */
 .modal-assign-button {
     margin: 0.5rem;
     padding: 0.5rem 0.75rem;
     font-size: 0.95rem;
+}
+
+/* Floating version of the assign button */
+.modal-assign-floating {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 10; /* Float above the title container */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth separation */
+    background: rgba(86, 87, 89, 0.95) !important; /* Slightly transparent background for separation */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Subtle border for definition */
+    margin: 0; /* Remove default margin since we're positioning absolutely */
 }
 
 .modal-detail-label {
