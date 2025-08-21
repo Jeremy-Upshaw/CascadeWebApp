@@ -8,22 +8,39 @@
     align-items: flex-start; /* allows boxes to have different heights */
 }
 
+/* Row-based layout for items modal */
+.modal-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    align-items: stretch; /* ensures all boxes in the row have the same height */
+}
+
+.modal-row .modal-detail-field {
+    flex: 0 1 auto; /* flex to fit content but don't grow or shrink unnecessarily */
+    min-width: 80px; /* small minimum for very short content */
+    max-width: none; /* no maximum width - let content determine */
+}
+
 .modal-field-container {
     border: 2px solid black !important;
     background: #9c9ea0 !important;
-    display: inline-flex;
-    align-items: center;
+    display: flex; /* Use flex to contain the row */
+    align-items: stretch; /* Ensure all children have the same height */
     justify-content: center;
-    padding: 0.25rem 0.5rem;
+    padding: 0.5rem;
     box-sizing: border-box;
-    min-width: 0 !important;   /* absolutely no minimum width */
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    /* Remove width constraints to allow content-based sizing */
+    min-width: 0 !important;
     width: auto !important;
     max-width: none !important;
-    min-height: 0 !important;  /* absolutely no minimum height */
+    min-height: 0 !important;
     height: auto !important;
     max-height: none !important;
-    flex: 0 0 auto !important; /* do not allow flex to set width or height */
-    /* Remove any width/min-width/max-width/min-height/max-height elsewhere! */
 }
 
 .modal-detail-field {
@@ -35,8 +52,9 @@
     min-height: 0 !important;
     width: auto !important;
     height: auto !important;
-    margin: 0 0;
-    flex-wrap: wrap;
+    margin: 0;
+    padding: 0.25rem 0.5rem; /* Add some internal padding */
+    flex-wrap: nowrap; /* Prevent text wrapping */
 }
 
 /* Modal title field (first field, no label, centered, larger) */
