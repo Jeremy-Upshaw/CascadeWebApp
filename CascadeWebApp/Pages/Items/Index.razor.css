@@ -1,12 +1,35 @@
 /* Items Modal Styles */
 
 .modal-details {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, auto);
     gap: 1rem;
     justify-content: center;
     align-items: flex-start; /* allows boxes to have different heights */
+    grid-template-areas:
+        "thread gauge end-type end-mm end-inch length"
+        "on-order in-production on-wall in-shop available ."
+        "machining-length cycle-time stock-qty build-qty min-stock-size .";
 }
+
+/* Grid area assignments for precise field placement */
+.field-thread { grid-area: thread; }
+.field-gauge { grid-area: gauge; }
+.field-end-type { grid-area: end-type; }
+.field-end-mm { grid-area: end-mm; }
+.field-end-inch { grid-area: end-inch; }
+.field-length { grid-area: length; }
+.field-on-order { grid-area: on-order; }
+.field-in-production { grid-area: in-production; }
+.field-on-wall { grid-area: on-wall; }
+.field-in-shop { grid-area: in-shop; }
+.field-available { grid-area: available; }
+.field-machining-length { grid-area: machining-length; }
+.field-cycle-time { grid-area: cycle-time; }
+.field-stock-qty { grid-area: stock-qty; }
+.field-build-qty { grid-area: build-qty; }
+.field-min-stock-size { grid-area: min-stock-size; }
 
 .modal-field-container {
     border: 2px solid black !important;
