@@ -7,6 +7,7 @@
     min-width: 0;           /* allows to shrink as much as possible */
     box-sizing: border-box; /* ensures padding/border don't add to width */
     padding: 0.25rem;  
+    flex: 0 1 80px;
 }
 
 /* Modal detail fields horizontal layout */
