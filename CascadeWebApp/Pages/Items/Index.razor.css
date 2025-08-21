@@ -28,7 +28,7 @@
     border: 2px solid black !important;
     background: #9c9ea0 !important;
     display: flex; /* Use flex to contain the row */
-    align-items: flex-start; /* Ensure all children have the same height */
+    align-self: flex-start; /* Ensure all children have the same height */
     justify-content: center;
     padding: 0.25rem;
     box-sizing: border-box;
@@ -41,6 +41,7 @@
     min-height: 0 !important;
     height: auto !important;
     max-height: none !important;
+    flex: 0 0 auto !important;
 }
 
 .modal-detail-field {
