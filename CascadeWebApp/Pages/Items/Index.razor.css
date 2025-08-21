@@ -4,7 +4,7 @@
 .modal-field-container {
     border: 2px black !important;
     background: #9c9ea0 !important;
-    padding: 0.5rem;
+    padding: 2px !important;
 }
 
 /* Modal detail fields horizontal layout */
