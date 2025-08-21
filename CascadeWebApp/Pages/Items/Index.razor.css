@@ -1,13 +1,15 @@
 /* Items Modal Styles */
 
-/* CSS isolation diagnostic rule - this bright style should be visible if CSS isolation is working */
+/* Each box hugs its text, keeps color and border */
 .modal-field-container {
-    border: 2px black !important;
+    border: 2px solid black !important;
     background: #9c9ea0 !important;
+    box-sizing: border-box;
+    padding: 0.25rem 0.75rem;  /* Adjust horizontal padding as desired */
     display: flex;
-    box-sizing: border-box; /* ensures padding/border don't add to width */
-    padding: 0.25rem;  
-    flex: 0 0 auto;
+    align-items: center;       /* Vertically center content */
+    flex: 0 0 auto;            /* Size to content, don't grow/shrink */
+    /* No width, min-width, or max-width! */
 }
 
 /* Modal detail fields horizontal layout */
@@ -24,7 +26,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: 0px;
+    /* No min-width or width needed! */
     margin: 0.5rem 0;
     flex-wrap: wrap;
 }
