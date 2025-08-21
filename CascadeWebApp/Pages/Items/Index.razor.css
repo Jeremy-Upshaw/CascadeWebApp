@@ -27,9 +27,9 @@
     background: #9c9ea0 !important;
     display: inline-block !important; /* Use inline-block to hug content */
     white-space: nowrap !important; /* Prevent wrapping, keep content on single line */
-    padding: 0.25rem;
+    padding: 0.1rem;
     box-sizing: border-box;
-    margin-bottom: 1rem;
+    margin-bottom: 0.25rem;
     border-radius: 5px;
     /* Remove width constraints to allow content-based sizing */
     min-width: 0 !important;
