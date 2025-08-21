@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     flex-wrap: wrap;
     align-items: stretch; /* ensures all boxes in the row have the same height */
 }
@@ -30,7 +30,7 @@
     display: flex; /* Use flex to contain the row */
     align-items: stretch; /* Ensure all children have the same height */
     justify-content: center;
-    padding: 0.5rem;
+    padding: 0.25rem;
     box-sizing: border-box;
     margin-bottom: 1rem;
     border-radius: 5px;
@@ -53,7 +53,7 @@
     width: auto !important;
     height: auto !important;
     margin: 0;
-    padding: 0.25rem 0.5rem; /* Add some internal padding */
+    padding: 0.25rem 0.25rem; /* Add some internal padding */
     flex-wrap: nowrap; /* Prevent text wrapping */
 }
 
