@@ -56,7 +56,8 @@
 }
 
 .modal-title-container {
-  background: #9c9ea0 !important;
+    background: #9c9ea0 !important;
+    border: 2px solid black !important;
 }
 
 /* Modal title field (first field, no label, centered, larger) */
@@ -74,7 +75,7 @@
     font-size: 1.26rem; /* 1.8rem reduced by 30% */
     color: #333; /* Dark color for readability */
     font-weight: 500;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     display: block; /* Stack vertically within the field */
 }
 
