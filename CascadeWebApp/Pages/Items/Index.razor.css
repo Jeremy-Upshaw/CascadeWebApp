@@ -8,6 +8,11 @@
     align-items: flex-start; /* allows boxes to have different heights */
 }
 
+/* Center the field containers in the modal body */
+.modal-body {
+    text-align: center;
+}
+
 /* Row-based layout for items modal */
 .modal-row {
     display: inline-block !important; /* Use inline-block for content hugging */
