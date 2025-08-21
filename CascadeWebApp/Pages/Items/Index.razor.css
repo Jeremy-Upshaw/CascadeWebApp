@@ -1,24 +1,23 @@
 /* Items Modal Styles */
 
-/* Each box hugs its text, keeps color and border */
+.modal-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
 .modal-field-container {
     border: 2px solid black !important;
     background: #9c9ea0 !important;
     box-sizing: border-box;
-    padding: 0.25rem 0.75rem;  /* Adjust horizontal padding as desired */
-    display: flex;
-    align-items: center;       /* Vertically center content */
-    flex: 0 0 auto;            /* Size to content, don't grow/shrink */
-    /* No width, min-width, or max-width! */
-}
-
-/* Modal detail fields horizontal layout */
-.modal-details {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    display: inline-flex;        /* <- Use inline-flex instead of flex */
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    flex: 0 0 auto !important;   /* <- Enforce box sizing to content */
+    width: auto !important;      /* <- Prevent any fixed width */
+    min-width: 0 !important;     /* <- Prevent min size */
+    max-width: none !important;  /* <- Prevent max size */
 }
 
 .modal-detail-field {
