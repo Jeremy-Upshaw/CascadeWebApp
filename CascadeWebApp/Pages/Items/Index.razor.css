@@ -33,6 +33,7 @@
     min-height: 0 !important;
     height: auto !important;
     max-height: none !important;
+    text-align: center;
 }
 
 .modal-detail-field {
