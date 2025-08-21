@@ -50,7 +50,7 @@
     min-width: 0 !important;
     min-height: 0 !important;
     height: auto !important;
-    margin: 0 0.5rem 0 0; /* Small right margin for spacing between fields */
+    margin: 0 0rem 0 0; /* Small right margin for spacing between fields */
     padding: 0.25rem 0.25rem; /* Add some internal padding */
     white-space: nowrap; /* Prevent text wrapping within field */
 }
