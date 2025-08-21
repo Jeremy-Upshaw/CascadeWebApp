@@ -114,6 +114,7 @@ main {
     width: 90%;
     max-width: 1200px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    background: #9c9ea0;
 }
 
 /* Page title centering and styling */
