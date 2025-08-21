@@ -58,6 +58,10 @@
 .modal-title-container {
     background: #9c9ea0 !important;
     border: 2px solid black !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 
 /* Modal title field (first field, no label, centered, larger) */
@@ -69,6 +73,14 @@
     text-align: center;
     margin: 1rem 0; /* Padding above and below */
     padding-top: 0.5rem; /* Additional padding at top for floating close button */
+    flex: 1; /* Take up remaining space to keep title centered */
+}
+
+/* Assign Parts button in modal title */
+.modal-assign-button {
+    margin: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
 }
 
 .modal-detail-label {
