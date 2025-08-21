@@ -9,9 +9,6 @@
 {
     <div class="modal-backdrop" @onclick="@(() => OnClose.InvokeAsync())"></div>
     <div class="modal-dialog">
-        <!-- Floating close button -->
-        <button type="button" class="modal-close-floating" @onclick="@(() => OnClose.InvokeAsync())">&times;</button>
-        
         <div class="modal-body">
             <!-- Title field - Batch Number centered without label -->
             <div class="modal-title-container">
@@ -27,9 +24,6 @@
                 </div>
             </div>
             <!-- ...other fields as needed... -->
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" @onclick="@(() => OnClose.InvokeAsync())">Close</button>
         </div>
     </div>
 }
