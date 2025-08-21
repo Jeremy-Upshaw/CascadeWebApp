@@ -55,6 +55,10 @@
     white-space: nowrap; /* Prevent text wrapping within field */
 }
 
+.modal-title-container {
+  background: #fff !important;
+}
+
 /* Modal title field (first field, no label, centered, larger) */
 .modal-detail-title {
     font-size: 2.375rem; /* 6pt larger than corrected label size */
