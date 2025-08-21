@@ -20,7 +20,7 @@
 
 .modal-row .modal-detail-field {
     flex: 0 1 auto; /* flex to fit content but don't grow or shrink unnecessarily */
-    min-width: 80px; /* small minimum for very short content */
+    min-width: 0px !important; /* small minimum for very short content */
     max-width: none; /* no maximum width - let content determine */
 }
 
