@@ -64,6 +64,7 @@
     text-align: center;
     margin: 1rem 0; /* Padding above and below */
     padding-top: 0.5rem; /* Additional padding at top for floating close button */
+    background: #9c9ea0;
 }
 
 .modal-detail-label {
