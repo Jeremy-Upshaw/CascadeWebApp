@@ -1,52 +1,90 @@
 /* Customers Modal Styles */
 
-/* Modal detail fields horizontal layout */
 .modal-details {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 1rem;
-    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: flex-start; /* allows boxes to have different heights */
+}
+
+/* Center the field containers in the modal body */
+.modal-body {
+    text-align: center;
+}
+
+/* Row-based layout for customers modal */
+.modal-row {
+    display: inline-block !important; /* Use inline-block for content hugging */
+    white-space: nowrap !important; /* Keep all fields on single line */
+    margin-bottom: 0;
+}
+
+.modal-field-container {
+    border: 2px solid black !important;
+    background: #9c9ea0 !important;
+    display: inline-block !important; /* Use inline-block to hug content */
+    white-space: nowrap !important; /* Prevent wrapping, keep content on single line */
+    padding: 0.1rem;
+    box-sizing: border-box;
+    margin-bottom: 0.25rem;
+    border-radius: 5px;
+    /* Remove width constraints to allow content-based sizing */
+    min-width: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    text-align: center;
+}
+
+/* Special handling for address field container */
+.modal-field-container.address-container {
+    white-space: normal !important; /* Allow wrapping for address sections */
+    display: block !important; /* Use block display for address container */
+    width: auto !important;
 }
 
 .modal-detail-field {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: inline-block !important; /* Use inline-block for content hugging */
+    vertical-align: top; /* Align tops of fields */
     text-align: center;
-    min-width: 120px;
-    margin: 0.5rem 0;
+    width: auto !important; /* Let content determine width */
+    max-width: none !important; /* No maximum width restriction */
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 0rem 0 0; /* Small right margin for spacing between fields */
+    padding: 0.25rem 0.25rem; /* Add some internal padding */
+    white-space: nowrap; /* Prevent text wrapping within field */
 }
 
-/* Row-based layout for customer modal */
-.modal-row {
+.modal-title-container {
+    background: #9c9ea0 !important;
+    border: 2px solid black !important;
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center; /* Center the title since button is now positioned absolutely */
+    position: relative;
 }
 
-.modal-row .modal-detail-field {
-    flex: 1;
-    min-width: 150px;
-    max-width: 200px;
-}
-
-/* Address sections layout */
+/* Address sections layout - special handling within field container */
 .address-sections {
     display: flex;
     justify-content: space-around;
     gap: 3rem;
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
+    margin-bottom: 0; /* Reset margin since container handles spacing */
+    margin-top: 0; /* Reset margin since container handles spacing */
     flex-wrap: wrap;
+    white-space: normal !important; /* Allow wrapping in address sections */
 }
 
 .address-section {
     flex: 1;
     min-width: 250px;
     text-align: center;
+    white-space: normal !important; /* Allow wrapping in addresses */
 }
 
 .address-section-label {
@@ -86,7 +124,8 @@
     font-size: 1.26rem; /* 1.8rem reduced by 30% */
     color: #333; /* Dark color for readability */
     font-weight: 500;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    display: block; /* Stack vertically within the field */
 }
 
 .modal-detail-value {
@@ -94,6 +133,7 @@
     color: #222; /* Very dark color for values */
     font-weight: 400;
     line-height: 1.2;
+    display: block; /* Stack vertically within the field */
 }
 
 /* Table styles for modal content */
