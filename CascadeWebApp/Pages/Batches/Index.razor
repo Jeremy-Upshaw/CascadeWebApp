@@ -46,28 +46,24 @@
             <!-- Title field - Batch Number centered without label -->
             <div class="modal-title-container">
                 <div class="modal-detail-title">@_selectedBatch.BatchNumber</div>
+                <button class="btn btn-primary modal-assign-button modal-assign-floating">Assign Parts</button>
             </div>
             
-            <div class="modal-details">
-                <div class="modal-field-container">
+            <!-- Single row: Status, Parts Count, Plugged Weight, Est Finish Date -->
+            <div class="modal-field-container">
+                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Status</div>
                         <div class="modal-detail-value">@_selectedBatch.Status</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Parts Count</div>
                         <div class="modal-detail-value">@_selectedBatch.PartsCount</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Plugged Weight</div>
                         <div class="modal-detail-value">@_selectedBatch.PluggedWeight</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Est Finish Date</div>
                         <div class="modal-detail-value">@_selectedBatch.EstFinishDate.ToShortDateString()</div>
@@ -89,7 +85,6 @@
                             <th>Qty Lost</th>
                             <th>Assign 1</th>
                             <th>Qty 1</th>
-                            <th>Assign (Action)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,9 +100,6 @@
                             <td>0</td>
                             <td>Assignee</td>
                             <td>5</td>
-                            <td>
-                                <button class="btn btn-primary" disabled>Assign</button>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
