@@ -15,16 +15,18 @@
 
 /* Row-based layout for customers modal */
 .modal-row {
-    display: inline-block !important; /* Use inline-block for content hugging */
-    white-space: nowrap !important; /* Keep all fields on single line */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    width: auto;
     margin-bottom: 0;
 }
 
 .modal-field-container {
     border: 2px solid black !important;
     background: #9c9ea0 !important;
-    display: inline-block !important; /* Use inline-block to hug content */
-    white-space: nowrap !important; /* Prevent wrapping, keep content on single line */
+    display: block;
     padding: 0.1rem;
     box-sizing: border-box;
     margin-bottom: 0.25rem;
