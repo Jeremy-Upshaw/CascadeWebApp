@@ -15,18 +15,16 @@
 
 /* Row-based layout for customers modal */
 .modal-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 1.5rem;
-    width: auto;
+    display: inline-block !important; /* Use inline-block for content hugging */
+    white-space: nowrap !important; /* Keep all fields on single line */
     margin-bottom: 0;
 }
 
 .modal-field-container {
     border: 2px solid black !important;
     background: #9c9ea0 !important;
-    display: block;
+    display: inline-block !important; /* Use inline-block to hug content */
+    white-space: nowrap !important; /* Prevent wrapping, keep content on single line */
     padding: 0.1rem;
     box-sizing: border-box;
     margin-bottom: 0.25rem;
@@ -41,12 +39,7 @@
     text-align: center;
 }
 
-/* Special handling for address field container */
-.modal-field-container.address-container {
-    white-space: normal !important; /* Allow wrapping for address sections */
-    display: block !important; /* Use block display for address container */
-    width: auto !important;
-}
+
 
 .modal-detail-field {
     display: inline-block !important; /* Use inline-block for content hugging */
@@ -62,6 +55,11 @@
     white-space: nowrap; /* Prevent text wrapping within field */
 }
 
+/* Special handling for address fields to allow wrapping */
+.modal-detail-field .modal-detail-value div {
+    white-space: normal; /* Allow text wrapping within address lines */
+}
+
 .modal-title-container {
     background: #9c9ea0 !important;
     border: 2px solid black !important;
@@ -71,45 +69,7 @@
     position: relative;
 }
 
-/* Address sections layout - special handling within field container */
-.address-sections {
-    display: flex;
-    justify-content: space-around;
-    gap: 3rem;
-    margin-bottom: 0; /* Reset margin since container handles spacing */
-    margin-top: 0; /* Reset margin since container handles spacing */
-    flex-wrap: wrap;
-    white-space: normal !important; /* Allow wrapping in address sections */
-}
 
-.address-section {
-    flex: 1;
-    min-width: 250px;
-    text-align: center;
-    white-space: normal !important; /* Allow wrapping in addresses */
-}
-
-.address-section-label {
-    font-size: 1.4rem; /* 2rem reduced by 30% */
-    color: #333;
-    font-weight: 500;
-    margin-bottom: 0.75rem;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 0.25rem;
-}
-
-.address-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.address-line {
-    font-size: 1.26rem; /* 1.8rem reduced by 30% */
-    color: #222;
-    font-weight: 400;
-    line-height: 1.2;
-}
 
 /* Modal title field (first field, no label, centered, larger) */
 .modal-detail-title {
