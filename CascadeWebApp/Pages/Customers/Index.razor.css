@@ -15,16 +15,20 @@
 
 /* Row-based layout for customers modal */
 .modal-row {
-    display: inline-block !important; /* Use inline-block for content hugging */
-    white-space: nowrap !important; /* Keep all fields on single line */
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important; /* Center the field groups horizontally */
+    gap: 0.5rem !important; /* Consistent spacing between field groups */
     margin-bottom: 0;
 }
 
 .modal-field-container {
     border: 2px solid black !important;
     background: #9c9ea0 !important;
-    display: inline-block !important; /* Use inline-block to hug content */
-    white-space: nowrap !important; /* Prevent wrapping, keep content on single line */
+    display: flex !important; /* Use flexbox for centering */
+    justify-content: center !important; /* Center the row content */
+    flex-wrap: nowrap !important; /* Prevent wrapping of containers */
     padding: 0.1rem;
     box-sizing: border-box;
     margin-bottom: 0.25rem;
@@ -42,15 +46,16 @@
 
 
 .modal-detail-field {
-    display: inline-block !important; /* Use inline-block for content hugging */
-    vertical-align: top; /* Align tops of fields */
+    display: flex !important; /* Use flexbox for content alignment */
+    flex-direction: column !important; /* Stack label and value vertically */
+    align-items: center !important; /* Center content horizontally within field */
     text-align: center;
     width: auto !important; /* Let content determine width */
     max-width: none !important; /* No maximum width restriction */
     min-width: 0 !important;
     min-height: 0 !important;
     height: auto !important;
-    margin: 0 0rem 0 0; /* Small right margin for spacing between fields */
+    margin: 0 !important; /* Remove margin as gap handles spacing */
     padding: 0.25rem 0.25rem; /* Add some internal padding */
     white-space: nowrap; /* Prevent text wrapping within field */
 }
