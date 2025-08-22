@@ -20,6 +20,8 @@
     margin-bottom: 0;
 }
 
+/* Removed flex-specific rule since using inline-block layout */
+
 .modal-field-container {
     border: 2px solid black !important;
     background: #9c9ea0 !important;
@@ -38,8 +40,6 @@
     max-height: none !important;
     text-align: center;
 }
-
-
 
 .modal-detail-field {
     display: inline-block !important; /* Use inline-block for content hugging */
@@ -69,8 +69,6 @@
     position: relative;
 }
 
-
-
 /* Modal title field (first field, no label, centered, larger) */
 .modal-detail-title {
     font-size: 2.375rem; /* 6pt larger than corrected label size */
@@ -80,6 +78,7 @@
     text-align: center;
     margin: 1rem 0; /* Padding above and below */
     padding-top: 0.5rem; /* Additional padding at top for floating close button */
+    /* Removed flex: 1 since button is now positioned absolutely */
 }
 
 .modal-detail-label {
