@@ -55,7 +55,7 @@
                 <button class="btn btn-primary modal-split-button modal-split-floating">Split Labels</button>
             </div>
             
-            <!-- Top row: Order Date, Studio -->
+            <!-- Single row: All order details -->
             <div class="modal-field-container">
                 <div class="modal-row">
                     <div class="modal-detail-field">
@@ -66,12 +66,6 @@
                         <div class="modal-detail-label">Studio</div>
                         <div class="modal-detail-value">@_selectedOrder.Studio</div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Middle row: Est Ship Date, Shipping Deadline, Shipping Method -->
-            <div class="modal-field-container">
-                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Est Ship Date</div>
                         <div class="modal-detail-value">@_selectedOrder.EstShipDate.ToShortDateString()</div>
@@ -84,12 +78,6 @@
                         <div class="modal-detail-label">Shipping Method</div>
                         <div class="modal-detail-value">@_selectedOrder.ShippingMethod</div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Bottom row: Partial, Order Status -->
-            <div class="modal-field-container">
-                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Partial</div>
                         <div class="modal-detail-value">@(_selectedOrder.Partial ? "Yes" : "No")</div>
