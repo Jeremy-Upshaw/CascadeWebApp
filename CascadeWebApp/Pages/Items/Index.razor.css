@@ -86,8 +86,9 @@
 /* Floating version of the assign button */
 .modal-assign-floating {
     position: absolute;
-    top: 0.5rem;
+    top: 50%;
     right: 0.5rem;
+    transform: translateY(-50%); /* Center vertically with the title row */
     z-index: 10; /* Float above the title container */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth separation */
     background: rgba(86, 87, 89, 0.95) !important; /* Slightly transparent background for separation */

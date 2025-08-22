@@ -52,46 +52,48 @@
             <!-- Title field - Order Number centered without label -->
             <div class="modal-title-container">
                 <div class="modal-detail-title">@_selectedOrder.OrderNumber</div>
+                <button class="btn btn-primary modal-split-button modal-split-floating">Split Labels</button>
             </div>
             
-            <div class="modal-details">
-                <div class="modal-field-container">
+            <!-- Top row: Order Date, Studio -->
+            <div class="modal-field-container">
+                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Order Date</div>
                         <div class="modal-detail-value">@_selectedOrder.OrderDate.ToShortDateString()</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Studio</div>
                         <div class="modal-detail-value">@_selectedOrder.Studio</div>
                     </div>
                 </div>
-                <div class="modal-field-container">
+            </div>
+
+            <!-- Middle row: Est Ship Date, Shipping Deadline, Shipping Method -->
+            <div class="modal-field-container">
+                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Est Ship Date</div>
                         <div class="modal-detail-value">@_selectedOrder.EstShipDate.ToShortDateString()</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Shipping Deadline</div>
                         <div class="modal-detail-value">@_selectedOrder.ShippingDeadline.ToShortDateString()</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Shipping Method</div>
                         <div class="modal-detail-value">@_selectedOrder.ShippingMethod</div>
                     </div>
                 </div>
-                <div class="modal-field-container">
+            </div>
+
+            <!-- Bottom row: Partial, Order Status -->
+            <div class="modal-field-container">
+                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Partial</div>
                         <div class="modal-detail-value">@(_selectedOrder.Partial ? "Yes" : "No")</div>
                     </div>
-                </div>
-                <div class="modal-field-container">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Order Status</div>
                         <div class="modal-detail-value">@_selectedOrder.OrderStatus</div>
@@ -116,7 +118,6 @@
                             <th>Qty Assigned</th>
                             <th>Assignment Location</th>
                             <th>Print Labels</th>
-                            <th>Split</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -136,9 +137,6 @@
                             <td>Shop</td>
                             <td>
                                 <input type="checkbox" disabled />
-                            </td>
-                            <td>
-                                <button class="btn btn-primary" disabled>Split</button>
                             </td>
                         </tr>
                     </tbody>
