@@ -7,15 +7,37 @@
                 Home
             </NavLink>
 
-            <!-- Items -->
-            <NavLink class="nav-link text-light" href="items">
-                Items
-            </NavLink>
+            <!-- Items with sub-links -->
+            <div class="nav-item-group">
+                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("items")' type="button">
+                    Items
+                    <span class="nav-arrow @(IsSubMenuOpen("items") ? "nav-arrow-open" : "")">▼</span>
+                </button>
+                <div class="sub-menu @(IsSubMenuOpen("items") ? "sub-menu-open" : "")">>
+                    <NavLink class="nav-link text-light sub-nav-link" href="items/threadless">
+                        Threadless
+                    </NavLink>
+                    <NavLink class="nav-link text-light sub-nav-link" href="items/threaded">
+                        Threaded
+                    </NavLink>
+                </div>
+            </div>
 
-            <!-- Orders -->
-            <NavLink class="nav-link text-light" href="orders">
-                Orders
-            </NavLink>
+            <!-- Orders with sub-links -->
+            <div class="nav-item-group">
+                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("orders")' type="button">
+                    Orders
+                    <span class="nav-arrow @(IsSubMenuOpen("orders") ? "nav-arrow-open" : "")">▼</span>
+                </button>
+                <div class="sub-menu @(IsSubMenuOpen("orders") ? "sub-menu-open" : "")">>
+                    <NavLink class="nav-link text-light sub-nav-link" href="orders/pulllist">
+                        Pull List
+                    </NavLink>
+                    <NavLink class="nav-link text-light sub-nav-link" href="orders/labels">
+                        Labels
+                    </NavLink>
+                </div>
+            </div>
 
             <!-- Customers -->
             <NavLink class="nav-link text-light" href="customers">
@@ -29,3 +51,24 @@
         </div>
     </div>
 </nav>
+
+@code {
+    private Dictionary<string, bool> _openSubMenus = new Dictionary<string, bool>();
+
+    private void ToggleSubMenu(string menuId)
+    {
+        if (_openSubMenus.ContainsKey(menuId))
+        {
+            _openSubMenus[menuId] = !_openSubMenus[menuId];
+        }
+        else
+        {
+            _openSubMenus[menuId] = true;
+        }
+    }
+
+    private bool IsSubMenuOpen(string menuId)
+    {
+        return _openSubMenus.ContainsKey(menuId) && _openSubMenus[menuId];
+    }
+}
