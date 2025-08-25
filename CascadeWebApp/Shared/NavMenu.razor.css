@@ -13,27 +13,31 @@
     flex-direction: column;
 }
 
-/* Main navigation links - increase font size by 15% */
+/* Main navigation links - styled per requirements: 15% larger font, centered, bold, white */
 .nav-link:not(.sub-nav-link) {
-    font-size: 1.1rem; /* Increased from 0.95rem by 15% */
+    font-size: 1.15rem !important; /* Increased by 15% from 1rem base */
+    font-weight: bold !important; /* Bold font weight for main links */
+    text-align: center !important; /* Centered text in drawer */
+    color: white !important; /* White color for main links */
 }
 
 .collapsible-nav-link {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the content */
     align-items: center;
     background: none;
     border: none;
     padding: 0.875rem 1.5rem;
     margin: 0 0.5rem;
     border-radius: 8px;
-    font-size: 1.1rem; /* Increased from 0.95rem by 15% */
-    font-weight: 500;
+    font-size: 1.15rem !important; /* Increased by 15% from 1rem base */
+    font-weight: bold !important; /* Bold font weight for main collapsible links */
     min-height: 48px;
     transition: all 0.2s ease;
     cursor: pointer;
-    text-align: left;
+    text-align: center !important; /* Centered text */
     width: calc(100% - 1rem);
+    color: white !important; /* White color for main collapsible links */
 }
 
 .collapsible-nav-link:hover {
@@ -53,6 +57,7 @@
 }
 */
 
+/* Submenu container styles - handles expand/collapse animations */
 .sub-menu {
     max-height: 0;
     overflow: hidden;
@@ -60,17 +65,21 @@
     opacity: 0;
 }
 
+/* Open state for submenu - only one can be open at a time per requirements */
 .sub-menu-open {
     max-height: 200px;
     opacity: 1;
 }
 
+/* Submenu links - styled per requirements: light gray color, left-aligned, indented */
 .sub-nav-link {
     padding: 0.5rem 1.5rem 0.5rem 2.5rem !important;
     margin: 0 0.5rem;
-    font-size: 0.875rem;
+    font-size: 0.875rem; /* Keep original size for submenu items */
     font-weight: 400;
     min-height: 36px;
     border-radius: 6px;
-    color: #b0b0b0 !important; /* Light gray color for sub links */
+    color: #cccccc !important; /* Light gray color (#cccccc) for submenu links as required */
+    text-align: left !important; /* Left-aligned as specified */
+    /* Indentation ensures submenu text starts at same horizontal point as main link text */
 }

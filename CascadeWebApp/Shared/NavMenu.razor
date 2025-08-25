@@ -71,18 +71,31 @@
 @code {
     private Dictionary<string, bool> _openSubMenus = new Dictionary<string, bool>();
 
+    /// <summary>
+    /// Toggles the specified submenu while ensuring only one submenu can be open at a time.
+    /// This implements the requirement that clicking a new main link collapses any open submenu.
+    /// </summary>
+    /// <param name="menuId">The identifier of the menu to toggle</param>
     private void ToggleSubMenu(string menuId)
     {
-        if (_openSubMenus.ContainsKey(menuId))
-        {
-            _openSubMenus[menuId] = !_openSubMenus[menuId];
-        }
-        else
+        // Check if this menu is currently open
+        bool isCurrentlyOpen = _openSubMenus.ContainsKey(menuId) && _openSubMenus[menuId];
+        
+        // Close all submenus first to ensure only one can be open at a time
+        _openSubMenus.Clear();
+        
+        // If the clicked menu was not open, open it now
+        if (!isCurrentlyOpen)
         {
             _openSubMenus[menuId] = true;
         }
     }
 
+    /// <summary>
+    /// Checks if the specified submenu is currently open.
+    /// </summary>
+    /// <param name="menuId">The identifier of the menu to check</param>
+    /// <returns>True if the submenu is open, false otherwise</returns>
     private bool IsSubMenuOpen(string menuId)
     {
         return _openSubMenus.ContainsKey(menuId) && _openSubMenus[menuId];
