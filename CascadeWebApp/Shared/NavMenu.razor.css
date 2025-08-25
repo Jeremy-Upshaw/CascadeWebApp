@@ -13,6 +13,11 @@
     flex-direction: column;
 }
 
+/* Main navigation links - increase font size by 15% */
+.nav-link:not(.sub-nav-link) {
+    font-size: 1.1rem; /* Increased from 0.95rem by 15% */
+}
+
 .collapsible-nav-link {
     display: flex;
     justify-content: space-between;
@@ -22,7 +27,7 @@
     padding: 0.875rem 1.5rem;
     margin: 0 0.5rem;
     border-radius: 8px;
-    font-size: 0.95rem;
+    font-size: 1.1rem; /* Increased from 0.95rem by 15% */
     font-weight: 500;
     min-height: 48px;
     transition: all 0.2s ease;
@@ -35,6 +40,8 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Arrow styles - no longer used since arrows were removed */
+/*
 .nav-arrow {
     font-size: 0.8rem;
     transition: transform 0.3s ease;
@@ -44,6 +51,7 @@
 .nav-arrow-open {
     transform: rotate(180deg);
 }
+*/
 
 .sub-menu {
     max-height: 0;
@@ -64,4 +72,5 @@
     font-weight: 400;
     min-height: 36px;
     border-radius: 6px;
+    color: #b0b0b0 !important; /* Light gray color for sub links */
 }

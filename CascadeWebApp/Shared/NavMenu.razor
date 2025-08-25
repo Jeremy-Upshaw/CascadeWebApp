@@ -11,9 +11,8 @@
             <div class="nav-item-group">
                 <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("items")' type="button">
                     Items
-                    <span class="nav-arrow @(IsSubMenuOpen("items") ? "nav-arrow-open" : "")">▼</span>
                 </button>
-                <div class="sub-menu @(IsSubMenuOpen("items") ? "sub-menu-open" : "")">>
+                <div class="sub-menu @(IsSubMenuOpen("items") ? "sub-menu-open" : "")">
                     <NavLink class="nav-link text-light sub-nav-link" href="items/threadless">
                         Threadless
                     </NavLink>
@@ -27,26 +26,43 @@
             <div class="nav-item-group">
                 <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("orders")' type="button">
                     Orders
-                    <span class="nav-arrow @(IsSubMenuOpen("orders") ? "nav-arrow-open" : "")">▼</span>
                 </button>
-                <div class="sub-menu @(IsSubMenuOpen("orders") ? "sub-menu-open" : "")">>
+                <div class="sub-menu @(IsSubMenuOpen("orders") ? "sub-menu-open" : "")">
                     <NavLink class="nav-link text-light sub-nav-link" href="orders/pulllist">
                         Pull List
                     </NavLink>
                     <NavLink class="nav-link text-light sub-nav-link" href="orders/labels">
                         Labels
                     </NavLink>
+                    <NavLink class="nav-link text-light sub-nav-link" href="orders/assign">
+                        Assign
+                    </NavLink>
                 </div>
             </div>
 
-            <!-- Customers -->
-            <NavLink class="nav-link text-light" href="customers">
-                Customers
-            </NavLink>
+            <!-- Customers with sub-links -->
+            <div class="nav-item-group">
+                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("customers")' type="button">
+                    Customers
+                </button>
+                <div class="sub-menu @(IsSubMenuOpen("customers") ? "sub-menu-open" : "")">
+                    <NavLink class="nav-link text-light sub-nav-link" href="customers/activeorder">
+                        Active Order
+                    </NavLink>
+                    <NavLink class="nav-link text-light sub-nav-link" href="customers/pendingpayment">
+                        Pending Payment
+                    </NavLink>
+                </div>
+            </div>
 
             <!-- Batches -->
             <NavLink class="nav-link text-light" href="batches">
                 Batches
+            </NavLink>
+
+            <!-- Production -->
+            <NavLink class="nav-link text-light" href="production">
+                Production
             </NavLink>
         </div>
     </div>
