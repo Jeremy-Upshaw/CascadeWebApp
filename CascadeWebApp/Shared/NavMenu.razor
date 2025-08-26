@@ -55,15 +55,35 @@
                 </div>
             </div>
 
-            <!-- Batches -->
-            <NavLink class="nav-link text-light" href="batches">
-                Batches
-            </NavLink>
+            <!-- Batches with sub-links -->
+            <div class="nav-item-group">
+                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("batches")' type="button">
+                    Batches
+                </button>
+                <div class="sub-menu @(IsSubMenuOpen("batches") ? "sub-menu-open" : "")">
+                    <NavLink class="nav-link text-light sub-nav-link" href="batches/placeholder1">
+                        Placeholder 1
+                    </NavLink>
+                    <NavLink class="nav-link text-light sub-nav-link" href="batches/placeholder2">
+                        Placeholder 2
+                    </NavLink>
+                </div>
+            </div>
 
-            <!-- Production -->
-            <NavLink class="nav-link text-light" href="production">
-                Production
-            </NavLink>
+            <!-- Production with sub-links -->
+            <div class="nav-item-group">
+                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("production")' type="button">
+                    Production
+                </button>
+                <div class="sub-menu @(IsSubMenuOpen("production") ? "sub-menu-open" : "")">
+                    <NavLink class="nav-link text-light sub-nav-link" href="production/placeholder1">
+                        Placeholder 1
+                    </NavLink>
+                    <NavLink class="nav-link text-light sub-nav-link" href="production/placeholder2">
+                        Placeholder 2
+                    </NavLink>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
