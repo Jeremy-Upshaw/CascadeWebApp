@@ -15,8 +15,7 @@
 
 /* Main navigation links - styled per requirements: 1.15rem font, centered, bold, white */
 /* Higher specificity to override Material theme styles */
-.drawer-dark .nav-link:not(.sub-nav-link),
-.drawer .nav-link:not(.sub-nav-link) {
+.custom-navmenu .nav-link:not(.sub-nav-link) {
     font-size: 1.15rem !important; /* Increased from 1rem base to 1.15rem per requirements */
     font-weight: bold !important; /* Bold font weight for main links */
     text-align: center !important; /* Centered text in drawer */
@@ -25,8 +24,7 @@
 }
 
 /* Collapsible navigation links - main buttons with higher specificity */
-.drawer-dark .collapsible-nav-link,
-.drawer .collapsible-nav-link {
+.custom-navmenu .collapsible-nav-link {
     display: flex;
     justify-content: center !important; /* Center the content */
     align-items: center;
@@ -45,8 +43,7 @@
     color: white !important; /* White color for main collapsible links */
 }
 
-.drawer-dark .collapsible-nav-link:hover,
-.drawer .collapsible-nav-link:hover {
+.custom-navmenu .collapsible-nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -79,8 +76,7 @@
 
 /* Submenu links - styled per requirements: light gray color, left-aligned, indented */
 /* Higher specificity to override Material theme styles */
-.drawer-dark .sub-nav-link,
-.drawer .sub-nav-link {
+.custom-navmenu .sub-nav-link {
     padding: 0.5rem 1.5rem 0.5rem 2.5rem !important;
     margin: 0 0.5rem;
     font-size: 0.875rem !important; /* Keep smaller size for submenu items */
