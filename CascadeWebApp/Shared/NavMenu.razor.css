@@ -13,24 +13,29 @@
     flex-direction: column;
 }
 
-/* Main navigation links - styled per requirements: 15% larger font, centered, bold, white */
-.nav-link:not(.sub-nav-link) {
-    font-size: 1.15rem !important; /* Increased by 15% from 1rem base */
+/* Main navigation links - styled per requirements: 1.15rem font, centered, bold, white */
+/* Higher specificity to override Material theme styles */
+.drawer-dark .nav-link:not(.sub-nav-link),
+.drawer .nav-link:not(.sub-nav-link) {
+    font-size: 1.15rem !important; /* Increased from 1rem base to 1.15rem per requirements */
     font-weight: bold !important; /* Bold font weight for main links */
     text-align: center !important; /* Centered text in drawer */
     color: white !important; /* White color for main links */
+    justify-content: center !important; /* Ensure centered content */
 }
 
-.collapsible-nav-link {
+/* Collapsible navigation links - main buttons with higher specificity */
+.drawer-dark .collapsible-nav-link,
+.drawer .collapsible-nav-link {
     display: flex;
-    justify-content: center; /* Center the content */
+    justify-content: center !important; /* Center the content */
     align-items: center;
     background: none;
     border: none;
     padding: 0.875rem 1.5rem;
     margin: 0 0.5rem;
     border-radius: 8px;
-    font-size: 1.15rem !important; /* Increased by 15% from 1rem base */
+    font-size: 1.15rem !important; /* 1.15rem per requirements */
     font-weight: bold !important; /* Bold font weight for main collapsible links */
     min-height: 48px;
     transition: all 0.2s ease;
@@ -40,7 +45,8 @@
     color: white !important; /* White color for main collapsible links */
 }
 
-.collapsible-nav-link:hover {
+.drawer-dark .collapsible-nav-link:hover,
+.drawer .collapsible-nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -72,14 +78,17 @@
 }
 
 /* Submenu links - styled per requirements: light gray color, left-aligned, indented */
-.sub-nav-link {
+/* Higher specificity to override Material theme styles */
+.drawer-dark .sub-nav-link,
+.drawer .sub-nav-link {
     padding: 0.5rem 1.5rem 0.5rem 2.5rem !important;
     margin: 0 0.5rem;
-    font-size: 0.875rem; /* Keep original size for submenu items */
-    font-weight: 400;
+    font-size: 0.875rem !important; /* Keep smaller size for submenu items */
+    font-weight: 400 !important;
     min-height: 36px;
     border-radius: 6px;
     color: #cccccc !important; /* Light gray color (#cccccc) for submenu links as required */
     text-align: left !important; /* Left-aligned as specified */
+    justify-content: flex-start !important; /* Override center justification from Material theme */
     /* Indentation ensures submenu text starts at same horizontal point as main link text */
 }
