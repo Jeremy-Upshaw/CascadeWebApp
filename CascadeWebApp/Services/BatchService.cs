@@ -1,18 +1,62 @@
+using Microsoft.EntityFrameworkCore;
 using CascadeWebApp.Models;
+using CascadeWebApp.Data;
 
 namespace CascadeWebApp.Services
 {
     public class BatchService
     {
-        public Task<List<Batch>> GetBatchesAsync()
+        private readonly CascadeDbContext _context;
+
+        public BatchService(CascadeDbContext context)
         {
-            // Placeholder data
-            var batches = new List<Batch>
+            _context = context;
+        }
+
+        public async Task<List<BatchList>> GetBatchesAsync()
+        {
+            return await _context.BatchList
+                .Include(b => b.BatchContents)
+                .ThenInclude(bc => bc.Item)
+                .Include(b => b.BatchLoss)
+                .Include(b => b.BatchAssignments)
+                .ThenInclude(ba => ba.Order)
+                .ToListAsync();
+        }
+
+        public async Task<BatchList?> GetBatchByIdAsync(int batchId)
+        {
+            return await _context.BatchList
+                .Include(b => b.BatchContents)
+                .ThenInclude(bc => bc.Item)
+                .Include(b => b.BatchLoss)
+                .Include(b => b.BatchAssignments)
+                .ThenInclude(ba => ba.Order)
+                .FirstOrDefaultAsync(b => b.BatchID == batchId);
+        }
+
+        public async Task<BatchList> CreateBatchAsync(BatchList batch)
+        {
+            _context.BatchList.Add(batch);
+            await _context.SaveChangesAsync();
+            return batch;
+        }
+
+        public async Task<BatchList> UpdateBatchAsync(BatchList batch)
+        {
+            _context.BatchList.Update(batch);
+            await _context.SaveChangesAsync();
+            return batch;
+        }
+
+        public async Task DeleteBatchAsync(int batchId)
+        {
+            var batch = await _context.BatchList.FindAsync(batchId);
+            if (batch != null)
             {
-                new Batch{ BatchID=1, BatchNumber="BATCH1001", Status="Open", PartsCount=100, PluggedWeight=55.5, EstFinishDate=DateTime.Now.AddDays(2) },
-                new Batch{ BatchID=2, BatchNumber="BATCH1002", Status="Closed", PartsCount=80, PluggedWeight=44.2, EstFinishDate=DateTime.Now.AddDays(-1) }
-            };
-            return Task.FromResult(batches);
+                _context.BatchList.Remove(batch);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

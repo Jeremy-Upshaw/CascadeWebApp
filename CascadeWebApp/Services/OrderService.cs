@@ -1,18 +1,62 @@
+using Microsoft.EntityFrameworkCore;
 using CascadeWebApp.Models;
+using CascadeWebApp.Data;
 
 namespace CascadeWebApp.Services
 {
     public class OrderService
     {
-        public Task<List<Order>> GetOrdersAsync()
+        private readonly CascadeDbContext _context;
+
+        public OrderService(CascadeDbContext context)
         {
-            // Placeholder data
-            var orders = new List<Order>
+            _context = context;
+        }
+
+        public async Task<List<OrdersList>> GetOrdersAsync()
+        {
+            return await _context.OrdersList
+                .Include(o => o.Customer)
+                .Include(o => o.OrderContents)
+                .ThenInclude(oc => oc.Item)
+                .Include(o => o.BatchAssignments)
+                .ThenInclude(ba => ba.Batch)
+                .ToListAsync();
+        }
+
+        public async Task<OrdersList?> GetOrderByIdAsync(int orderId)
+        {
+            return await _context.OrdersList
+                .Include(o => o.Customer)
+                .Include(o => o.OrderContents)
+                .ThenInclude(oc => oc.Item)
+                .Include(o => o.BatchAssignments)
+                .ThenInclude(ba => ba.Batch)
+                .FirstOrDefaultAsync(o => o.OrdersID == orderId);
+        }
+
+        public async Task<OrdersList> CreateOrderAsync(OrdersList order)
+        {
+            _context.OrdersList.Add(order);
+            await _context.SaveChangesAsync();
+            return order;
+        }
+
+        public async Task<OrdersList> UpdateOrderAsync(OrdersList order)
+        {
+            _context.OrdersList.Update(order);
+            await _context.SaveChangesAsync();
+            return order;
+        }
+
+        public async Task DeleteOrderAsync(int orderId)
+        {
+            var order = await _context.OrdersList.FindAsync(orderId);
+            if (order != null)
             {
-                new Order{ OrdersID=1, OrderNumber="ORD1001", OrderDate=DateTime.Now.AddDays(-5), Studio="Studio A", EstShipDate=DateTime.Now.AddDays(2), ShippingDeadline=DateTime.Now.AddDays(3), ShippingMethod="UPS", Partial=true, OrderStatus="Processing" },
-                new Order{ OrdersID=2, OrderNumber="ORD1002", OrderDate=DateTime.Now.AddDays(-2), Studio="Studio B", EstShipDate=DateTime.Now.AddDays(4), ShippingDeadline=DateTime.Now.AddDays(5), ShippingMethod="FedEx", Partial=false, OrderStatus="Pending" }
-            };
-            return Task.FromResult(orders);
+                _context.OrdersList.Remove(order);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

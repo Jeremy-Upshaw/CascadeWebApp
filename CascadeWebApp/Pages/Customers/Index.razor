@@ -143,11 +143,11 @@
 
 @code {
     private string _search = "";
-    private List<CascadeWebApp.Models.Customer> _customers = new();
-    private IEnumerable<CascadeWebApp.Models.Customer> _filteredCustomers => string.IsNullOrWhiteSpace(_search)
+    private List<CascadeWebApp.Models.Customers> _customers = new();
+    private IEnumerable<CascadeWebApp.Models.Customers> _filteredCustomers => string.IsNullOrWhiteSpace(_search)
         ? _customers
         : _customers.Where(c => c.Studio.Contains(_search, StringComparison.OrdinalIgnoreCase));
-    private CascadeWebApp.Models.Customer? _selectedCustomer;
+    private CascadeWebApp.Models.Customers? _selectedCustomer;
     private bool _showModal = false;
 
     protected override async Task OnInitializedAsync()
@@ -155,7 +155,7 @@
         _customers = await CustomerService.GetCustomersAsync();
     }
 
-    private void OpenCustomerModal(CascadeWebApp.Models.Customer customer)
+    private void OpenCustomerModal(CascadeWebApp.Models.Customers customer)
     {
         _selectedCustomer = customer;
         _showModal = true;

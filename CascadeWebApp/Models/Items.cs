@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace CascadeWebApp.Models
 {
-    public class Item
+    public class Items
     {
-        public int ProductID { get; set; } // hidden, for sort/filter
+        [Key]
+        public int ProductID { get; set; }
+        
+        [Required]
         public string ItemNumber { get; set; } = string.Empty;
         public string Thread { get; set; } = string.Empty;
         public string Gauge { get; set; } = string.Empty;
@@ -15,12 +21,14 @@ namespace CascadeWebApp.Models
         public int OnTheWall { get; set; }
         public int InTheShop { get; set; }
         public int Available { get; set; }
-
-        // Modal-only fields
         public string MachiningLength { get; set; } = string.Empty;
         public string CycleTime { get; set; } = string.Empty;
         public int StockQty { get; set; }
         public int BuildQty { get; set; }
         public int MinStockSize { get; set; }
+
+        // Navigation properties
+        public virtual ICollection<OrderContents> OrderContents { get; set; } = new List<OrderContents>();
+        public virtual ICollection<BatchContents> BatchContents { get; set; } = new List<BatchContents>();
     }
 }

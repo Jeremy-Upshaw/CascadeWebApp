@@ -1,8 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace CascadeWebApp.Models
 {
-    public class Order
+    public class OrdersList
     {
-        public int OrdersID { get; set; } // hidden, for sort/filter
+        [Key]
+        public int OrdersID { get; set; }
+        
+        [Required]
         public string OrderNumber { get; set; } = string.Empty;
         public DateTime OrderDate { get; set; }
         public string Studio { get; set; } = string.Empty;
@@ -12,7 +18,13 @@ namespace CascadeWebApp.Models
         public bool Partial { get; set; }
         public string OrderStatus { get; set; } = string.Empty;
 
-        // Modal fields for detail
-        // (repeat as needed, can expand per future requirements)
+        // Foreign Keys
+        public int CustomerID { get; set; }
+
+        // Navigation properties
+        [ForeignKey("CustomerID")]
+        public virtual Customers Customer { get; set; } = null!;
+        public virtual ICollection<OrderContents> OrderContents { get; set; } = new List<OrderContents>();
+        public virtual ICollection<BatchAssignments> BatchAssignments { get; set; } = new List<BatchAssignments>();
     }
 }
