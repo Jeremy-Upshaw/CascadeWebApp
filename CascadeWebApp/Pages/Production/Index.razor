@@ -1,0 +1,48 @@
+@page "/production"
+@inject CascadeWebApp.Services.BatchService BatchService
+
+<div class="pa-4" style="background: #222; color: #fff;">
+    <h5 class="table-page-title">Production List</h5>
+    <div class="search-container">
+        <input class="search-input" placeholder="Search production…" @bind="_search" />
+        <button class="search-toggle-icon" title="Toggle search">
+            <i class="material-icons">search</i>
+        </button>
+    </div>
+
+    <div class="pa-4" style="background: #222; color: #fff;">
+        <div class="table-container">
+            <div class="table-scroll">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Production ID</th>
+                            <th>Status</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Items</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Production data will be populated here -->
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 2rem; color: #999;">
+                                No production data available
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _search = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Initialize production data here
+    }
+}

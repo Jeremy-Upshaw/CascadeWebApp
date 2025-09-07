@@ -9,9 +9,9 @@
 
             <!-- Items with sub-links -->
             <div class="nav-item-group">
-                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("items")' type="button">
+                <NavLink class="nav-link text-light collapsible-nav-link" href="items" @onclick='() => ToggleSubMenu("items")'>
                     Items
-                </button>
+                </NavLink>
                 <div class="sub-menu @(IsSubMenuOpen("items") ? "sub-menu-open" : "")">
                     <NavLink class="nav-link text-light sub-nav-link" href="items/threadless">
                         Threadless
@@ -24,9 +24,9 @@
 
             <!-- Orders with sub-links -->
             <div class="nav-item-group">
-                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("orders")' type="button">
+                <NavLink class="nav-link text-light collapsible-nav-link" href="orders" @onclick='() => ToggleSubMenu("orders")'>
                     Orders
-                </button>
+                </NavLink>
                 <div class="sub-menu @(IsSubMenuOpen("orders") ? "sub-menu-open" : "")">
                     <NavLink class="nav-link text-light sub-nav-link" href="orders/pulllist">
                         Pull List
@@ -42,9 +42,9 @@
 
             <!-- Customers with sub-links -->
             <div class="nav-item-group">
-                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("customers")' type="button">
+                <NavLink class="nav-link text-light collapsible-nav-link" href="customers" @onclick='() => ToggleSubMenu("customers")'>
                     Customers
-                </button>
+                </NavLink>
                 <div class="sub-menu @(IsSubMenuOpen("customers") ? "sub-menu-open" : "")">
                     <NavLink class="nav-link text-light sub-nav-link" href="customers/activeorder">
                         Active Order
@@ -57,9 +57,9 @@
 
             <!-- Batches with sub-links -->
             <div class="nav-item-group">
-                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("batches")' type="button">
+                <NavLink class="nav-link text-light collapsible-nav-link" href="batches" @onclick='() => ToggleSubMenu("batches")'>
                     Batches
-                </button>
+                </NavLink>
                 <div class="sub-menu @(IsSubMenuOpen("batches") ? "sub-menu-open" : "")">
                     <NavLink class="nav-link text-light sub-nav-link" href="batches/placeholder1">
                         Placeholder 1
@@ -72,9 +72,9 @@
 
             <!-- Production with sub-links -->
             <div class="nav-item-group">
-                <button class="nav-link text-light collapsible-nav-link" @onclick='() => ToggleSubMenu("production")' type="button">
+                <NavLink class="nav-link text-light collapsible-nav-link" href="production" @onclick='() => ToggleSubMenu("production")'>
                     Production
-                </button>
+                </NavLink>
                 <div class="sub-menu @(IsSubMenuOpen("production") ? "sub-menu-open" : "")">
                     <NavLink class="nav-link text-light sub-nav-link" href="production/placeholder1">
                         Placeholder 1
