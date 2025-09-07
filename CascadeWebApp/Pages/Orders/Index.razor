@@ -136,11 +136,11 @@
 
 @code {
     private string _search = "";
-    private List<CascadeWebApp.Models.Order> _orders = new();
-    private IEnumerable<CascadeWebApp.Models.Order> _filteredOrders => string.IsNullOrWhiteSpace(_search)
+    private List<CascadeWebApp.Models.OrdersList> _orders = new();
+    private IEnumerable<CascadeWebApp.Models.OrdersList> _filteredOrders => string.IsNullOrWhiteSpace(_search)
         ? _orders
         : _orders.Where(o => o.OrderNumber.Contains(_search, StringComparison.OrdinalIgnoreCase));
-    private CascadeWebApp.Models.Order? _selectedOrder;
+    private CascadeWebApp.Models.OrdersList? _selectedOrder;
     private bool _showModal = false;
 
     protected override async Task OnInitializedAsync()
@@ -148,7 +148,7 @@
         _orders = await OrderService.GetOrdersAsync();
     }
 
-    private void OpenOrderModal(CascadeWebApp.Models.Order order)
+    private void OpenOrderModal(CascadeWebApp.Models.OrdersList order)
     {
         _selectedOrder = order;
         _showModal = true;

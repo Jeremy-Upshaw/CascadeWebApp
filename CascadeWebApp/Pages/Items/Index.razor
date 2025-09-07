@@ -170,11 +170,11 @@
 
 @code {
     private string _search = "";
-    private List<CascadeWebApp.Models.Item> _items = new();
-    private IEnumerable<CascadeWebApp.Models.Item> _filteredItems => string.IsNullOrWhiteSpace(_search)
+    private List<CascadeWebApp.Models.Items> _items = new();
+    private IEnumerable<CascadeWebApp.Models.Items> _filteredItems => string.IsNullOrWhiteSpace(_search)
         ? _items
         : _items.Where(i => i.ItemNumber.Contains(_search, StringComparison.OrdinalIgnoreCase));
-    private CascadeWebApp.Models.Item? _selectedItem;
+    private CascadeWebApp.Models.Items? _selectedItem;
     private bool _showModal = false;
 
     protected override async Task OnInitializedAsync()
@@ -182,7 +182,7 @@
         _items = await ItemService.GetItemsAsync();
     }
 
-    private void OpenItemModal(CascadeWebApp.Models.Item item)
+    private void OpenItemModal(CascadeWebApp.Models.Items item)
     {
         _selectedItem = item;
         _showModal = true;

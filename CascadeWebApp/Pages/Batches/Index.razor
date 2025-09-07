@@ -110,11 +110,11 @@
 
 @code {
     private string _search = "";
-    private List<CascadeWebApp.Models.Batch> _batches = new();
-    private IEnumerable<CascadeWebApp.Models.Batch> _filteredBatches => string.IsNullOrWhiteSpace(_search)
+    private List<CascadeWebApp.Models.BatchList> _batches = new();
+    private IEnumerable<CascadeWebApp.Models.BatchList> _filteredBatches => string.IsNullOrWhiteSpace(_search)
         ? _batches
         : _batches.Where(b => b.BatchNumber.Contains(_search, StringComparison.OrdinalIgnoreCase));
-    private CascadeWebApp.Models.Batch? _selectedBatch;
+    private CascadeWebApp.Models.BatchList? _selectedBatch;
     private bool _showModal = false;
 
     protected override async Task OnInitializedAsync()
@@ -122,7 +122,7 @@
         _batches = await BatchService.GetBatchesAsync();
     }
 
-    private void OpenBatchModal(CascadeWebApp.Models.Batch batch)
+    private void OpenBatchModal(CascadeWebApp.Models.BatchList batch)
     {
         _selectedBatch = batch;
         _showModal = true;
