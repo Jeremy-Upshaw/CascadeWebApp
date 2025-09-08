@@ -86,25 +86,51 @@
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Shipping Address</div>
                         <div class="modal-detail-value">
-                            <div>@_selectedCustomer.ShippingAddressLine1</div>
-                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.ShippingAddressLine2))
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Ship_To_1))
                             {
-                                <div>@_selectedCustomer.ShippingAddressLine2</div>
+                                <div>@_selectedCustomer.Ship_To_1</div>
                             }
-                            <div>@_selectedCustomer.ShippingCity, @_selectedCustomer.ShippingState @_selectedCustomer.ShippingZip</div>
-                            <div>@_selectedCustomer.ShippingCountry</div>
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Ship_To_2))
+                            {
+                                <div>@_selectedCustomer.Ship_To_2</div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Ship_To_3))
+                            {
+                                <div>@_selectedCustomer.Ship_To_3</div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Ship_To_4))
+                            {
+                                <div>@_selectedCustomer.Ship_To_4</div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Ship_To_5))
+                            {
+                                <div>@_selectedCustomer.Ship_To_5</div>
+                            }
                         </div>
                     </div>
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Billing Address</div>
                         <div class="modal-detail-value">
-                            <div>@_selectedCustomer.BillingAddressLine1</div>
-                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.BillingAddressLine2))
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Bill_To_1))
                             {
-                                <div>@_selectedCustomer.BillingAddressLine2</div>
+                                <div>@_selectedCustomer.Bill_To_1</div>
                             }
-                            <div>@_selectedCustomer.BillingCity, @_selectedCustomer.BillingState @_selectedCustomer.BillingZip</div>
-                            <div>@_selectedCustomer.BillingCountry</div>
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Bill_To_2))
+                            {
+                                <div>@_selectedCustomer.Bill_To_2</div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Bill_To_3))
+                            {
+                                <div>@_selectedCustomer.Bill_To_3</div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Bill_To_4))
+                            {
+                                <div>@_selectedCustomer.Bill_To_4</div>
+                            }
+                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.Bill_To_5))
+                            {
+                                <div>@_selectedCustomer.Bill_To_5</div>
+                            }
                         </div>
                     </div>
                 </div>
