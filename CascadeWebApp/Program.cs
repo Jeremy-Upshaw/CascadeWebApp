@@ -11,9 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-// Add Entity Framework - temporarily disabled for UI testing
-//builder.Services.AddDbContext<CascadeDbContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Add Entity Framework
+builder.Services.AddDbContext<CascadeDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add SignalR
 builder.Services.AddSignalR();
