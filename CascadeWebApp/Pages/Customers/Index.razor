@@ -48,21 +48,17 @@
                 <div class="modal-detail-title">@(_selectedCustomer.Studio ?? "")</div>
             </div>
             
-            <!-- Top block: Contact Name, Email, Phone -->
-            <div class="modal-field-container modal-vertical-block">
-                <div class="modal-vertical-row">
+            <!-- First row: Contact Name, Email, Phone -->
+            <div class="modal-field-container">
+                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Contact Name</div>
                         <div class="modal-detail-value">@((_selectedCustomer.FirstName ?? "" + " " + (_selectedCustomer.LastName ?? "")).Trim())</div>
                     </div>
-                </div>
-                <div class="modal-vertical-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Email</div>
                         <div class="modal-detail-value">@(_selectedCustomer.Email ?? "")</div>
                     </div>
-                </div>
-                <div class="modal-vertical-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Phone Number</div>
                         <div class="modal-detail-value">@(_selectedCustomer.Phone ?? "")</div>
@@ -70,15 +66,13 @@
                 </div>
             </div>
 
-            <!-- Middle block: Discount Level, Payment Terms -->
-            <div class="modal-field-container modal-vertical-block">
-                <div class="modal-vertical-row">
+            <!-- Second row: Discount Level, Payment Terms -->
+            <div class="modal-field-container">
+                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Discount Level</div>
                         <div class="modal-detail-value">@(_selectedCustomer.DiscountLevel ?? "")</div>
                     </div>
-                </div>
-                <div class="modal-vertical-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Payment Terms</div>
                         <div class="modal-detail-value">@(_selectedCustomer.PaymentTerms ?? "")</div>
@@ -86,9 +80,9 @@
                 </div>
             </div>
 
-            <!-- Bottom block: Billing and Shipping Addresses -->
-            <div class="modal-field-container modal-vertical-block">
-                <div class="modal-vertical-row">
+            <!-- Third row: Shipping and Billing Addresses -->
+            <div class="modal-field-container">
+                <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Shipping Address</div>
                         <div class="modal-detail-value">
@@ -114,8 +108,6 @@
                             }
                         </div>
                     </div>
-                </div>
-                <div class="modal-vertical-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Billing Address</div>
                         <div class="modal-detail-value">
