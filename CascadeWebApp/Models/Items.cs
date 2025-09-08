@@ -9,12 +9,12 @@ namespace CascadeWebApp.Models
         public int ProductID { get; set; }
         [Required]
         public string ItemNumber { get; set; } = string.Empty;
-        public string Thread { get; set; } = string.Empty;
-        public string Gauge { get; set; } = string.Empty;
-        public string EndType { get; set; } = string.Empty;
-        public string EndMM { get; set; } = string.Empty;
-        public string EndInch { get; set; } = string.Empty;
-        public string Length { get; set; } = string.Empty;
+        public string? Thread { get; set; } = string.Empty;
+        public string? Gauge { get; set; } = string.Empty;
+        public string? EndType { get; set; } = string.Empty;
+        public string? EndMM { get; set; } = string.Empty;
+        public string? EndInch { get; set; } = string.Empty;
+        public string? Length { get; set; } = string.Empty;
         public double? OnOrder { get; set; }
         public double? InProduction { get; set; }
         public double? OnTheWall { get; set; }
