@@ -11,7 +11,6 @@ namespace CascadeWebApp.Models
         [Required]
         public string OrderNumber { get; set; } = string.Empty;
         public DateTime OrderDate { get; set; }
-        public string Studio { get; set; } = string.Empty;
         public DateTime EstShipDate { get; set; }
         public DateTime ShippingDeadline { get; set; }
         public string ShippingMethod { get; set; } = string.Empty;

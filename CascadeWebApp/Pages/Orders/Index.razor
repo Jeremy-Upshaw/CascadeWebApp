@@ -30,7 +30,7 @@
                     <tr @onclick="() => OpenOrderModal(order)">
                         <td>@order.OrderNumber</td>
                         <td>@order.OrderDate.ToShortDateString()</td>
-                        <td>@order.Studio</td>
+                        <td>@(order.Customer?.Studio ?? "")</td>
                         <td>@order.EstShipDate.ToShortDateString()</td>
                         <td>@order.ShippingDeadline.ToShortDateString()</td>
                         <td>@order.ShippingMethod</td>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Studio</div>
-                        <div class="modal-detail-value">@_selectedOrder.Studio</div>
+                        <div class="modal-detail-value">@(_selectedOrder.Customer?.Studio ?? "")</div>
                     </div>
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Est Ship Date</div>
