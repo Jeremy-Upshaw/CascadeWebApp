@@ -7,7 +7,6 @@ namespace CascadeWebApp.Models
     {
         [Key]
         public int ProductID { get; set; }
-        
         [Required]
         public string ItemNumber { get; set; } = string.Empty;
         public string Thread { get; set; } = string.Empty;
@@ -21,13 +20,11 @@ namespace CascadeWebApp.Models
         public double OnTheWall { get; set; }
         public double InTheShop { get; set; }
         public double Available { get; set; }
-        public string MachiningLength { get; set; } = string.Empty;
-        public string CycleTime { get; set; } = string.Empty;
+        public double MachiningLength { get; set; }
+        public double CycleTime { get; set; }
         public double StockQty { get; set; }
         public double BuildQty { get; set; }
         public double MinStockSize { get; set; }
-
-        // Navigation properties
         public virtual ICollection<OrderContents> OrderContents { get; set; } = new List<OrderContents>();
         public virtual ICollection<BatchContents> BatchContents { get; set; } = new List<BatchContents>();
     }
