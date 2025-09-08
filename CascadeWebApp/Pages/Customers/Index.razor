@@ -53,7 +53,7 @@
                 <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Contact Name</div>
-                        <div class="modal-detail-value">@(((_selectedCustomer.FirstName ?? "") + " " + (_selectedCustomer.LastName ?? "")).Trim())</div>
+                        <div class="modal-detail-value">@((_selectedCustomer.FirstName ?? "" + " " + (_selectedCustomer.LastName ?? "")).Trim())</div>
                     </div>
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Email</div>
