@@ -25,11 +25,11 @@
                 @foreach (var customer in _filteredCustomers)
                 {
                     <tr @onclick="() => OpenCustomerModal(customer)">
-                        <td>@customer.Studio</td>
-                        <td>@customer.Email</td>
-                        <td>@customer.Phone</td>
-                        <td>@customer.DiscountLevel</td>
-                        <td>@customer.PaymentTerms</td>
+                        <td>@(customer.Studio ?? "")</td>
+                        <td>@(customer.Email ?? "")</td>
+                        <td>@(customer.Phone ?? "")</td>
+                        <td>@(customer.DiscountLevel ?? "")</td>
+                        <td>@(customer.PaymentTerms ?? "")</td>
                     </tr>
                 }
             </tbody>
@@ -45,7 +45,7 @@
         <div class="modal-body">
             <!-- Title field - Studio centered without label -->
             <div class="modal-title-container">
-                <div class="modal-detail-title">@_selectedCustomer.Studio</div>
+                <div class="modal-detail-title">@(_selectedCustomer.Studio ?? "")</div>
             </div>
             
             <!-- First row: Contact Name, Email, Phone -->
@@ -53,15 +53,15 @@
                 <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Contact Name</div>
-                        <div class="modal-detail-value">@((_selectedCustomer.FirstName + " " + _selectedCustomer.LastName).Trim())</div>
+                        <div class="modal-detail-value">@((_selectedCustomer.FirstName ?? "" + " " + (_selectedCustomer.LastName ?? "")).Trim())</div>
                     </div>
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Email</div>
-                        <div class="modal-detail-value">@_selectedCustomer.Email</div>
+                        <div class="modal-detail-value">@(_selectedCustomer.Email ?? "")</div>
                     </div>
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Phone Number</div>
-                        <div class="modal-detail-value">@_selectedCustomer.Phone</div>
+                        <div class="modal-detail-value">@(_selectedCustomer.Phone ?? "")</div>
                     </div>
                 </div>
             </div>
@@ -71,11 +71,11 @@
                 <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Discount Level</div>
-                        <div class="modal-detail-value">@_selectedCustomer.DiscountLevel</div>
+                        <div class="modal-detail-value">@(_selectedCustomer.DiscountLevel ?? "")</div>
                     </div>
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Payment Terms</div>
-                        <div class="modal-detail-value">@_selectedCustomer.PaymentTerms</div>
+                        <div class="modal-detail-value">@(_selectedCustomer.PaymentTerms ?? "")</div>
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@
     private List<CascadeWebApp.Models.Customers> _customers = new();
     private IEnumerable<CascadeWebApp.Models.Customers> _filteredCustomers => string.IsNullOrWhiteSpace(_search)
         ? _customers
-        : _customers.Where(c => c.Studio.Contains(_search, StringComparison.OrdinalIgnoreCase));
+        : _customers.Where(c => c.Studio?.Contains(_search, StringComparison.OrdinalIgnoreCase) == true);
     private CascadeWebApp.Models.Customers? _selectedCustomer;
     private bool _showModal = false;
 
