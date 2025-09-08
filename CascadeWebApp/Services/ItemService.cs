@@ -16,8 +16,6 @@ namespace CascadeWebApp.Services
         public async Task<List<Items>> GetItemsAsync()
         {
             return await _context.Items
-                .Include(i => i.OrderContents)
-                .Include(i => i.BatchContents)
                 .ToListAsync();
         }
 
