@@ -32,18 +32,18 @@
                 @foreach (var item in _filteredItems)
                 {
                     <tr @onclick="() => OpenItemModal(item)">
-                        <td>@item.ItemNumber</td>
-                        <td>@item.Thread</td>
-                        <td>@item.Gauge</td>
-                        <td>@item.EndType</td>
-                        <td>@item.EndMM</td>
-                        <td>@item.EndInch</td>
-                        <td>@item.Length</td>
-                        <td>@item.OnOrder</td>
-                        <td>@item.InProduction</td>
-                        <td>@item.OnTheWall</td>
-                        <td>@item.InTheShop</td>
-                        <td>@item.Available</td>
+                        <td>@items.ItemNumber</td>
+                        <td>@items.Thread</td>
+                        <td>@items.Gauge</td>
+                        <td>@items.EndType</td>
+                        <td>@items.EndMM</td>
+                        <td>@items.EndInch</td>
+                        <td>@items.Length</td>
+                        <td>@items.OnOrder</td>
+                        <td>@items.InProduction</td>
+                        <td>@items.OnTheWall</td>
+                        <td>@items.InTheShop</td>
+                        <td>@items.Available</td>
                     </tr>
                 }
             </tbody>
