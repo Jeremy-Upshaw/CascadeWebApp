@@ -20,6 +20,19 @@
     margin-bottom: 0;
 }
 
+/* New vertical layout classes */
+.modal-vertical-block {
+    display: block !important; /* Vertical stacking of rows */
+    width: 100% !important;
+    margin-bottom: 0.5rem;
+}
+
+.modal-vertical-row {
+    display: block !important; /* Each field on its own line */
+    width: 100% !important;
+    margin-bottom: 0.25rem;
+}
+
 /* Removed flex-specific rule since using inline-block layout */
 
 .modal-field-container {
@@ -41,6 +54,14 @@
     text-align: center;
 }
 
+/* Override for vertical blocks to use full width */
+.modal-field-container.modal-vertical-block {
+    display: block !important;
+    width: calc(100% - 1rem) !important;
+    white-space: normal !important; /* Allow text wrapping in vertical layout */
+    margin: 0 auto 0.5rem auto; /* Center the block with spacing below */
+}
+
 .modal-detail-field {
     display: inline-block !important; /* Use inline-block for content hugging */
     vertical-align: top; /* Align tops of fields */
@@ -53,6 +74,16 @@
     margin: 0 0rem 0 0; /* Small right margin for spacing between fields */
     padding: 0.25rem 0.25rem; /* Add some internal padding */
     white-space: nowrap; /* Prevent text wrapping within field */
+}
+
+/* Override for vertical layout fields to use full width */
+.modal-vertical-row .modal-detail-field {
+    display: block !important;
+    width: 100% !important;
+    white-space: normal !important; /* Allow text wrapping */
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem;
 }
 
 /* Special handling for address fields to allow wrapping */
