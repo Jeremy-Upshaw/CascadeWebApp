@@ -16,16 +16,16 @@ namespace CascadeWebApp.Models
         public string EndMM { get; set; } = string.Empty;
         public string EndInch { get; set; } = string.Empty;
         public string Length { get; set; } = string.Empty;
-        public int OnOrder { get; set; }
-        public int InProduction { get; set; }
-        public int OnTheWall { get; set; }
-        public int InTheShop { get; set; }
-        public int Available { get; set; }
+        public double OnOrder { get; set; }
+        public double InProduction { get; set; }
+        public double OnTheWall { get; set; }
+        public double InTheShop { get; set; }
+        public double Available { get; set; }
         public string MachiningLength { get; set; } = string.Empty;
         public string CycleTime { get; set; } = string.Empty;
-        public int StockQty { get; set; }
-        public int BuildQty { get; set; }
-        public int MinStockSize { get; set; }
+        public double StockQty { get; set; }
+        public double BuildQty { get; set; }
+        public double MinStockSize { get; set; }
 
         // Navigation properties
         public virtual ICollection<OrderContents> OrderContents { get; set; } = new List<OrderContents>();
