@@ -36,7 +36,7 @@ namespace CascadeWebApp.Data
             modelBuilder.Entity<OrderContents>()
                 .HasOne(oc => oc.Order)
                 .WithMany(o => o.OrderContents)
-                .HasForeignKey(oc => oc.OrdersID)
+                .HasForeignKey(oc => oc.OrderID)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<OrderContents>()
@@ -79,14 +79,6 @@ namespace CascadeWebApp.Data
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Configure decimal precision
-            modelBuilder.Entity<OrderContents>()
-                .Property(oc => oc.UnitPrice)
-                .HasPrecision(18, 2);
-
-            modelBuilder.Entity<OrderContents>()
-                .Property(oc => oc.TotalPrice)
-                .HasPrecision(18, 2);
-
             modelBuilder.Entity<BatchContents>()
                 .Property(bc => bc.EstimatedWeight)
                 .HasPrecision(18, 2);

@@ -6,19 +6,25 @@ namespace CascadeWebApp.Models
     public class OrderContents
     {
         [Key]
-        public int OrderContentsID { get; set; }
+        [Column("OrderContentID")]
+        public int OrderContentID { get; set; }
 
         // Foreign Keys
-        public int OrdersID { get; set; }
-        public int ProductID { get; set; }
+        [Column("OrderID")]
+        public int? OrderID { get; set; }
+        public int? ProductID { get; set; }
 
         // Properties
-        public int Quantity { get; set; }
-        public decimal UnitPrice { get; set; }
-        public decimal TotalPrice { get; set; }
+        [Column("QtyOrdered")]
+        public int? QtyOrdered { get; set; }
+        public int? QtyRemaining { get; set; }
+        public int? QtyPulled { get; set; }
+        public int? QtyShipped { get; set; }
+        public int? QtyAssigned { get; set; }
+        public bool? NeedsAssigned { get; set; }
 
         // Navigation properties
-        [ForeignKey("OrdersID")]
+        [ForeignKey("OrderID")]
         public virtual OrdersList Order { get; set; } = null!;
         
         [ForeignKey("ProductID")]
