@@ -19,6 +19,16 @@
                     <th>Phone #</th>
                     <th>Discount Level</th>
                     <th>Payment Terms</th>
+                    <th>Bill To 1</th>
+                    <th>Bill To 2</th>
+                    <th>Bill To 3</th>
+                    <th>Bill To 4</th>
+                    <th>Bill To 5</th>
+                    <th>Ship To 1</th>
+                    <th>Ship To 2</th>
+                    <th>Ship To 3</th>
+                    <th>Ship To 4</th>
+                    <th>Ship To 5</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +40,16 @@
                         <td>@customer.Phone</td>
                         <td>@customer.DiscountLevel</td>
                         <td>@customer.PaymentTerms</td>
+                        <td>@customer.BillTo1</td>
+                        <td>@customer.BillTo2</td>
+                        <td>@customer.BillTo3</td>
+                        <td>@customer.BillTo4</td>
+                        <td>@customer.BillTo5</td>
+                        <td>@customer.ShipTo1</td>
+                        <td>@customer.ShipTo2</td>
+                        <td>@customer.ShipTo3</td>
+                        <td>@customer.ShipTo4</td>
+                        <td>@customer.ShipTo5</td>
                     </tr>
                 }
             </tbody>
@@ -53,7 +73,7 @@
                 <div class="modal-row">
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Contact Name</div>
-                        <div class="modal-detail-value">@((_selectedCustomer.ContactFirstName + " " + _selectedCustomer.ContactSecondName).Trim())</div>
+                        <div class="modal-detail-value">@((_selectedCustomer.FirstName + " " + _selectedCustomer.LastName).Trim())</div>
                     </div>
                     <div class="modal-detail-field">
                         <div class="modal-detail-label">Email</div>
@@ -87,11 +107,9 @@
                         <div class="modal-detail-label">Shipping Address</div>
                         <div class="modal-detail-value">
                             <div>@_selectedCustomer.ShippingAddressLine1</div>
-                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.ShippingAddressLine2))
-                            {
-                                <div>@_selectedCustomer.ShippingAddressLine2</div>
-                            }
-                            <div>@_selectedCustomer.ShippingCity, @_selectedCustomer.ShippingState @_selectedCustomer.ShippingZip</div>
+                            <div>@_selectedCustomer.ShippingAddressLine2</div>
+                            <div>@_selectedCustomer.ShippingCity</div>
+                            <div>@_selectedCustomer.ShippingState @_selectedCustomer.ShippingZip</div>
                             <div>@_selectedCustomer.ShippingCountry</div>
                         </div>
                     </div>
@@ -99,11 +117,9 @@
                         <div class="modal-detail-label">Billing Address</div>
                         <div class="modal-detail-value">
                             <div>@_selectedCustomer.BillingAddressLine1</div>
-                            @if (!string.IsNullOrWhiteSpace(_selectedCustomer.BillingAddressLine2))
-                            {
-                                <div>@_selectedCustomer.BillingAddressLine2</div>
-                            }
-                            <div>@_selectedCustomer.BillingCity, @_selectedCustomer.BillingState @_selectedCustomer.BillingZip</div>
+                            <div>@_selectedCustomer.BillingAddressLine2</div>
+                            <div>@_selectedCustomer.BillingCity</div>
+                            <div>@_selectedCustomer.BillingState @_selectedCustomer.BillingZip</div>
                             <div>@_selectedCustomer.BillingCountry</div>
                         </div>
                     </div>
