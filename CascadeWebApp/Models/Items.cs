@@ -20,8 +20,8 @@ namespace CascadeWebApp.Models
         public double OnTheWall { get; set; }
         public double InTheShop { get; set; }
         public double Available { get; set; }
-        public double MachiningLength { get; set; }
-        public double CycleTime { get; set; }
+        public double? MachiningLength { get; set; }
+        public double? CycleTime { get; set; }
         public double StockQty { get; set; }
         public double BuildQty { get; set; }
         public double MinStockSize { get; set; }
