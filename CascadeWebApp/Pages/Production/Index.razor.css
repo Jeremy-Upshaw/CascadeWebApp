@@ -1,4 +1,4 @@
-/* Orders Modal Styles */
+/* Production Modal Styles */
 
 .modal-details {
     display: flex;
@@ -13,7 +13,7 @@
     text-align: center;
 }
 
-/* Row-based layout for orders modal */
+/* Row-based layout for production modal */
 .modal-row {
     display: inline-block !important; /* Use inline-block for content hugging */
     white-space: nowrap !important; /* Keep all fields on single line */
@@ -87,26 +87,6 @@
     font-weight: 400;
     line-height: 1.2;
     display: block; /* Stack vertically within the field */
-}
-
-/* Split Labels button in modal title - floating above */
-.modal-split-button {
-    margin: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.95rem;
-}
-
-/* Floating version of the split button */
-.modal-split-floating {
-    position: absolute;
-    top: 50%;
-    right: 0.5rem;
-    transform: translateY(-50%); /* Center vertically with the title row */
-    z-index: 10; /* Float above the title container */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth separation */
-    background: rgba(86, 87, 89, 0.95) !important; /* Slightly transparent background for separation */
-    border: 1px solid rgba(0, 0, 0, 0.2); /* Subtle border for definition */
-    margin: 0; /* Remove default margin since we're positioning absolutely */
 }
 
 /* Table styles for modal content */
