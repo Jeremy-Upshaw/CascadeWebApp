@@ -93,75 +93,75 @@
                     @foreach (var order in shopifyOrders)
                     {
                         <tr>
-                            <td>@order.Id</td>
-                            <td>@order.Name</td>
-                            <td>@order.CreatedAt</td>
-                            <td>@order.UpdatedAt</td>
-                            <td>@order.Email</td>
-                            <td>@order.FinancialStatus</td>
-                            <td>@order.FulfillmentStatus</td>
-                            <td>@order.CurrencyCode</td>
-                            <td>@order.TotalPrice</td>
-                            <td>@order.SubtotalPrice</td>
-                            <td>@order.TotalTax</td>
-                            <td>@order.TotalShippingPrice</td>
-                            <td>@order.Confirmed</td>
-                            <td>@order.ClosedAt</td>
-                            <td>@order.CancelledAt</td>
-                            <td>@order.CancelReason</td>
-                            <td>@order.Tags</td>
-                            <td>@order.OrderNumber</td>
-                            <td>@order.Note</td>
-                            <td>@order.Customer_Id</td>
-                            <td>@order.Customer_Email</td>
-                            <td>@order.Customer_FirstName</td>
-                            <td>@order.Customer_LastName</td>
-                            <td>@order.Customer_Phone</td>
-                            <td>@order.Customer_CreatedAt</td>
-                            <td>@order.Customer_OrdersCount</td>
-                            <td>@order.Customer_State</td>
-                            <td>@order.ShippingAddress_Address1</td>
-                            <td>@order.ShippingAddress_Address2</td>
-                            <td>@order.ShippingAddress_City</td>
-                            <td>@order.ShippingAddress_Company</td>
-                            <td>@order.ShippingAddress_Country</td>
-                            <td>@order.ShippingAddress_CountryCode</td>
-                            <td>@order.ShippingAddress_FirstName</td>
-                            <td>@order.ShippingAddress_LastName</td>
-                            <td>@order.ShippingAddress_Phone</td>
-                            <td>@order.ShippingAddress_Province</td>
-                            <td>@order.ShippingAddress_ProvinceCode</td>
-                            <td>@order.ShippingAddress_Zip</td>
-                            <td>@order.BillingAddress_Address1</td>
-                            <td>@order.BillingAddress_Address2</td>
-                            <td>@order.BillingAddress_City</td>
-                            <td>@order.BillingAddress_Company</td>
-                            <td>@order.BillingAddress_Country</td>
-                            <td>@order.BillingAddress_CountryCode</td>
-                            <td>@order.BillingAddress_FirstName</td>
-                            <td>@order.BillingAddress_LastName</td>
-                            <td>@order.BillingAddress_Phone</td>
-                            <td>@order.BillingAddress_Province</td>
-                            <td>@order.BillingAddress_ProvinceCode</td>
-                            <td>@order.BillingAddress_Zip</td>
-                            <td>@order.LineItem_Id</td>
-                            <td>@order.LineItem_Title</td>
-                            <td>@order.LineItem_Sku</td>
-                            <td>@order.LineItem_VariantId</td>
-                            <td>@order.LineItem_Quantity</td>
-                            <td>@order.LineItem_Price</td>
-                            <td>@order.LineItem_FulfillmentStatus</td>
-                            <td>@order.LineItem_Vendor</td>
-                            <td>@order.Discount_Code</td>
-                            <td>@order.Discount_Type</td>
-                            <td>@order.Discount_Value</td>
-                            <td>@order.ShippingLine_Code</td>
-                            <td>@order.ShippingLine_Price</td>
-                            <td>@order.ShippingLine_Title</td>
-                            <td>@order.Transaction_Id</td>
-                            <td>@order.Transaction_Amount</td>
-                            <td>@order.Transaction_Kind</td>
-                            <td>@order.Transaction_Status</td>
+                            <td>@(order.Id?.ToString() ?? "")</td>
+                            <td>@(order.Name ?? "")</td>
+                            <td>@(order.CreatedAt?.ToString("MM/dd/yyyy HH:mm") ?? "")</td>
+                            <td>@(order.UpdatedAt?.ToString("MM/dd/yyyy HH:mm") ?? "")</td>
+                            <td>@(order.Email ?? "")</td>
+                            <td>@(order.FinancialStatus ?? "")</td>
+                            <td>@(order.FulfillmentStatus ?? "")</td>
+                            <td>@(order.CurrencyCode ?? "")</td>
+                            <td>@(order.TotalPrice?.ToString("C") ?? "")</td>
+                            <td>@(order.SubtotalPrice?.ToString("C") ?? "")</td>
+                            <td>@(order.TotalTax?.ToString("C") ?? "")</td>
+                            <td>@(order.TotalShippingPrice?.ToString("C") ?? "")</td>
+                            <td>@(order.Confirmed.HasValue ? (order.Confirmed.Value ? "Yes" : "No") : "")</td>
+                            <td>@(order.ClosedAt?.ToString("MM/dd/yyyy HH:mm") ?? "")</td>
+                            <td>@(order.CancelledAt?.ToString("MM/dd/yyyy HH:mm") ?? "")</td>
+                            <td>@(order.CancelReason ?? "")</td>
+                            <td>@(order.Tags ?? "")</td>
+                            <td>@(order.OrderNumber?.ToString() ?? "")</td>
+                            <td>@(order.Note ?? "")</td>
+                            <td>@(order.Customer_Id?.ToString() ?? "")</td>
+                            <td>@(order.Customer_Email ?? "")</td>
+                            <td>@(order.Customer_FirstName ?? "")</td>
+                            <td>@(order.Customer_LastName ?? "")</td>
+                            <td>@(order.Customer_Phone ?? "")</td>
+                            <td>@(order.Customer_CreatedAt?.ToString("MM/dd/yyyy HH:mm") ?? "")</td>
+                            <td>@(order.Customer_OrdersCount?.ToString() ?? "")</td>
+                            <td>@(order.Customer_State ?? "")</td>
+                            <td>@(order.ShippingAddress_Address1 ?? "")</td>
+                            <td>@(order.ShippingAddress_Address2 ?? "")</td>
+                            <td>@(order.ShippingAddress_City ?? "")</td>
+                            <td>@(order.ShippingAddress_Company ?? "")</td>
+                            <td>@(order.ShippingAddress_Country ?? "")</td>
+                            <td>@(order.ShippingAddress_CountryCode ?? "")</td>
+                            <td>@(order.ShippingAddress_FirstName ?? "")</td>
+                            <td>@(order.ShippingAddress_LastName ?? "")</td>
+                            <td>@(order.ShippingAddress_Phone ?? "")</td>
+                            <td>@(order.ShippingAddress_Province ?? "")</td>
+                            <td>@(order.ShippingAddress_ProvinceCode ?? "")</td>
+                            <td>@(order.ShippingAddress_Zip ?? "")</td>
+                            <td>@(order.BillingAddress_Address1 ?? "")</td>
+                            <td>@(order.BillingAddress_Address2 ?? "")</td>
+                            <td>@(order.BillingAddress_City ?? "")</td>
+                            <td>@(order.BillingAddress_Company ?? "")</td>
+                            <td>@(order.BillingAddress_Country ?? "")</td>
+                            <td>@(order.BillingAddress_CountryCode ?? "")</td>
+                            <td>@(order.BillingAddress_FirstName ?? "")</td>
+                            <td>@(order.BillingAddress_LastName ?? "")</td>
+                            <td>@(order.BillingAddress_Phone ?? "")</td>
+                            <td>@(order.BillingAddress_Province ?? "")</td>
+                            <td>@(order.BillingAddress_ProvinceCode ?? "")</td>
+                            <td>@(order.BillingAddress_Zip ?? "")</td>
+                            <td>@(order.LineItem_Id?.ToString() ?? "")</td>
+                            <td>@(order.LineItem_Title ?? "")</td>
+                            <td>@(order.LineItem_Sku ?? "")</td>
+                            <td>@(order.LineItem_VariantId?.ToString() ?? "")</td>
+                            <td>@(order.LineItem_Quantity?.ToString() ?? "")</td>
+                            <td>@(order.LineItem_Price?.ToString("C") ?? "")</td>
+                            <td>@(order.LineItem_FulfillmentStatus ?? "")</td>
+                            <td>@(order.LineItem_Vendor ?? "")</td>
+                            <td>@(order.Discount_Code ?? "")</td>
+                            <td>@(order.Discount_Type ?? "")</td>
+                            <td>@(order.Discount_Value?.ToString("C") ?? "")</td>
+                            <td>@(order.ShippingLine_Code ?? "")</td>
+                            <td>@(order.ShippingLine_Price?.ToString("C") ?? "")</td>
+                            <td>@(order.ShippingLine_Title ?? "")</td>
+                            <td>@(order.Transaction_Id?.ToString() ?? "")</td>
+                            <td>@(order.Transaction_Amount?.ToString("C") ?? "")</td>
+                            <td>@(order.Transaction_Kind ?? "")</td>
+                            <td>@(order.Transaction_Status ?? "")</td>
                         </tr>
                     }
                 }
