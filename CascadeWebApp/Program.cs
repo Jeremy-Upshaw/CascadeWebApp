@@ -23,6 +23,7 @@ builder.Services.AddScoped<ItemService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<CustomerService>();
 builder.Services.AddScoped<BatchService>();
+builder.Services.AddScoped<ShopifyOrderService>();
 
 var app = builder.Build();
 

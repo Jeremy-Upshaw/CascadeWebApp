@@ -1,0 +1,182 @@
+@page "/orders/shopify"
+@inject CascadeWebApp.Services.ShopifyOrderService ShopifyOrderService
+
+<div class="pa-4" style="background: #222; color: #fff;">
+    <h5 class="table-page-title">Shopify Orders</h5>
+    <div class="search-container">
+        <input class="search-input" placeholder="Search orders…" @bind="_search" />
+        <button class="search-toggle-icon" title="Toggle search">
+            <i class="material-icons">search</i>
+        </button>
+    </div>
+    <div class="table-container">
+        <div class="table-scroll">
+            <table class="app-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Name</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Email</th>
+                        <th>Financial Status</th>
+                        <th>Fulfillment Status</th>
+                        <th>Currency</th>
+                        <th>Total Price</th>
+                        <th>Subtotal Price</th>
+                        <th>Total Tax</th>
+                        <th>Total Shipping</th>
+                        <th>Confirmed</th>
+                        <th>Closed At</th>
+                        <th>Cancelled At</th>
+                        <th>Cancel Reason</th>
+                        <th>Tags</th>
+                        <th>Order Number</th>
+                        <th>Note</th>
+                        <th>Customer ID</th>
+                        <th>Customer Email</th>
+                        <th>Customer First Name</th>
+                        <th>Customer Last Name</th>
+                        <th>Customer Phone</th>
+                        <th>Customer Created At</th>
+                        <th>Customer Orders Count</th>
+                        <th>Customer State</th>
+                        <th>Shipping Address 1</th>
+                        <th>Shipping Address 2</th>
+                        <th>Shipping City</th>
+                        <th>Shipping Company</th>
+                        <th>Shipping Country</th>
+                        <th>Shipping Country Code</th>
+                        <th>Shipping First Name</th>
+                        <th>Shipping Last Name</th>
+                        <th>Shipping Phone</th>
+                        <th>Shipping Province</th>
+                        <th>Shipping Province Code</th>
+                        <th>Shipping Zip</th>
+                        <th>Billing Address 1</th>
+                        <th>Billing Address 2</th>
+                        <th>Billing City</th>
+                        <th>Billing Company</th>
+                        <th>Billing Country</th>
+                        <th>Billing Country Code</th>
+                        <th>Billing First Name</th>
+                        <th>Billing Last Name</th>
+                        <th>Billing Phone</th>
+                        <th>Billing Province</th>
+                        <th>Billing Province Code</th>
+                        <th>Billing Zip</th>
+                        <th>Line Items ID</th>
+                        <th>Line Items Title</th>
+                        <th>Line Items SKU</th>
+                        <th>Line Items Variant ID</th>
+                        <th>Line Items Quantity</th>
+                        <th>Line Items Price</th>
+                        <th>Line Items Fulfillment Status</th>
+                        <th>Line Items Vendor</th>
+                        <th>Discount Applications Code</th>
+                        <th>Discount Applications Type</th>
+                        <th>Discount Applications Value</th>
+                        <th>Shipping Lines Code</th>
+                        <th>Shipping Lines Price</th>
+                        <th>Shipping Lines Title</th>
+                        <th>Transactions ID</th>
+                        <th>Transactions Amount</th>
+                        <th>Transactions Kind</th>
+                        <th>Transactions Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in _filteredOrders)
+                    {
+                        <tr>
+                            <td>@order.Id</td>
+                            <td>@order.Name</td>
+                            <td>@(order.CreatedAt?.ToShortDateString() ?? "")</td>
+                            <td>@(order.UpdatedAt?.ToShortDateString() ?? "")</td>
+                            <td>@order.Email</td>
+                            <td>@order.FinancialStatus</td>
+                            <td>@order.FulfillmentStatus</td>
+                            <td>@order.Currency</td>
+                            <td>@(order.TotalPrice?.ToString("C") ?? "")</td>
+                            <td>@(order.SubtotalPrice?.ToString("C") ?? "")</td>
+                            <td>@(order.TotalTax?.ToString("C") ?? "")</td>
+                            <td>@(order.TotalShipping?.ToString("C") ?? "")</td>
+                            <td>@(order.Confirmed?.ToString() ?? "")</td>
+                            <td>@(order.ClosedAt?.ToShortDateString() ?? "")</td>
+                            <td>@(order.CancelledAt?.ToShortDateString() ?? "")</td>
+                            <td>@order.CancelReason</td>
+                            <td>@order.Tags</td>
+                            <td>@order.OrderNumber</td>
+                            <td>@order.Note</td>
+                            <td>@order.CustomerId</td>
+                            <td>@order.CustomerEmail</td>
+                            <td>@order.CustomerFirstName</td>
+                            <td>@order.CustomerLastName</td>
+                            <td>@order.CustomerPhone</td>
+                            <td>@(order.CustomerCreatedAt?.ToShortDateString() ?? "")</td>
+                            <td>@(order.CustomerOrdersCount?.ToString() ?? "")</td>
+                            <td>@order.CustomerState</td>
+                            <td>@order.ShippingAddress1</td>
+                            <td>@order.ShippingAddress2</td>
+                            <td>@order.ShippingCity</td>
+                            <td>@order.ShippingCompany</td>
+                            <td>@order.ShippingCountry</td>
+                            <td>@order.ShippingCountryCode</td>
+                            <td>@order.ShippingFirstName</td>
+                            <td>@order.ShippingLastName</td>
+                            <td>@order.ShippingPhone</td>
+                            <td>@order.ShippingProvince</td>
+                            <td>@order.ShippingProvinceCode</td>
+                            <td>@order.ShippingZip</td>
+                            <td>@order.BillingAddress1</td>
+                            <td>@order.BillingAddress2</td>
+                            <td>@order.BillingCity</td>
+                            <td>@order.BillingCompany</td>
+                            <td>@order.BillingCountry</td>
+                            <td>@order.BillingCountryCode</td>
+                            <td>@order.BillingFirstName</td>
+                            <td>@order.BillingLastName</td>
+                            <td>@order.BillingPhone</td>
+                            <td>@order.BillingProvince</td>
+                            <td>@order.BillingProvinceCode</td>
+                            <td>@order.BillingZip</td>
+                            <td>@order.LineItemsId</td>
+                            <td>@order.LineItemsTitle</td>
+                            <td>@order.LineItemsSku</td>
+                            <td>@order.LineItemsVariantId</td>
+                            <td>@(order.LineItemsQuantity?.ToString() ?? "")</td>
+                            <td>@(order.LineItemsPrice?.ToString("C") ?? "")</td>
+                            <td>@order.LineItemsFulfillmentStatus</td>
+                            <td>@order.LineItemsVendor</td>
+                            <td>@order.DiscountApplicationsCode</td>
+                            <td>@order.DiscountApplicationsType</td>
+                            <td>@order.DiscountApplicationsValue</td>
+                            <td>@order.ShippingLinesCode</td>
+                            <td>@(order.ShippingLinesPrice?.ToString("C") ?? "")</td>
+                            <td>@order.ShippingLinesTitle</td>
+                            <td>@order.TransactionsId</td>
+                            <td>@(order.TransactionsAmount?.ToString("C") ?? "")</td>
+                            <td>@order.TransactionsKind</td>
+                            <td>@order.TransactionsStatus</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _search = "";
+    private List<CascadeWebApp.Models.ShopifyOrder> _orders = new();
+    private IEnumerable<CascadeWebApp.Models.ShopifyOrder> _filteredOrders => string.IsNullOrWhiteSpace(_search)
+        ? _orders
+        : _orders.Where(o => (o.Name != null && o.Name.Contains(_search, StringComparison.OrdinalIgnoreCase)) ||
+                            (o.Email != null && o.Email.Contains(_search, StringComparison.OrdinalIgnoreCase)) ||
+                            (o.OrderNumber != null && o.OrderNumber.Contains(_search, StringComparison.OrdinalIgnoreCase)));
+
+    protected override async Task OnInitializedAsync()
+    {
+        _orders = await ShopifyOrderService.GetShopifyOrdersAsync();
+    }
+}
