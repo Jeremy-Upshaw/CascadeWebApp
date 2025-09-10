@@ -1,0 +1,212 @@
+@page "/orders/shopify"
+
+<div class="pa-4" style="background: #222; color: #fff;">
+    <h5 class="table-page-title">Shopify Orders</h5>
+    <div class="search-container">
+        <input class="search-input" placeholder="Search Shopify orders…" @bind="_search" />
+        <button class="search-toggle-icon" title="Toggle search">
+            <i class="material-icons">search</i>
+        </button>
+    </div>
+    <div class="table-container">
+        <div class="table-scroll">
+            <table class="app-table">
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th>Customer Name</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                    <th>Total Amount</th>
+                    <th>Items Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in _filteredOrders)
+                {
+                    <tr @onclick="() => OpenOrderModal(order)">
+                        <td>@order.OrderNumber</td>
+                        <td>@order.CustomerName</td>
+                        <td>@order.OrderDate.ToShortDateString()</td>
+                        <td>@order.Status</td>
+                        <td>@order.TotalAmount.ToString("C")</td>
+                        <td>@order.ItemsCount</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+@if (_showModal && _selectedOrder != null)
+{
+    <div class="modal-backdrop" @onclick="CloseModal"></div>
+    <div class="modal-dialog">
+        <div class="modal-body">
+            <!-- Title field - Order Number centered without label -->
+            <div class="modal-title-container">
+                <div class="modal-detail-title">@_selectedOrder.OrderNumber</div>
+                <button class="btn btn-primary modal-assign-button modal-assign-floating">Process Order</button>
+            </div>
+            
+            <!-- Top row: customer, date, status -->
+            <div class="modal-field-container">
+                <div class="modal-row">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Customer Name</div>
+                        <div class="modal-detail-value">@_selectedOrder.CustomerName</div>
+                    </div>
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Order Date</div>
+                        <div class="modal-detail-value">@_selectedOrder.OrderDate.ToShortDateString()</div>
+                    </div>
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Status</div>
+                        <div class="modal-detail-value">@_selectedOrder.Status</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle row: amount, shipping, items count -->
+            <div class="modal-field-container">
+                <div class="modal-row">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Total Amount</div>
+                        <div class="modal-detail-value">@_selectedOrder.TotalAmount.ToString("C")</div>
+                    </div>
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Shipping Address</div>
+                        <div class="modal-detail-value">@_selectedOrder.ShippingAddress</div>
+                    </div>
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Items Count</div>
+                        <div class="modal-detail-value">@_selectedOrder.ItemsCount</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom row: additional details -->
+            <div class="modal-field-container">
+                <div class="modal-row">
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Payment Status</div>
+                        <div class="modal-detail-value">@_selectedOrder.PaymentStatus</div>
+                    </div>
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Fulfillment Status</div>
+                        <div class="modal-detail-value">@_selectedOrder.FulfillmentStatus</div>
+                    </div>
+                    <div class="modal-detail-field">
+                        <div class="modal-detail-label">Notes</div>
+                        <div class="modal-detail-value">@_selectedOrder.Notes</div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-scroll">
+                <table class="app-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>SKU</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sample Product</td>
+                            <td>SKU-001</td>
+                            <td>2</td>
+                            <td>$25.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private string _search = "";
+    private List<ShopifyOrder> _orders = new();
+    private IEnumerable<ShopifyOrder> _filteredOrders => string.IsNullOrWhiteSpace(_search)
+        ? _orders
+        : _orders.Where(o => o.OrderNumber.Contains(_search, StringComparison.OrdinalIgnoreCase) 
+                          || o.CustomerName.Contains(_search, StringComparison.OrdinalIgnoreCase));
+    private ShopifyOrder? _selectedOrder;
+    private bool _showModal = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Initialize with dummy data for now
+        _orders = new List<ShopifyOrder>
+        {
+            new ShopifyOrder 
+            { 
+                OrderNumber = "SH001", 
+                CustomerName = "John Doe", 
+                OrderDate = DateTime.Now.AddDays(-5),
+                Status = "Processing",
+                TotalAmount = 150.00m,
+                ItemsCount = 3,
+                ShippingAddress = "123 Main St, Anytown USA",
+                PaymentStatus = "Paid",
+                FulfillmentStatus = "Pending",
+                Notes = "Rush order"
+            },
+            new ShopifyOrder 
+            { 
+                OrderNumber = "SH002", 
+                CustomerName = "Jane Smith", 
+                OrderDate = DateTime.Now.AddDays(-3),
+                Status = "Shipped",
+                TotalAmount = 75.50m,
+                ItemsCount = 2,
+                ShippingAddress = "456 Oak Ave, Another City USA",
+                PaymentStatus = "Paid",
+                FulfillmentStatus = "Shipped",
+                Notes = ""
+            },
+            new ShopifyOrder 
+            { 
+                OrderNumber = "SH003", 
+                CustomerName = "Bob Johnson", 
+                OrderDate = DateTime.Now.AddDays(-1),
+                Status = "Pending",
+                TotalAmount = 299.99m,
+                ItemsCount = 5,
+                ShippingAddress = "789 Pine Rd, Sample Town USA",
+                PaymentStatus = "Pending",
+                FulfillmentStatus = "Not Started",
+                Notes = "Special instructions: Handle with care"
+            }
+        };
+    }
+
+    private void OpenOrderModal(ShopifyOrder order)
+    {
+        _selectedOrder = order;
+        _showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        _showModal = false;
+        _selectedOrder = null;
+    }
+
+    public class ShopifyOrder
+    {
+        public string OrderNumber { get; set; } = "";
+        public string CustomerName { get; set; } = "";
+        public DateTime OrderDate { get; set; }
+        public string Status { get; set; } = "";
+        public decimal TotalAmount { get; set; }
+        public int ItemsCount { get; set; }
+        public string ShippingAddress { get; set; } = "";
+        public string PaymentStatus { get; set; } = "";
+        public string FulfillmentStatus { get; set; } = "";
+        public string Notes { get; set; } = "";
+    }
+}
