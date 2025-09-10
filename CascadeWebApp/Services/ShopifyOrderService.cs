@@ -18,7 +18,7 @@ namespace CascadeWebApp.Services
             return await _context.ShopifyOrders.ToListAsync();
         }
 
-        public async Task<ShopifyOrder?> GetShopifyOrderByIdAsync(long orderId)
+        public async Task<ShopifyOrder?> GetShopifyOrderByIdAsync(string orderId)
         {
             return await _context.ShopifyOrders
                 .FirstOrDefaultAsync(o => o.Id == orderId);
@@ -38,7 +38,7 @@ namespace CascadeWebApp.Services
             return order;
         }
 
-        public async Task DeleteShopifyOrderAsync(long orderId)
+        public async Task DeleteShopifyOrderAsync(string orderId)
         {
             var order = await _context.ShopifyOrders.FindAsync(orderId);
             if (order != null)

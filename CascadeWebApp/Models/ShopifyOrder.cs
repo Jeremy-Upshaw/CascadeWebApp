@@ -7,7 +7,7 @@ namespace CascadeWebApp.Models
     public class ShopifyOrder
     {
         [Key]
-        public long? Id { get; set; }
+        public string? Id { get; set; }
         public string? Name { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
@@ -24,11 +24,11 @@ namespace CascadeWebApp.Models
         public DateTime? CancelledAt { get; set; }
         public string? CancelReason { get; set; }
         public string? Tags { get; set; }
-        public long? OrderNumber { get; set; }
+        public int? OrderNumber { get; set; }
         public string? Note { get; set; }
         
         // Customer fields
-        public long? Customer_Id { get; set; }
+        public string? Customer_Id { get; set; }
         public string? Customer_Email { get; set; }
         public string? Customer_FirstName { get; set; }
         public string? Customer_LastName { get; set; }
@@ -66,10 +66,10 @@ namespace CascadeWebApp.Models
         public string? BillingAddress_Zip { get; set; }
         
         // Line Item fields
-        public long? LineItem_Id { get; set; }
+        public string? LineItem_Id { get; set; }
         public string? LineItem_Title { get; set; }
         public string? LineItem_Sku { get; set; }
-        public long? LineItem_VariantId { get; set; }
+        public string? LineItem_VariantId { get; set; }
         public int? LineItem_Quantity { get; set; }
         public decimal? LineItem_Price { get; set; }
         public string? LineItem_FulfillmentStatus { get; set; }
@@ -86,7 +86,7 @@ namespace CascadeWebApp.Models
         public string? ShippingLine_Title { get; set; }
         
         // Transaction fields
-        public long? Transaction_Id { get; set; }
+        public string? Transaction_Id { get; set; }
         public decimal? Transaction_Amount { get; set; }
         public string? Transaction_Kind { get; set; }
         public string? Transaction_Status { get; set; }
