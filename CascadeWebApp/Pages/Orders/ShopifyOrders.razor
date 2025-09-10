@@ -1,0 +1,178 @@
+@page "/orders/shopify"
+
+<div class="pa-4" style="background: #222; color: #fff;">
+    <h5 class="table-page-title">Shopify Orders</h5>
+    <div class="search-container">
+        <input class="search-input" placeholder="Search Shopify orders…" @bind="_search" @bind:event="oninput" />
+        <button class="search-toggle-icon" title="Toggle search">
+            <i class="material-icons">search</i>
+        </button>
+    </div>
+    <div class="table-container">
+        <div class="table-scroll">
+            <table class="app-table">
+            <thead>
+                <tr>
+                    <th>Shopify Order ID</th>
+                    <th>Order Number</th>
+                    <th>Customer Name</th>
+                    <th>Email</th>
+                    <th>Total Amount</th>
+                    <th>Currency</th>
+                    <th>Order Date</th>
+                    <th>Fulfillment Status</th>
+                    <th>Payment Status</th>
+                    <th>Shipping Address</th>
+                    <th>Billing Address</th>
+                    <th>Tags</th>
+                    <th>Note</th>
+                    <th>Gateway</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in _filteredShopifyOrders)
+                {
+                    <tr>
+                        <td>@order.ShopifyOrderId</td>
+                        <td>@order.OrderNumber</td>
+                        <td>@order.CustomerName</td>
+                        <td>@order.Email</td>
+                        <td>@order.TotalAmount</td>
+                        <td>@order.Currency</td>
+                        <td>@order.OrderDate.ToString("MM/dd/yyyy")</td>
+                        <td>@order.FulfillmentStatus</td>
+                        <td>@order.PaymentStatus</td>
+                        <td>@order.ShippingAddress</td>
+                        <td>@order.BillingAddress</td>
+                        <td>@order.Tags</td>
+                        <td>@order.Note</td>
+                        <td>@order.Gateway</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _search = "";
+    private List<ShopifyOrder> _shopifyOrders = new();
+    private IEnumerable<ShopifyOrder> _filteredShopifyOrders => string.IsNullOrWhiteSpace(_search)
+        ? _shopifyOrders
+        : _shopifyOrders.Where(o => o.OrderNumber.Contains(_search, StringComparison.OrdinalIgnoreCase) ||
+                                   o.CustomerName.Contains(_search, StringComparison.OrdinalIgnoreCase) ||
+                                   o.Email.Contains(_search, StringComparison.OrdinalIgnoreCase));
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Initialize with some dummy data for now
+        _shopifyOrders = new List<ShopifyOrder>
+        {
+            new ShopifyOrder
+            {
+                ShopifyOrderId = "12345678901",
+                OrderNumber = "#1001",
+                CustomerName = "John Doe",
+                Email = "john.doe@example.com",
+                TotalAmount = "$125.99",
+                Currency = "USD",
+                OrderDate = DateTime.Now.AddDays(-5),
+                FulfillmentStatus = "fulfilled",
+                PaymentStatus = "paid",
+                ShippingAddress = "123 Main St, Anytown, ST 12345",
+                BillingAddress = "123 Main St, Anytown, ST 12345",
+                Tags = "priority, wholesale",
+                Note = "Customer requested expedited shipping",
+                Gateway = "shopify_payments"
+            },
+            new ShopifyOrder
+            {
+                ShopifyOrderId = "12345678902",
+                OrderNumber = "#1002",
+                CustomerName = "Jane Smith",
+                Email = "jane.smith@example.com",
+                TotalAmount = "$87.50",
+                Currency = "USD",
+                OrderDate = DateTime.Now.AddDays(-3),
+                FulfillmentStatus = "partial",
+                PaymentStatus = "paid",
+                ShippingAddress = "456 Oak Ave, Another City, ST 67890",
+                BillingAddress = "456 Oak Ave, Another City, ST 67890",
+                Tags = "retail",
+                Note = "",
+                Gateway = "paypal"
+            },
+            new ShopifyOrder
+            {
+                ShopifyOrderId = "12345678903",
+                OrderNumber = "#1003",
+                CustomerName = "Bob Johnson",
+                Email = "bob.johnson@company.com",
+                TotalAmount = "$299.99",
+                Currency = "USD",
+                OrderDate = DateTime.Now.AddDays(-1),
+                FulfillmentStatus = "unfulfilled",
+                PaymentStatus = "pending",
+                ShippingAddress = "789 Pine Rd, Business Park, ST 11111",
+                BillingAddress = "789 Pine Rd, Business Park, ST 11111",
+                Tags = "bulk, b2b",
+                Note = "Corporate account - Net 30 terms",
+                Gateway = "manual"
+            },
+            new ShopifyOrder
+            {
+                ShopifyOrderId = "12345678904",
+                OrderNumber = "#1004",
+                CustomerName = "Alice Brown",
+                Email = "alice.brown@email.com",
+                TotalAmount = "$45.00",
+                Currency = "USD",
+                OrderDate = DateTime.Now.AddHours(-6),
+                FulfillmentStatus = "fulfilled",
+                PaymentStatus = "paid",
+                ShippingAddress = "321 Elm St, Small Town, ST 22222",
+                BillingAddress = "321 Elm St, Small Town, ST 22222",
+                Tags = "new_customer",
+                Note = "First order - send welcome package",
+                Gateway = "stripe"
+            },
+            new ShopifyOrder
+            {
+                ShopifyOrderId = "12345678905",
+                OrderNumber = "#1005",
+                CustomerName = "Charlie Wilson",
+                Email = "charlie.wilson@domain.org",
+                TotalAmount = "$567.25",
+                Currency = "USD",
+                OrderDate = DateTime.Now.AddDays(-7),
+                FulfillmentStatus = "fulfilled",
+                PaymentStatus = "refunded",
+                ShippingAddress = "654 Maple Dr, Suburb, ST 33333",
+                BillingAddress = "654 Maple Dr, Suburb, ST 33333",
+                Tags = "returned",
+                Note = "Customer returned due to wrong size - refunded",
+                Gateway = "shopify_payments"
+            }
+        };
+    }
+
+    // Simple model class for Shopify orders - placeholder for now
+    public class ShopifyOrder
+    {
+        public string ShopifyOrderId { get; set; } = "";
+        public string OrderNumber { get; set; } = "";
+        public string CustomerName { get; set; } = "";
+        public string Email { get; set; } = "";
+        public string TotalAmount { get; set; } = "";
+        public string Currency { get; set; } = "";
+        public DateTime OrderDate { get; set; }
+        public string FulfillmentStatus { get; set; } = "";
+        public string PaymentStatus { get; set; } = "";
+        public string ShippingAddress { get; set; } = "";
+        public string BillingAddress { get; set; } = "";
+        public string Tags { get; set; } = "";
+        public string Note { get; set; } = "";
+        public string Gateway { get; set; } = "";
+    }
+}

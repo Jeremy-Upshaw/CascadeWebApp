@@ -1,0 +1,53 @@
+/* Shopify Orders Page Specific Styles */
+
+/* Ensure table has proper scrolling behavior */
+.table-scroll {
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border-radius: 1rem;
+}
+
+/* Ensure table maintains structure with many columns */
+.app-table {
+    min-width: 1400px; /* Ensure horizontal scrolling with many columns */
+    white-space: nowrap;
+}
+
+.app-table th, 
+.app-table td {
+    min-width: 120px; /* Minimum column width for readability */
+    max-width: 200px; /* Maximum width to force scrolling */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Allow wider columns for address fields */
+.app-table th:nth-child(10), 
+.app-table td:nth-child(10),
+.app-table th:nth-child(11), 
+.app-table td:nth-child(11) {
+    min-width: 180px;
+    max-width: 250px;
+}
+
+/* Allow wider column for notes */
+.app-table th:nth-child(13), 
+.app-table td:nth-child(13) {
+    min-width: 200px;
+    max-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .table-scroll {
+        max-height: 400px;
+    }
+    
+    .app-table th, 
+    .app-table td {
+        min-width: 100px;
+        max-width: 150px;
+        font-size: 0.85rem;
+    }
+}
