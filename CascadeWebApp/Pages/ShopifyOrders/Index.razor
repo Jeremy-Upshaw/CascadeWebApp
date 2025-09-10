@@ -1,4 +1,7 @@
 @page "/shopifyorders"
+@using CascadeWebApp.Services
+@using CascadeWebApp.Models
+@inject ShopifyOrderService ShopifyOrderService
 
 <div class="pa-4" style="background: #222; color: #fff;">
     <h5 class="table-page-title">Shopify Orders</h5>
@@ -85,361 +88,89 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1001</td>
-                    <td>#SO1001</td>
-                    <td>2024-01-15T09:30:00Z</td>
-                    <td>2024-01-15T10:15:00Z</td>
-                    <td>john.smith@email.com</td>
-                    <td>paid</td>
-                    <td>fulfilled</td>
-                    <td>USD</td>
-                    <td>150.00</td>
-                    <td>135.00</td>
-                    <td>10.50</td>
-                    <td>4.50</td>
-                    <td>true</td>
-                    <td>2024-01-16T14:20:00Z</td>
-                    <td></td>
-                    <td></td>
-                    <td>priority, express</td>
-                    <td>1001</td>
-                    <td>Customer requested express delivery</td>
-                    <td>501</td>
-                    <td>john.smith@email.com</td>
-                    <td>John</td>
-                    <td>Smith</td>
-                    <td>+1-555-0123</td>
-                    <td>2023-08-15T12:00:00Z</td>
-                    <td>5</td>
-                    <td>enabled</td>
-                    <td>123 Main St</td>
-                    <td>Apt 2B</td>
-                    <td>New York</td>
-                    <td>Smith Enterprises</td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>John</td>
-                    <td>Smith</td>
-                    <td>+1-555-0123</td>
-                    <td>New York</td>
-                    <td>NY</td>
-                    <td>10001</td>
-                    <td>123 Main St</td>
-                    <td>Apt 2B</td>
-                    <td>New York</td>
-                    <td>Smith Enterprises</td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>John</td>
-                    <td>Smith</td>
-                    <td>+1-555-0123</td>
-                    <td>New York</td>
-                    <td>NY</td>
-                    <td>10001</td>
-                    <td>201</td>
-                    <td>Premium Widget</td>
-                    <td>PWG-001</td>
-                    <td>301</td>
-                    <td>3</td>
-                    <td>45.00</td>
-                    <td>fulfilled</td>
-                    <td>WidgetCorp</td>
-                    <td>SAVE10</td>
-                    <td>percentage</td>
-                    <td>10.00</td>
-                    <td>STANDARD</td>
-                    <td>4.50</td>
-                    <td>Standard Shipping</td>
-                    <td>701</td>
-                    <td>150.00</td>
-                    <td>sale</td>
-                    <td>success</td>
-                </tr>
-                <tr>
-                    <td>1002</td>
-                    <td>#SO1002</td>
-                    <td>2024-01-14T14:22:00Z</td>
-                    <td>2024-01-14T15:10:00Z</td>
-                    <td>jane.doe@email.com</td>
-                    <td>paid</td>
-                    <td>shipped</td>
-                    <td>USD</td>
-                    <td>89.50</td>
-                    <td>82.00</td>
-                    <td>5.75</td>
-                    <td>1.75</td>
-                    <td>true</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>gift, fragile</td>
-                    <td>1002</td>
-                    <td>Handle with care - gift item</td>
-                    <td>502</td>
-                    <td>jane.doe@email.com</td>
-                    <td>Jane</td>
-                    <td>Doe</td>
-                    <td>+1-555-0456</td>
-                    <td>2023-09-20T08:30:00Z</td>
-                    <td>3</td>
-                    <td>enabled</td>
-                    <td>456 Oak Ave</td>
-                    <td></td>
-                    <td>Boston</td>
-                    <td></td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>Jane</td>
-                    <td>Doe</td>
-                    <td>+1-555-0456</td>
-                    <td>Massachusetts</td>
-                    <td>MA</td>
-                    <td>02101</td>
-                    <td>456 Oak Ave</td>
-                    <td></td>
-                    <td>Boston</td>
-                    <td></td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>Jane</td>
-                    <td>Doe</td>
-                    <td>+1-555-0456</td>
-                    <td>Massachusetts</td>
-                    <td>MA</td>
-                    <td>02101</td>
-                    <td>202</td>
-                    <td>Basic Widget</td>
-                    <td>BWG-002</td>
-                    <td>302</td>
-                    <td>2</td>
-                    <td>41.00</td>
-                    <td>shipped</td>
-                    <td>BasicCorp</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>ECONOMY</td>
-                    <td>1.75</td>
-                    <td>Economy Shipping</td>
-                    <td>702</td>
-                    <td>89.50</td>
-                    <td>sale</td>
-                    <td>success</td>
-                </tr>
-                <tr>
-                    <td>1003</td>
-                    <td>#SO1003</td>
-                    <td>2024-01-13T11:45:00Z</td>
-                    <td>2024-01-13T12:30:00Z</td>
-                    <td>mike.johnson@email.com</td>
-                    <td>paid</td>
-                    <td>delivered</td>
-                    <td>USD</td>
-                    <td>275.25</td>
-                    <td>250.00</td>
-                    <td>18.75</td>
-                    <td>6.50</td>
-                    <td>true</td>
-                    <td>2024-01-18T16:45:00Z</td>
-                    <td></td>
-                    <td></td>
-                    <td>bulk, wholesale</td>
-                    <td>1003</td>
-                    <td>Bulk order for resale</td>
-                    <td>503</td>
-                    <td>mike.johnson@email.com</td>
-                    <td>Mike</td>
-                    <td>Johnson</td>
-                    <td>+1-555-0789</td>
-                    <td>2023-07-10T10:15:00Z</td>
-                    <td>8</td>
-                    <td>enabled</td>
-                    <td>789 Pine St</td>
-                    <td>Suite 100</td>
-                    <td>Chicago</td>
-                    <td>Johnson Industries</td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>Mike</td>
-                    <td>Johnson</td>
-                    <td>+1-555-0789</td>
-                    <td>Illinois</td>
-                    <td>IL</td>
-                    <td>60601</td>
-                    <td>789 Pine St</td>
-                    <td>Suite 100</td>
-                    <td>Chicago</td>
-                    <td>Johnson Industries</td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>Mike</td>
-                    <td>Johnson</td>
-                    <td>+1-555-0789</td>
-                    <td>Illinois</td>
-                    <td>IL</td>
-                    <td>60601</td>
-                    <td>203</td>
-                    <td>Deluxe Widget</td>
-                    <td>DWG-003</td>
-                    <td>303</td>
-                    <td>5</td>
-                    <td>50.00</td>
-                    <td>delivered</td>
-                    <td>DeluxeCorp</td>
-                    <td>BULK15</td>
-                    <td>percentage</td>
-                    <td>15.00</td>
-                    <td>EXPRESS</td>
-                    <td>6.50</td>
-                    <td>Express Shipping</td>
-                    <td>703</td>
-                    <td>275.25</td>
-                    <td>sale</td>
-                    <td>success</td>
-                </tr>
-                <tr>
-                    <td>1004</td>
-                    <td>#SO1004</td>
-                    <td>2024-01-12T16:20:00Z</td>
-                    <td>2024-01-12T17:05:00Z</td>
-                    <td>sarah.wilson@email.com</td>
-                    <td>paid</td>
-                    <td>pending</td>
-                    <td>USD</td>
-                    <td>125.75</td>
-                    <td>118.50</td>
-                    <td>4.25</td>
-                    <td>3.00</td>
-                    <td>true</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>new_customer</td>
-                    <td>1004</td>
-                    <td>First time customer</td>
-                    <td>504</td>
-                    <td>sarah.wilson@email.com</td>
-                    <td>Sarah</td>
-                    <td>Wilson</td>
-                    <td>+1-555-0321</td>
-                    <td>2024-01-12T15:00:00Z</td>
-                    <td>1</td>
-                    <td>enabled</td>
-                    <td>321 Elm Dr</td>
-                    <td></td>
-                    <td>Seattle</td>
-                    <td></td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>Sarah</td>
-                    <td>Wilson</td>
-                    <td>+1-555-0321</td>
-                    <td>Washington</td>
-                    <td>WA</td>
-                    <td>98101</td>
-                    <td>321 Elm Dr</td>
-                    <td></td>
-                    <td>Seattle</td>
-                    <td></td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>Sarah</td>
-                    <td>Wilson</td>
-                    <td>+1-555-0321</td>
-                    <td>Washington</td>
-                    <td>WA</td>
-                    <td>98101</td>
-                    <td>204</td>
-                    <td>Starter Widget</td>
-                    <td>SWG-004</td>
-                    <td>304</td>
-                    <td>1</td>
-                    <td>118.50</td>
-                    <td>pending</td>
-                    <td>StarterCorp</td>
-                    <td>WELCOME5</td>
-                    <td>fixed_amount</td>
-                    <td>5.00</td>
-                    <td>STANDARD</td>
-                    <td>3.00</td>
-                    <td>Standard Shipping</td>
-                    <td>704</td>
-                    <td>125.75</td>
-                    <td>sale</td>
-                    <td>success</td>
-                </tr>
-                <tr>
-                    <td>1005</td>
-                    <td>#SO1005</td>
-                    <td>2024-01-11T13:10:00Z</td>
-                    <td>2024-01-11T13:45:00Z</td>
-                    <td>david.brown@email.com</td>
-                    <td>refunded</td>
-                    <td>cancelled</td>
-                    <td>USD</td>
-                    <td>99.99</td>
-                    <td>92.99</td>
-                    <td>4.00</td>
-                    <td>3.00</td>
-                    <td>false</td>
-                    <td></td>
-                    <td>2024-01-12T10:30:00Z</td>
-                    <td>customer</td>
-                    <td>cancelled</td>
-                    <td>1005</td>
-                    <td>Customer changed mind</td>
-                    <td>505</td>
-                    <td>david.brown@email.com</td>
-                    <td>David</td>
-                    <td>Brown</td>
-                    <td>+1-555-0654</td>
-                    <td>2023-11-05T14:20:00Z</td>
-                    <td>2</td>
-                    <td>enabled</td>
-                    <td>654 Maple Rd</td>
-                    <td>Unit 5</td>
-                    <td>Denver</td>
-                    <td>Brown LLC</td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>David</td>
-                    <td>Brown</td>
-                    <td>+1-555-0654</td>
-                    <td>Colorado</td>
-                    <td>CO</td>
-                    <td>80201</td>
-                    <td>654 Maple Rd</td>
-                    <td>Unit 5</td>
-                    <td>Denver</td>
-                    <td>Brown LLC</td>
-                    <td>United States</td>
-                    <td>US</td>
-                    <td>David</td>
-                    <td>Brown</td>
-                    <td>+1-555-0654</td>
-                    <td>Colorado</td>
-                    <td>CO</td>
-                    <td>80201</td>
-                    <td>205</td>
-                    <td>Standard Widget</td>
-                    <td>STDWG-005</td>
-                    <td>305</td>
-                    <td>2</td>
-                    <td>46.50</td>
-                    <td>cancelled</td>
-                    <td>StandardCorp</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>STANDARD</td>
-                    <td>3.00</td>
-                    <td>Standard Shipping</td>
-                    <td>705</td>
-                    <td>99.99</td>
-                    <td>refund</td>
-                    <td>success</td>
-                </tr>
+                @if (shopifyOrders != null)
+                {
+                    @foreach (var order in shopifyOrders)
+                    {
+                        <tr>
+                            <td>@order.Id</td>
+                            <td>@order.Name</td>
+                            <td>@order.CreatedAt</td>
+                            <td>@order.UpdatedAt</td>
+                            <td>@order.Email</td>
+                            <td>@order.FinancialStatus</td>
+                            <td>@order.FulfillmentStatus</td>
+                            <td>@order.CurrencyCode</td>
+                            <td>@order.TotalPrice</td>
+                            <td>@order.SubtotalPrice</td>
+                            <td>@order.TotalTax</td>
+                            <td>@order.TotalShippingPrice</td>
+                            <td>@order.Confirmed</td>
+                            <td>@order.ClosedAt</td>
+                            <td>@order.CancelledAt</td>
+                            <td>@order.CancelReason</td>
+                            <td>@order.Tags</td>
+                            <td>@order.OrderNumber</td>
+                            <td>@order.Note</td>
+                            <td>@order.Customer_Id</td>
+                            <td>@order.Customer_Email</td>
+                            <td>@order.Customer_FirstName</td>
+                            <td>@order.Customer_LastName</td>
+                            <td>@order.Customer_Phone</td>
+                            <td>@order.Customer_CreatedAt</td>
+                            <td>@order.Customer_OrdersCount</td>
+                            <td>@order.Customer_State</td>
+                            <td>@order.ShippingAddress_Address1</td>
+                            <td>@order.ShippingAddress_Address2</td>
+                            <td>@order.ShippingAddress_City</td>
+                            <td>@order.ShippingAddress_Company</td>
+                            <td>@order.ShippingAddress_Country</td>
+                            <td>@order.ShippingAddress_CountryCode</td>
+                            <td>@order.ShippingAddress_FirstName</td>
+                            <td>@order.ShippingAddress_LastName</td>
+                            <td>@order.ShippingAddress_Phone</td>
+                            <td>@order.ShippingAddress_Province</td>
+                            <td>@order.ShippingAddress_ProvinceCode</td>
+                            <td>@order.ShippingAddress_Zip</td>
+                            <td>@order.BillingAddress_Address1</td>
+                            <td>@order.BillingAddress_Address2</td>
+                            <td>@order.BillingAddress_City</td>
+                            <td>@order.BillingAddress_Company</td>
+                            <td>@order.BillingAddress_Country</td>
+                            <td>@order.BillingAddress_CountryCode</td>
+                            <td>@order.BillingAddress_FirstName</td>
+                            <td>@order.BillingAddress_LastName</td>
+                            <td>@order.BillingAddress_Phone</td>
+                            <td>@order.BillingAddress_Province</td>
+                            <td>@order.BillingAddress_ProvinceCode</td>
+                            <td>@order.BillingAddress_Zip</td>
+                            <td>@order.LineItem_Id</td>
+                            <td>@order.LineItem_Title</td>
+                            <td>@order.LineItem_Sku</td>
+                            <td>@order.LineItem_VariantId</td>
+                            <td>@order.LineItem_Quantity</td>
+                            <td>@order.LineItem_Price</td>
+                            <td>@order.LineItem_FulfillmentStatus</td>
+                            <td>@order.LineItem_Vendor</td>
+                            <td>@order.Discount_Code</td>
+                            <td>@order.Discount_Type</td>
+                            <td>@order.Discount_Value</td>
+                            <td>@order.ShippingLine_Code</td>
+                            <td>@order.ShippingLine_Price</td>
+                            <td>@order.ShippingLine_Title</td>
+                            <td>@order.Transaction_Id</td>
+                            <td>@order.Transaction_Amount</td>
+                            <td>@order.Transaction_Kind</td>
+                            <td>@order.Transaction_Status</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="64">Loading...</td>
+                    </tr>
+                }
             </tbody>
         </table>
         </div>
@@ -448,4 +179,10 @@
 
 @code {
     private string _search = "";
+    private List<ShopifyOrder>? shopifyOrders;
+
+    protected override async Task OnInitializedAsync()
+    {
+        shopifyOrders = await ShopifyOrderService.GetShopifyOrdersAsync();
+    }
 }

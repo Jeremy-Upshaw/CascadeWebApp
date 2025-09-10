@@ -18,6 +18,7 @@ namespace CascadeWebApp.Data
         public DbSet<BatchContents> BatchContents { get; set; }
         public DbSet<BatchLoss> BatchLoss { get; set; }
         public DbSet<BatchAssignments> BatchAssignments { get; set; }
+        public DbSet<ShopifyOrder> ShopifyOrders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
