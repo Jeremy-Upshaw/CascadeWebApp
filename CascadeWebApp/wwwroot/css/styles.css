@@ -17547,7 +17547,7 @@ mwc-circular-progress {
 
 .table-scroll {
   border-radius: 0.75rem;
-  overflow: hidden;
+  overflow: auto;
 }
 .table-scroll .app-table {
   border-radius: 0;
